@@ -3,23 +3,19 @@ id: page3
 title: The Agent in Action
 dependsOn:
   - unit3:lesson1:page2
-content: >
+content: |
   ## What Just Happened?
 
+  The AI **autonomously decided** to call `get_charlotte_weather` when you asked about weather. Nobody told it to. That decision is **agency**.
 
-  The AI **autonomously decided** to call `get_current_date`  - nobody told it
-  to. That decision is **agency**.
-
-
-  When you asked for a joke, it answered directly  - no tool needed. It made a
-  judgment call.
+  When you asked a question the weather tool couldn't help with, it answered from training data instead. It made a judgment call about which tool was relevant.
 questionGroups:
   - id: "1"
     content: "Think about what you just observed in the reasoning panel."
     questions:
       - id: "1"
         type: choice
-        content: "Did YOU tell the agent to use the get_current_date tool?"
+        content: "Did YOU tell the agent to use the weather tool?"
         options:
           - id: a
             value: "Yes, I told it"
@@ -33,21 +29,21 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: "When you asked for a joke, did it use the date tool?"
+        content: "When you asked a question the weather tool couldn't help with, did it use the tool anyway?"
         options:
           - id: a
             value: "Yes"
             isCorrect: false
-            incorrectExplanation: "A joke doesn't require knowing the date - the agent knew that and skipped the tool."
+            incorrectExplanation: "The agent knew the tool wasn't relevant to that question and skipped it."
           - id: b
-            value: "No, it knew a joke didn't need a tool"
+            value: "No, it knew that question didn't need the weather tool"
             isCorrect: true
-            explanation: "Correct! The agent reasoned that a joke doesn't require real-time data, so it answered directly."
+            explanation: "Correct! The agent reasoned about which tool was relevant and only used it when appropriate."
   - id: "3"
     questions:
       - id: "1"
         type: choice
-        content: "A system monitors meetings and automatically creates action items without being asked. What kind of AI?"
+        content: "A system monitors meetings and automatically creates action items without being asked. What kind of AI behavior is this?"
         options:
           - id: a
             value: "Generative AI"
@@ -56,27 +52,8 @@ questionGroups:
           - id: b
             value: "Agentic AI"
             isCorrect: true
-            explanation: "It acts autonomously without prompting - that's Agentic AI."
+            explanation: "It acts autonomously without prompting. That's Agentic AI."
           - id: c
             value: "Neither"
             isCorrect: false
-            incorrectExplanation: "It's using AI to understand meetings and take actions - definitely AI."
-  - id: "4"
-    questions:
-      - id: "1"
-        type: choice
-        content: "A script runs every night at 2 AM and copies data to backup storage. Same steps every time. What is it?"
-        hint: "Is there any reasoning or decision-making happening?"
-        options:
-          - id: a
-            value: "Generative AI"
-            isCorrect: false
-            incorrectExplanation: "It's not generating content - just following preset rules."
-          - id: b
-            value: "Agentic AI"
-            isCorrect: false
-            incorrectExplanation: "There's no decision-making or AI involved - just a scheduled script."
-          - id: c
-            value: "Neither - traditional automation"
-            isCorrect: true
-            explanation: "Right! No AI at all. Just a scheduled script following preset rules."
+            incorrectExplanation: "It's using AI to understand meetings and take actions."

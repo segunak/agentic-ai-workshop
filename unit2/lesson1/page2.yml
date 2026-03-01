@@ -9,11 +9,11 @@ content: |
   This AI has **no tools**. It can only respond from its training data.
 
   Try asking:
-  - "What is today's date?"
-  - "Tell me a joke"
-  - "What's the weather in Charlotte?"
+  - "What's the weather in Charlotte right now?"
+  - "Who won the last Super Bowl?"
+  - "What country led the medal count at the 2026 Winter Olympics?"
 
-  Pay attention to its answers. Are they accurate? How does it handle questions about real-time information?
+  Pay attention to its answers. Can it give you real, current information?
 showEditor: true
 dependsOn:
   - unit1:lesson1:page1

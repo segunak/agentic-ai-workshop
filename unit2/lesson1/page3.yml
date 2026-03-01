@@ -6,45 +6,45 @@ dependsOn:
 content: |
   ## Reflection
 
-  You just chatted with an AI that had **no tools**  - just its training data.
+  You just chatted with an AI that had **no tools**, just its training data.
 questionGroups:
   - id: "1"
     content: "Think back to what happened in the playground."
     questions:
       - id: "1"
         type: choice
-        content: "When you asked for today's date, what happened?"
+        content: "When you asked about something that requires real-time or very recent information, what happened?"
         options:
           - id: a
-            value: "It gave the correct date"
+            value: "It gave me accurate, current information"
             isCorrect: false
-            incorrectExplanation: "Without a tool to check the real date, the model can only guess from training data."
+            incorrectExplanation: "Without tools, the model has no way to access live data or events after its training cutoff."
           - id: b
-            value: "It guessed, made one up, or gave a date from its training data"
+            value: "It couldn't give a real answer, or it hedged and gave general info"
             isCorrect: true
-            explanation: "Exactly! Without a date tool, it can only guess or fall back to whatever date was in its training data."
+            explanation: "Exactly! Without tools, it can only offer general knowledge from training. No live data, no recent events."
           - id: c
             value: "It refused to answer"
             isCorrect: false
-            incorrectExplanation: "Most models will try to answer, even if they have to guess."
+            incorrectExplanation: "It probably tried to help with general climate info, but couldn't give real-time data."
   - id: "2"
     questions:
       - id: "1"
         type: choice
-        content: "Why couldn't it give you the real date?"
+        content: "Why couldn't it accurately answer questions about recent events or real-time information?"
         options:
           - id: a
             value: "It's broken"
             isCorrect: false
-            incorrectExplanation: "It's working as designed - it just doesn't have access to real-time information."
+            incorrectExplanation: "It's working as designed. It just doesn't have access to information after its training cutoff."
           - id: b
             value: "It only knows what was in its training data"
             isCorrect: true
-            explanation: "Right! LLMs are trained on data up to a cutoff date. They can't access live information without tools."
+            explanation: "Right! LLMs are trained on data up to a cutoff date. Anything after that, they genuinely don't know without tools."
           - id: c
             value: "It chose not to tell me"
             isCorrect: false
-            incorrectExplanation: "It genuinely doesn't know - it's not withholding information."
+            incorrectExplanation: "It genuinely doesn't know. It's not withholding information."
   - id: "3"
     questions:
       - id: "1"

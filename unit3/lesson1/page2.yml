@@ -6,11 +6,11 @@ content: |
 
   **Click the green play button (top right) to load the Agent Playground.**
 
-  The AI now has one tool: `get_current_date`.
+  The AI now has one tool: `get_charlotte_weather`.
 
   Try asking:
-  - "What is today's date?" (same question as Lab 1!)
-  - "Tell me a joke" (does it use the tool for this?)
+  - "What's the weather in Charlotte right now?" (same question as Lab 1!)
+  - "Who won the last Super Bowl?" (does it use the weather tool for this?)
 
   Watch the **Agent Reasoning** panel on the right. You'll see when the agent decides to call a tool and what it gets back.
 showEditor: true

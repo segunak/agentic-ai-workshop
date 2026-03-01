@@ -1,25 +1,19 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
 title: Instructions
-content: >
+content: |
   ## Lab 1: The Chatbot (No Tools)
 
+  On the next page, you'll open the **Agent Playground**, a chat interface connected to an AI model.
 
-  On the next page, you'll open the **Agent Playground**  - a chat interface
-  connected to an AI model.
+  Right now, the AI has **no tools**. It can only answer from what it memorized during training.
 
+  Try asking it questions it would need real-time or recent information to answer:
+  - "What's the weather in Charlotte right now?"
+  - "Who won the last Super Bowl?"
+  - "What country led the medal count at the 2026 Winter Olympics?"
+  - "What won Best Picture at the last Oscars?"
 
-  Right now, the AI has **no tools**. It can only answer from what it memorized
-  during training.
-
-
-  👉 **Try asking it:** *"What is today's date?"*
-
-
-  Pay attention to what it says. Is the answer correct?
-
-
-  ⚠️ You'll need the **workshop key** displayed on the projector screen.
-
+  Pay attention to how it responds. Can it actually answer these?
 
   **On the next page, click the green play button (top right) to load the Agent Playground.**
