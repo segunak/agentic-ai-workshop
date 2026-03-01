@@ -22,7 +22,7 @@ content: |
 
   **Tools** are capabilities the AI can reach for, like checking the weather or looking something up online. In technical terms, these are often called **functions**. **Loop** means it can use them multiple times, feeding results back in. **Goal** means there's a stopping condition.
 
-  You may have already seen this in action. Products like ChatGPT (OpenAI), Claude (Anthropic, Gemini (Google), and GitHub Copilot show you the model's "reasoning" as it works. When you see it thinking, searching, or calling tools before responding, that's agentic behavior.
+  You may have already seen this in action. Products like [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT) ([OpenAI](https://en.wikipedia.org/wiki/OpenAI)), [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)) ([Anthropic](https://en.wikipedia.org/wiki/Anthropic)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)) ([Google](https://en.wikipedia.org/wiki/Google)), and [GitHub Copilot](https://en.wikipedia.org/wiki/GitHub_Copilot) show you the model's "reasoning" as it works. When you see it thinking, searching, or calling tools before responding, that's agentic behavior.
 
   You're about to see this in action.
 questionGroups:
