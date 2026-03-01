@@ -1,67 +1,76 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page3
-title: "The Agent in Action"
-content: |
+title: The Agent in Action
+content: >
   ## What Just Happened?
 
-  The AI **autonomously decided** to call `get_current_date`  - nobody told it to. That decision is **agency**.
 
-  When you asked for a joke, it answered directly  - no tool needed. It made a judgment call.
+  The AI **autonomously decided** to call `get_current_date`  - nobody told it
+  to. That decision is **agency**.
+
+
+  When you asked for a joke, it answered directly  - no tool needed. It made a
+  judgment call.
 questionGroups:
-  - questions:
+  - id: ""
+    questions:
       - id: "1"
         type: choice
-        content: "Did YOU tell the agent to use the get_current_date tool?"
+        content: Did YOU tell the agent to use the get_current_date tool?
         options:
           - id: a
-            value: "Yes, I told it"
-            isCorrect: false
-            incorrectExplanation: "You only asked a question. The agent decided on its own to call the tool."
+            value: Yes, I told it
+            incorrectExplanation: You only asked a question. The agent decided on its own to
+              call the tool.
           - id: b
-            value: "No, it decided on its own"
+            value: No, it decided on its own
+            explanation: That's right! The agent autonomously chose to use the tool. That's
+              what makes it agentic.
             isCorrect: true
-            explanation: "That's right! The agent autonomously chose to use the tool. That's what makes it agentic."
       - id: "2"
         type: choice
-        content: "When you asked for a joke, did it use the date tool?"
+        content: When you asked for a joke, did it use the date tool?
         options:
           - id: a
-            value: "Yes"
-            isCorrect: false
-            incorrectExplanation: "A joke doesn't require knowing the date  - the agent knew that and skipped the tool."
+            value: Yes
+            incorrectExplanation: A joke doesn't require knowing the date  - the agent knew
+              that and skipped the tool.
           - id: b
-            value: "No, it knew a joke didn't need a tool"
+            value: No, it knew a joke didn't need a tool
+            explanation: Correct! The agent reasoned that a joke doesn't require real-time
+              data, so it answered directly.
             isCorrect: true
-            explanation: "Correct! The agent reasoned that a joke doesn't require real-time data, so it answered directly."
       - id: "3"
         type: choice
-        content: "A system monitors meetings and automatically creates action items without being asked. What kind of AI?"
+        content: A system monitors meetings and automatically creates action items
+          without being asked. What kind of AI?
         options:
           - id: a
-            value: "Generative AI"
-            isCorrect: false
-            incorrectExplanation: "Generative AI only responds when prompted. This system acts on its own."
+            value: Generative AI
+            incorrectExplanation: Generative AI only responds when prompted. This system
+              acts on its own.
           - id: b
-            value: "Agentic AI"
+            value: Agentic AI
+            explanation: It acts autonomously without prompting  - that's Agentic AI.
             isCorrect: true
-            explanation: "It acts autonomously without prompting  - that's Agentic AI."
           - id: c
-            value: "Neither"
-            isCorrect: false
-            incorrectExplanation: "It's using AI to understand meetings and take actions  - definitely AI."
+            value: Neither
+            incorrectExplanation: It's using AI to understand meetings and take actions  -
+              definitely AI.
       - id: "4"
         type: choice
-        content: "A script runs every night at 2 AM and copies data to backup storage. Same steps every time. What is it?"
+        content: A script runs every night at 2 AM and copies data to backup storage.
+          Same steps every time. What is it?
         options:
           - id: a
-            value: "Generative AI"
-            isCorrect: false
-            incorrectExplanation: "It's not generating content  - just following preset rules."
+            value: Generative AI
+            incorrectExplanation: It's not generating content  - just following preset rules.
           - id: b
-            value: "Agentic AI"
-            isCorrect: false
-            incorrectExplanation: "There's no decision-making or AI involved  - just a scheduled script."
+            value: Agentic AI
+            incorrectExplanation: There's no decision-making or AI involved  - just a
+              scheduled script.
           - id: c
-            value: "Neither  - traditional automation"
+            value: Neither  - traditional automation
+            explanation: Right! No AI at all. Just a scheduled script following preset
+              rules.
             isCorrect: true
-            explanation: "Right! No AI at all. Just a scheduled script following preset rules."

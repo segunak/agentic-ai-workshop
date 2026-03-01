@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
-title: "Next Steps"
+title: Next Steps
 content: |
   ## Keep Learning!
 

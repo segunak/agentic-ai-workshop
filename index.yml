@@ -1,19 +1,215 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: course1
 title: "Agentic AI: From Acronyms to Applications"
-level: beginner
-description: "Interact with a real AI agent, toggle its tools on and off, and discover what makes Agentic AI different from a regular chatbot."
-objectives: "Distinguish Generative AI from Agentic AI. Experience autonomous tool-calling firsthand. Decode acronyms like RAG, MCP, and RLHF."
-prerequisites: "No coding experience required. Just a laptop and a Microsoft account."
 duration: 30
+level: beginner
+description: Interact with a real AI agent, toggle its tools on and off, and
+  discover what makes Agentic AI different from a regular chatbot.
+objectives: Distinguish Generative AI from Agentic AI. Experience autonomous
+  tool-calling firsthand. Decode acronyms like RAG, MCP, and RLHF.
+prerequisites: No coding experience required. Just a laptop and a Microsoft account.
+cardImageUrl: https://vscodeedu.com/assets/course-cards/card8.png
 contacts:
   - displayName: Segun Akinyemi
     homePageUrl: https://segunakinyemi.com
 files:
-  - path: course1/playground-lab1.html
-    content: |
+  - path: course1/playground-lab2.html
+    content: >
       <!DOCTYPE html>
+
       <html lang="en">
+
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Agent Playground  - Lab 2</title>
+        <style>
+          *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+          :root{--bg:#0f1117;--bg2:#1a1d27;--bg3:#242836;--border:#2e3347;--text:#e4e6ed;--text2:#9ca3b4;--muted:#6b7280;--accent:#4f8ff7;--accent2:#3a7be0;--success:#34d399;--warn:#fbbf24;--err:#f87171;--r:10px;--rs:6px}
+          html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+          .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:1000}
+          .modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:32px;max-width:420px;width:90%;text-align:center}
+          .modal-box h2{margin-bottom:8px;font-size:1.3rem}.modal-box p{color:var(--text2);margin-bottom:20px;font-size:.88rem}
+          .modal-box input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:1rem;margin-bottom:12px;outline:none}
+          .modal-box input:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}
+          .modal-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-size:1rem;font-weight:600;cursor:pointer}
+          .modal-box button:hover{background:var(--accent2)}
+          .err-text{color:var(--err);font-size:.85rem;margin-top:8px;display:none}
+          header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
+          header h1{font-size:1.1rem}.hdr-sub{color:var(--muted);font-size:.75rem}
+          .badge{padding:3px 8px;border-radius:20px;font-size:.72rem;font-weight:600}
+          .badge-model{background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
+          .badge-status{background:rgba(52,211,153,.15);color:var(--success);border:1px solid rgba(52,211,153,.3)}
+          .badge-status.loading{background:rgba(251,191,36,.15);color:var(--warn);border-color:rgba(251,191,36,.3)}
+          main{display:flex;height:calc(100vh - 45px);overflow:hidden}
+          .chat-panel{flex:1;display:flex;flex-direction:column;min-width:0}
+          .msgs{flex:1;overflow-y:auto;padding:12px 16px}
+          .msg{display:flex;gap:10px;margin-bottom:14px;max-width:88%;animation:fi .3s ease}
+          @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+          .msg.user{margin-left:auto;flex-direction:row-reverse}
+          .msg-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:var(--bg3)}
+          .msg.user .msg-av{background:var(--accent);color:#fff;font-size:.75rem}
+          .msg-body{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-size:.88rem;line-height:1.6}
+          .msg-body p{margin-bottom:4px}.msg-body p:last-child{margin-bottom:0}
+          .msg.user .msg-body{background:var(--accent);color:#fff;border-color:var(--accent)}
+          .input-area{display:flex;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--bg2)}
+          #ci{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:.88rem;outline:none}
+          #ci:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}#ci:disabled{opacity:.5}
+          #sb{padding:9px 16px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-weight:600;cursor:pointer;white-space:nowrap}
+          #sb:hover:not(:disabled){background:var(--accent2)}#sb:disabled{opacity:.5;cursor:not-allowed}
+          .side{width:300px;flex-shrink:0;border-left:1px solid var(--border);background:var(--bg2);overflow-y:auto;display:flex;flex-direction:column}
+          .side-sec{padding:14px;border-bottom:1px solid var(--border)}.side-sec:last-child{border-bottom:none;flex:1;display:flex;flex-direction:column}
+          .side-sec h3{font-size:.9rem;margin-bottom:3px}.side-hint{color:var(--muted);font-size:.75rem;margin-bottom:10px}
+          .tc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:8px 10px;margin-bottom:6px}
+          .tc.on{border-color:var(--accent);box-shadow:0 0 0 1px rgba(79,143,247,.15)}
+          .tc.hl{border-color:var(--warn);box-shadow:0 0 8px rgba(251,191,36,.2)}
+          .tc-h{display:flex;align-items:center;gap:6px}.tc-n{font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.76rem;color:var(--accent)}
+          .tc-d{color:var(--muted);font-size:.72rem;margin-top:3px}
+          .rpanel{flex:1;overflow-y:auto;min-height:100px}
+          .rempty{color:var(--muted);font-size:.78rem;text-align:center;padding:20px 10px;font-style:italic}
+          .rstep{padding:7px 9px;border-radius:var(--rs);margin-bottom:5px;font-size:.78rem;animation:fi .3s ease;line-height:1.5}
+          .rstep.thinking{background:#1f1c2e;border-left:3px solid #a78bfa;color:#c4b5fd}
+          .rstep.tool-call{background:#1c2333;border-left:3px solid var(--warn);color:var(--warn)}
+          .rstep.tool-result{background:#162016;border-left:3px solid var(--success);color:var(--success)}
+          .rstep.response{background:#1a2430;border-left:3px solid var(--accent);color:var(--accent)}
+          .rstep .sl{font-weight:600;display:block;margin-bottom:1px}.rstep .sd{color:var(--text2);font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.7rem;word-break:break-word}
+          ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+          @media(max-width:700px){main{flex-direction:column}.side{width:100%;border-left:none;border-top:1px solid var(--border);max-height:45vh}.msg{max-width:95%}.hdr-sub{display:none}}
+        </style>
+      </head>
+
+      <body>
+        <div id="km" class="modal"><div class="modal-box"><h2>🔐 Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input type="text" id="ki" placeholder="Enter workshop key..." autocomplete="off" onkeydown="if(event.key==='Enter')sk()" /><button onclick="sk()">Enter Playground</button><p id="ke" class="err-text"></p></div></div>
+        <div id="app" style="display:none">
+          <header><div><h1>🤖 Agent Playground  - Lab 2</h1><span class="hdr-sub">One tool enabled</span></div><div style="display:flex;gap:6px;align-items:center"><span class="badge badge-model">Microsoft Foundry</span><span class="badge badge-status" id="st">Ready</span></div></header>
+          <main>
+            <section class="chat-panel">
+              <div class="msgs" id="msgs"><div class="msg assistant"><div class="msg-av">🤖</div><div class="msg-body"><p>I'm back  - but now I have a <strong>tool</strong>! I can check the current date.</p><p>Try asking: <em>"What is today's date?"</em> again and watch the <strong>Agent Reasoning</strong> panel. 👉</p></div></div></div>
+              <div class="input-area"><input type="text" id="ci" placeholder="Ask the agent something..." onkeydown="if(event.key==='Enter')sm()" autocomplete="off" /><button id="sb" onclick="sm()">Send</button></div>
+            </section>
+            <aside class="side">
+              <div class="side-sec"><h3>🛠️ Available Tools</h3><p class="side-hint">The agent <strong>decides</strong> when to use tools.</p><div class="tc on" id="tc0"><div class="tc-h"><span>🗓️</span><span class="tc-n">get_current_date</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Gets the current date and time.</div></div></div>
+              <div class="side-sec"><h3>🧠 Agent Reasoning</h3><p class="side-hint">Watch the decision-making process.</p><div id="rp" class="rpanel"><div class="rempty">Send a message to see the agent think!</div></div></div>
+            </aside>
+          </main>
+        </div>
+        <script>
+          const API="https://agentic-ai-playground.vercel.app",TOOLS=["get_current_date"];let wk="",hist=[],busy=false,trusted=false;function unlock(){document.getElementById("km").style.display="none";document.getElementById("app").style.display="block"}(async function(){const s=localStorage.getItem("wk");if(s){wk=s;unlock();return}try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:"ping"}],enabledTools:[]})});if(r.ok||r.status!==401){trusted=true;unlock()}}catch(e){}}());
+          function sk(){const v=document.getElementById("ki").value.trim();if(!v){document.getElementById("ke").textContent="Please enter a key.";document.getElementById("ke").style.display="block";return}wk=v;try{localStorage.setItem("wk",v)}catch(e){}unlock();document.getElementById("ci").focus()}
+          function am(r,t){const c=document.getElementById("msgs"),d=document.createElement("div");d.className="msg "+r;const a=document.createElement("div");a.className="msg-av";a.textContent=r==="user"?"You":"🤖";const b=document.createElement("div");b.className="msg-body";b.innerHTML="<p>"+t.replace(/\n/g,"</p><p>")+"</p>";d.appendChild(a);d.appendChild(b);c.appendChild(d);c.scrollTop=c.scrollHeight}
+          function sl(v){busy=v;document.getElementById("sb").disabled=v;document.getElementById("ci").disabled=v;document.getElementById("sb").textContent=v?"...":"Send";const s=document.getElementById("st");s.textContent=v?"Thinking...":"Ready";s.className=v?"badge badge-status loading":"badge badge-status"}
+          function cr(){document.getElementById("rp").innerHTML=""}
+          function ar(t,l,d){const p=document.getElementById("rp");if(p.querySelector(".rempty"))p.innerHTML="";const s=document.createElement("div");s.className="rstep "+t;s.innerHTML='<span class="sl">'+l+"</span>"+(d?'<span class="sd">'+d+"</span>":"");p.appendChild(s);p.scrollTop=p.scrollHeight}
+          function hl(){const c=document.getElementById("tc0");c.classList.add("hl");setTimeout(()=>c.classList.remove("hl"),3000)}
+          async function sm(){const i=document.getElementById("ci"),t=i.value.trim();if(!t||busy)return;am("user",t);i.value="";hist.push({role:"user",content:t});sl(true);cr();ar("thinking","🤔 Thinking","Processing your message...");try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json","X-Workshop-Key":wk},body:JSON.stringify({messages:hist,enabledTools:TOOLS,workshopKey:wk})});if(r.status===401){am("assistant","⚠️ Invalid workshop key.");sl(false);return}if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();cr();let called=false;if(d.reasoning)for(const s of d.reasoning){if(s.type==="thinking")ar("thinking","🤔 Thinking",s.content);else if(s.type==="tool_call"){ar("tool-call","🔧 Calling: "+s.tool,s.args&&Object.keys(s.args).length?JSON.stringify(s.args):"()");called=true}else if(s.type==="tool_result")ar("tool-result","📋 Result from "+s.tool,JSON.stringify(s.result).slice(0,200));else if(s.type==="response")ar("response","💬 Response",s.content?.slice(0,100)+"...")}if(called)hl();am("assistant",d.response);hist.push({role:"assistant",content:d.response})}catch(e){am("assistant","⚠️ Error: "+e.message);ar("response","❌ Error",e.message)}sl(false)}
+        </script>
+      </body>
+
+      </html>
+  - path: course1/playground-lab3.html
+    content: >
+      <!DOCTYPE html>
+
+      <html lang="en">
+
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Agent Playground  - Lab 3</title>
+        <style>
+          *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+          :root{--bg:#0f1117;--bg2:#1a1d27;--bg3:#242836;--border:#2e3347;--text:#e4e6ed;--text2:#9ca3b4;--muted:#6b7280;--accent:#4f8ff7;--accent2:#3a7be0;--success:#34d399;--warn:#fbbf24;--err:#f87171;--r:10px;--rs:6px}
+          html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+          .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:1000}
+          .modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:32px;max-width:420px;width:90%;text-align:center}
+          .modal-box h2{margin-bottom:8px;font-size:1.3rem}.modal-box p{color:var(--text2);margin-bottom:20px;font-size:.88rem}
+          .modal-box input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:1rem;margin-bottom:12px;outline:none}
+          .modal-box input:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}
+          .modal-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-size:1rem;font-weight:600;cursor:pointer}
+          .modal-box button:hover{background:var(--accent2)}
+          .err-text{color:var(--err);font-size:.85rem;margin-top:8px;display:none}
+          header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
+          header h1{font-size:1.1rem}.hdr-sub{color:var(--muted);font-size:.75rem}
+          .badge{padding:3px 8px;border-radius:20px;font-size:.72rem;font-weight:600}
+          .badge-model{background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
+          .badge-status{background:rgba(52,211,153,.15);color:var(--success);border:1px solid rgba(52,211,153,.3)}
+          .badge-status.loading{background:rgba(251,191,36,.15);color:var(--warn);border-color:rgba(251,191,36,.3)}
+          main{display:flex;height:calc(100vh - 45px);overflow:hidden}
+          .chat-panel{flex:1;display:flex;flex-direction:column;min-width:0}
+          .msgs{flex:1;overflow-y:auto;padding:12px 16px}
+          .msg{display:flex;gap:10px;margin-bottom:14px;max-width:88%;animation:fi .3s ease}
+          @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+          .msg.user{margin-left:auto;flex-direction:row-reverse}
+          .msg-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:var(--bg3)}
+          .msg.user .msg-av{background:var(--accent);color:#fff;font-size:.75rem}
+          .msg-body{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-size:.88rem;line-height:1.6}
+          .msg-body p{margin-bottom:4px}.msg-body p:last-child{margin-bottom:0}
+          .msg.user .msg-body{background:var(--accent);color:#fff;border-color:var(--accent)}
+          .input-area{display:flex;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--bg2)}
+          #ci{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:.88rem;outline:none}
+          #ci:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}#ci:disabled{opacity:.5}
+          #sb{padding:9px 16px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-weight:600;cursor:pointer;white-space:nowrap}
+          #sb:hover:not(:disabled){background:var(--accent2)}#sb:disabled{opacity:.5;cursor:not-allowed}
+          .side{width:300px;flex-shrink:0;border-left:1px solid var(--border);background:var(--bg2);overflow-y:auto;display:flex;flex-direction:column}
+          .side-sec{padding:14px;border-bottom:1px solid var(--border)}.side-sec:last-child{border-bottom:none;flex:1;display:flex;flex-direction:column}
+          .side-sec h3{font-size:.9rem;margin-bottom:3px}.side-hint{color:var(--muted);font-size:.75rem;margin-bottom:10px}
+          .tc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:8px 10px;margin-bottom:6px}
+          .tc.on{border-color:var(--accent);box-shadow:0 0 0 1px rgba(79,143,247,.15)}
+          .tc.hl{border-color:var(--warn);box-shadow:0 0 8px rgba(251,191,36,.2)}
+          .tc-h{display:flex;align-items:center;gap:6px}.tc-n{font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.76rem;color:var(--accent)}
+          .tc-d{color:var(--muted);font-size:.72rem;margin-top:3px}
+          .rpanel{flex:1;overflow-y:auto;min-height:100px}
+          .rempty{color:var(--muted);font-size:.78rem;text-align:center;padding:20px 10px;font-style:italic}
+          .rstep{padding:7px 9px;border-radius:var(--rs);margin-bottom:5px;font-size:.78rem;animation:fi .3s ease;line-height:1.5}
+          .rstep.thinking{background:#1f1c2e;border-left:3px solid #a78bfa;color:#c4b5fd}
+          .rstep.tool-call{background:#1c2333;border-left:3px solid var(--warn);color:var(--warn)}
+          .rstep.tool-result{background:#162016;border-left:3px solid var(--success);color:var(--success)}
+          .rstep.response{background:#1a2430;border-left:3px solid var(--accent);color:var(--accent)}
+          .rstep .sl{font-weight:600;display:block;margin-bottom:1px}.rstep .sd{color:var(--text2);font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.7rem;word-break:break-word}
+          ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+          @media(max-width:700px){main{flex-direction:column}.side{width:100%;border-left:none;border-top:1px solid var(--border);max-height:45vh}.msg{max-width:95%}.hdr-sub{display:none}}
+        </style>
+      </head>
+
+      <body>
+        <div id="km" class="modal"><div class="modal-box"><h2>🔐 Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input type="text" id="ki" placeholder="Enter workshop key..." autocomplete="off" onkeydown="if(event.key==='Enter')sk()" /><button onclick="sk()">Enter Playground</button><p id="ke" class="err-text"></p></div></div>
+        <div id="app" style="display:none">
+          <header><div><h1>🤖 Agent Playground  - Lab 3</h1><span class="hdr-sub">All tools enabled</span></div><div style="display:flex;gap:6px;align-items:center"><span class="badge badge-model">Microsoft Foundry</span><span class="badge badge-status" id="st">Ready</span></div></header>
+          <main>
+            <section class="chat-panel">
+              <div class="msgs" id="msgs"><div class="msg assistant"><div class="msg-av">🤖</div><div class="msg-body"><p>Now I have <strong>four tools</strong>! I can check dates, get live Charlotte weather, fetch random fun facts, and share cinnamon roll rankings.</p><p>Try: <em>"I'm visiting Charlotte for a data science conference - any tips?"</em></p></div></div></div>
+              <div class="input-area"><input type="text" id="ci" placeholder="Ask the agent something..." onkeydown="if(event.key==='Enter')sm()" autocomplete="off" /><button id="sb" onclick="sm()">Send</button></div>
+            </section>
+            <aside class="side">
+              <div class="side-sec"><h3>🛠️ Available Tools</h3><p class="side-hint">The agent <strong>decides</strong> when to use tools.</p>
+                <div class="tc on" id="tc0"><div class="tc-h"><span>🗓️</span><span class="tc-n">get_current_date</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Gets the current date and time.</div></div>
+                <div class="tc on" id="tc1"><div class="tc-h"><span>🌤️</span><span class="tc-n">get_charlotte_weather</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Live weather and 3-day forecast for Charlotte, NC.</div></div>
+                <div class="tc on" id="tc2"><div class="tc-h"><span>🎲</span><span class="tc-n">get_random_fact</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Returns a random fun fact.</div></div>
+                <div class="tc on" id="tc3"><div class="tc-h"><span>🧁</span><span class="tc-n">get_charlotte_cinnamon_roll_rankings</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Segun's cinnamon roll rankings for Charlotte.</div></div>
+              </div>
+              <div class="side-sec"><h3>🧠 Agent Reasoning</h3><p class="side-hint">Watch the decision-making process.</p><div id="rp" class="rpanel"><div class="rempty">Send a message to see the agent think!</div></div></div>
+            </aside>
+          </main>
+        </div>
+        <script>
+          const API="https://agentic-ai-playground.vercel.app",TOOLS=["get_current_date","get_charlotte_weather","get_random_fact","get_charlotte_cinnamon_roll_rankings"];const TM={get_current_date:"tc0",get_charlotte_weather:"tc1",get_random_fact:"tc2",get_charlotte_cinnamon_roll_rankings:"tc3"};let wk="",hist=[],busy=false,trusted=false;function unlock(){document.getElementById("km").style.display="none";document.getElementById("app").style.display="block"}(async function(){const s=localStorage.getItem("wk");if(s){wk=s;unlock();return}try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:"ping"}],enabledTools:[]})});if(r.ok||r.status!==401){trusted=true;unlock()}}catch(e){}}());
+          function sk(){const v=document.getElementById("ki").value.trim();if(!v){document.getElementById("ke").textContent="Please enter a key.";document.getElementById("ke").style.display="block";return}wk=v;try{localStorage.setItem("wk",v)}catch(e){}unlock();document.getElementById("ci").focus()}
+          function am(r,t){const c=document.getElementById("msgs"),d=document.createElement("div");d.className="msg "+r;const a=document.createElement("div");a.className="msg-av";a.textContent=r==="user"?"You":"🤖";const b=document.createElement("div");b.className="msg-body";b.innerHTML="<p>"+t.replace(/\n/g,"</p><p>")+"</p>";d.appendChild(a);d.appendChild(b);c.appendChild(d);c.scrollTop=c.scrollHeight}
+          function sl(v){busy=v;document.getElementById("sb").disabled=v;document.getElementById("ci").disabled=v;document.getElementById("sb").textContent=v?"...":"Send";const s=document.getElementById("st");s.textContent=v?"Thinking...":"Ready";s.className=v?"badge badge-status loading":"badge badge-status"}
+          function cr(){document.getElementById("rp").innerHTML=""}
+          function ar(t,l,d){const p=document.getElementById("rp");if(p.querySelector(".rempty"))p.innerHTML="";const s=document.createElement("div");s.className="rstep "+t;s.innerHTML='<span class="sl">'+l+"</span>"+(d?'<span class="sd">'+d+"</span>":"");p.appendChild(s);p.scrollTop=p.scrollHeight}
+          function hl(n){const c=document.getElementById(TM[n]);if(c){c.classList.add("hl");setTimeout(()=>c.classList.remove("hl"),3000)}}
+          async function sm(){const i=document.getElementById("ci"),t=i.value.trim();if(!t||busy)return;am("user",t);i.value="";hist.push({role:"user",content:t});sl(true);cr();ar("thinking","🤔 Thinking","Processing your message...");try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json","X-Workshop-Key":wk},body:JSON.stringify({messages:hist,enabledTools:TOOLS,workshopKey:wk})});if(r.status===401){am("assistant","⚠️ Invalid workshop key.");sl(false);return}if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();cr();if(d.reasoning)for(const s of d.reasoning){if(s.type==="thinking")ar("thinking","🤔 Thinking",s.content);else if(s.type==="tool_call"){ar("tool-call","🔧 Calling: "+s.tool,s.args&&Object.keys(s.args).length?JSON.stringify(s.args):"()");hl(s.tool)}else if(s.type==="tool_result")ar("tool-result","📋 Result from "+s.tool,JSON.stringify(s.result).slice(0,200));else if(s.type==="response")ar("response","💬 Response",s.content?.slice(0,100)+"...")}am("assistant",d.response);hist.push({role:"assistant",content:d.response})}catch(e){am("assistant","⚠️ Error: "+e.message);ar("response","❌ Error",e.message)}sl(false)}
+        </script>
+      </body>
+
+      </html>
+  - path: course1/playground-lab1.html
+    content: >
+      <!DOCTYPE html>
+
+      <html lang="en">
+
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -75,6 +271,7 @@ files:
           @media(max-width:700px){main{flex-direction:column}.side{width:100%;border-left:none;border-top:1px solid var(--border);max-height:45vh}.msg{max-width:95%}.hdr-sub{display:none}}
         </style>
       </head>
+
       <body>
         <div id="km" class="modal">
           <div class="modal-box">
@@ -113,189 +310,7 @@ files:
           async function sm(){const i=document.getElementById("ci"),t=i.value.trim();if(!t||busy)return;am("user",t);i.value="";hist.push({role:"user",content:t});sl(true);cr();ar("thinking","🤔 Thinking","Processing your message...");try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json","X-Workshop-Key":wk},body:JSON.stringify({messages:hist,enabledTools:[],workshopKey:wk})});if(r.status===401){am("assistant","⚠️ Invalid workshop key. Refresh and try again.");sl(false);return}if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();cr();if(d.reasoning)for(const s of d.reasoning){if(s.type==="thinking")ar("thinking","🤔 Thinking",s.content);else if(s.type==="response")ar("response","💬 Response",s.content?.slice(0,100)+"...")}am("assistant",d.response);hist.push({role:"assistant",content:d.response})}catch(e){am("assistant","⚠️ Error: "+e.message);ar("response","❌ Error",e.message)}sl(false)}
         </script>
       </body>
-      </html>
-  - path: course1/playground-lab2.html
-    content: |
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Agent Playground  - Lab 2</title>
-        <style>
-          *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-          :root{--bg:#0f1117;--bg2:#1a1d27;--bg3:#242836;--border:#2e3347;--text:#e4e6ed;--text2:#9ca3b4;--muted:#6b7280;--accent:#4f8ff7;--accent2:#3a7be0;--success:#34d399;--warn:#fbbf24;--err:#f87171;--r:10px;--rs:6px}
-          html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
-          .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:1000}
-          .modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:32px;max-width:420px;width:90%;text-align:center}
-          .modal-box h2{margin-bottom:8px;font-size:1.3rem}.modal-box p{color:var(--text2);margin-bottom:20px;font-size:.88rem}
-          .modal-box input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:1rem;margin-bottom:12px;outline:none}
-          .modal-box input:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}
-          .modal-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-size:1rem;font-weight:600;cursor:pointer}
-          .modal-box button:hover{background:var(--accent2)}
-          .err-text{color:var(--err);font-size:.85rem;margin-top:8px;display:none}
-          header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
-          header h1{font-size:1.1rem}.hdr-sub{color:var(--muted);font-size:.75rem}
-          .badge{padding:3px 8px;border-radius:20px;font-size:.72rem;font-weight:600}
-          .badge-model{background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
-          .badge-status{background:rgba(52,211,153,.15);color:var(--success);border:1px solid rgba(52,211,153,.3)}
-          .badge-status.loading{background:rgba(251,191,36,.15);color:var(--warn);border-color:rgba(251,191,36,.3)}
-          main{display:flex;height:calc(100vh - 45px);overflow:hidden}
-          .chat-panel{flex:1;display:flex;flex-direction:column;min-width:0}
-          .msgs{flex:1;overflow-y:auto;padding:12px 16px}
-          .msg{display:flex;gap:10px;margin-bottom:14px;max-width:88%;animation:fi .3s ease}
-          @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-          .msg.user{margin-left:auto;flex-direction:row-reverse}
-          .msg-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:var(--bg3)}
-          .msg.user .msg-av{background:var(--accent);color:#fff;font-size:.75rem}
-          .msg-body{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-size:.88rem;line-height:1.6}
-          .msg-body p{margin-bottom:4px}.msg-body p:last-child{margin-bottom:0}
-          .msg.user .msg-body{background:var(--accent);color:#fff;border-color:var(--accent)}
-          .input-area{display:flex;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--bg2)}
-          #ci{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:.88rem;outline:none}
-          #ci:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}#ci:disabled{opacity:.5}
-          #sb{padding:9px 16px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-weight:600;cursor:pointer;white-space:nowrap}
-          #sb:hover:not(:disabled){background:var(--accent2)}#sb:disabled{opacity:.5;cursor:not-allowed}
-          .side{width:300px;flex-shrink:0;border-left:1px solid var(--border);background:var(--bg2);overflow-y:auto;display:flex;flex-direction:column}
-          .side-sec{padding:14px;border-bottom:1px solid var(--border)}.side-sec:last-child{border-bottom:none;flex:1;display:flex;flex-direction:column}
-          .side-sec h3{font-size:.9rem;margin-bottom:3px}.side-hint{color:var(--muted);font-size:.75rem;margin-bottom:10px}
-          .tc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:8px 10px;margin-bottom:6px}
-          .tc.on{border-color:var(--accent);box-shadow:0 0 0 1px rgba(79,143,247,.15)}
-          .tc.hl{border-color:var(--warn);box-shadow:0 0 8px rgba(251,191,36,.2)}
-          .tc-h{display:flex;align-items:center;gap:6px}.tc-n{font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.76rem;color:var(--accent)}
-          .tc-d{color:var(--muted);font-size:.72rem;margin-top:3px}
-          .rpanel{flex:1;overflow-y:auto;min-height:100px}
-          .rempty{color:var(--muted);font-size:.78rem;text-align:center;padding:20px 10px;font-style:italic}
-          .rstep{padding:7px 9px;border-radius:var(--rs);margin-bottom:5px;font-size:.78rem;animation:fi .3s ease;line-height:1.5}
-          .rstep.thinking{background:#1f1c2e;border-left:3px solid #a78bfa;color:#c4b5fd}
-          .rstep.tool-call{background:#1c2333;border-left:3px solid var(--warn);color:var(--warn)}
-          .rstep.tool-result{background:#162016;border-left:3px solid var(--success);color:var(--success)}
-          .rstep.response{background:#1a2430;border-left:3px solid var(--accent);color:var(--accent)}
-          .rstep .sl{font-weight:600;display:block;margin-bottom:1px}.rstep .sd{color:var(--text2);font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.7rem;word-break:break-word}
-          ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-          @media(max-width:700px){main{flex-direction:column}.side{width:100%;border-left:none;border-top:1px solid var(--border);max-height:45vh}.msg{max-width:95%}.hdr-sub{display:none}}
-        </style>
-      </head>
-      <body>
-        <div id="km" class="modal"><div class="modal-box"><h2>🔐 Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input type="text" id="ki" placeholder="Enter workshop key..." autocomplete="off" onkeydown="if(event.key==='Enter')sk()" /><button onclick="sk()">Enter Playground</button><p id="ke" class="err-text"></p></div></div>
-        <div id="app" style="display:none">
-          <header><div><h1>🤖 Agent Playground  - Lab 2</h1><span class="hdr-sub">One tool enabled</span></div><div style="display:flex;gap:6px;align-items:center"><span class="badge badge-model">Microsoft Foundry</span><span class="badge badge-status" id="st">Ready</span></div></header>
-          <main>
-            <section class="chat-panel">
-              <div class="msgs" id="msgs"><div class="msg assistant"><div class="msg-av">🤖</div><div class="msg-body"><p>I'm back  - but now I have a <strong>tool</strong>! I can check the current date.</p><p>Try asking: <em>"What is today's date?"</em> again and watch the <strong>Agent Reasoning</strong> panel. 👉</p></div></div></div>
-              <div class="input-area"><input type="text" id="ci" placeholder="Ask the agent something..." onkeydown="if(event.key==='Enter')sm()" autocomplete="off" /><button id="sb" onclick="sm()">Send</button></div>
-            </section>
-            <aside class="side">
-              <div class="side-sec"><h3>🛠️ Available Tools</h3><p class="side-hint">The agent <strong>decides</strong> when to use tools.</p><div class="tc on" id="tc0"><div class="tc-h"><span>🗓️</span><span class="tc-n">get_current_date</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Gets the current date and time.</div></div></div>
-              <div class="side-sec"><h3>🧠 Agent Reasoning</h3><p class="side-hint">Watch the decision-making process.</p><div id="rp" class="rpanel"><div class="rempty">Send a message to see the agent think!</div></div></div>
-            </aside>
-          </main>
-        </div>
-        <script>
-          const API="https://agentic-ai-playground.vercel.app",TOOLS=["get_current_date"];let wk="",hist=[],busy=false,trusted=false;function unlock(){document.getElementById("km").style.display="none";document.getElementById("app").style.display="block"}(async function(){const s=localStorage.getItem("wk");if(s){wk=s;unlock();return}try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:"ping"}],enabledTools:[]})});if(r.ok||r.status!==401){trusted=true;unlock()}}catch(e){}}());
-          function sk(){const v=document.getElementById("ki").value.trim();if(!v){document.getElementById("ke").textContent="Please enter a key.";document.getElementById("ke").style.display="block";return}wk=v;try{localStorage.setItem("wk",v)}catch(e){}unlock();document.getElementById("ci").focus()}
-          function am(r,t){const c=document.getElementById("msgs"),d=document.createElement("div");d.className="msg "+r;const a=document.createElement("div");a.className="msg-av";a.textContent=r==="user"?"You":"🤖";const b=document.createElement("div");b.className="msg-body";b.innerHTML="<p>"+t.replace(/\n/g,"</p><p>")+"</p>";d.appendChild(a);d.appendChild(b);c.appendChild(d);c.scrollTop=c.scrollHeight}
-          function sl(v){busy=v;document.getElementById("sb").disabled=v;document.getElementById("ci").disabled=v;document.getElementById("sb").textContent=v?"...":"Send";const s=document.getElementById("st");s.textContent=v?"Thinking...":"Ready";s.className=v?"badge badge-status loading":"badge badge-status"}
-          function cr(){document.getElementById("rp").innerHTML=""}
-          function ar(t,l,d){const p=document.getElementById("rp");if(p.querySelector(".rempty"))p.innerHTML="";const s=document.createElement("div");s.className="rstep "+t;s.innerHTML='<span class="sl">'+l+"</span>"+(d?'<span class="sd">'+d+"</span>":"");p.appendChild(s);p.scrollTop=p.scrollHeight}
-          function hl(){const c=document.getElementById("tc0");c.classList.add("hl");setTimeout(()=>c.classList.remove("hl"),3000)}
-          async function sm(){const i=document.getElementById("ci"),t=i.value.trim();if(!t||busy)return;am("user",t);i.value="";hist.push({role:"user",content:t});sl(true);cr();ar("thinking","🤔 Thinking","Processing your message...");try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json","X-Workshop-Key":wk},body:JSON.stringify({messages:hist,enabledTools:TOOLS,workshopKey:wk})});if(r.status===401){am("assistant","⚠️ Invalid workshop key.");sl(false);return}if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();cr();let called=false;if(d.reasoning)for(const s of d.reasoning){if(s.type==="thinking")ar("thinking","🤔 Thinking",s.content);else if(s.type==="tool_call"){ar("tool-call","🔧 Calling: "+s.tool,s.args&&Object.keys(s.args).length?JSON.stringify(s.args):"()");called=true}else if(s.type==="tool_result")ar("tool-result","📋 Result from "+s.tool,JSON.stringify(s.result).slice(0,200));else if(s.type==="response")ar("response","💬 Response",s.content?.slice(0,100)+"...")}if(called)hl();am("assistant",d.response);hist.push({role:"assistant",content:d.response})}catch(e){am("assistant","⚠️ Error: "+e.message);ar("response","❌ Error",e.message)}sl(false)}
-        </script>
-      </body>
-      </html>
-  - path: course1/playground-lab3.html
-    content: |
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Agent Playground  - Lab 3</title>
-        <style>
-          *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-          :root{--bg:#0f1117;--bg2:#1a1d27;--bg3:#242836;--border:#2e3347;--text:#e4e6ed;--text2:#9ca3b4;--muted:#6b7280;--accent:#4f8ff7;--accent2:#3a7be0;--success:#34d399;--warn:#fbbf24;--err:#f87171;--r:10px;--rs:6px}
-          html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
-          .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:1000}
-          .modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:32px;max-width:420px;width:90%;text-align:center}
-          .modal-box h2{margin-bottom:8px;font-size:1.3rem}.modal-box p{color:var(--text2);margin-bottom:20px;font-size:.88rem}
-          .modal-box input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:1rem;margin-bottom:12px;outline:none}
-          .modal-box input:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}
-          .modal-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-size:1rem;font-weight:600;cursor:pointer}
-          .modal-box button:hover{background:var(--accent2)}
-          .err-text{color:var(--err);font-size:.85rem;margin-top:8px;display:none}
-          header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border)}
-          header h1{font-size:1.1rem}.hdr-sub{color:var(--muted);font-size:.75rem}
-          .badge{padding:3px 8px;border-radius:20px;font-size:.72rem;font-weight:600}
-          .badge-model{background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
-          .badge-status{background:rgba(52,211,153,.15);color:var(--success);border:1px solid rgba(52,211,153,.3)}
-          .badge-status.loading{background:rgba(251,191,36,.15);color:var(--warn);border-color:rgba(251,191,36,.3)}
-          main{display:flex;height:calc(100vh - 45px);overflow:hidden}
-          .chat-panel{flex:1;display:flex;flex-direction:column;min-width:0}
-          .msgs{flex:1;overflow-y:auto;padding:12px 16px}
-          .msg{display:flex;gap:10px;margin-bottom:14px;max-width:88%;animation:fi .3s ease}
-          @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-          .msg.user{margin-left:auto;flex-direction:row-reverse}
-          .msg-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:var(--bg3)}
-          .msg.user .msg-av{background:var(--accent);color:#fff;font-size:.75rem}
-          .msg-body{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-size:.88rem;line-height:1.6}
-          .msg-body p{margin-bottom:4px}.msg-body p:last-child{margin-bottom:0}
-          .msg.user .msg-body{background:var(--accent);color:#fff;border-color:var(--accent)}
-          .input-area{display:flex;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--bg2)}
-          #ci{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg3);color:var(--text);font-size:.88rem;outline:none}
-          #ci:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,143,247,.15)}#ci:disabled{opacity:.5}
-          #sb{padding:9px 16px;background:var(--accent);color:#fff;border:none;border-radius:var(--rs);font-weight:600;cursor:pointer;white-space:nowrap}
-          #sb:hover:not(:disabled){background:var(--accent2)}#sb:disabled{opacity:.5;cursor:not-allowed}
-          .side{width:300px;flex-shrink:0;border-left:1px solid var(--border);background:var(--bg2);overflow-y:auto;display:flex;flex-direction:column}
-          .side-sec{padding:14px;border-bottom:1px solid var(--border)}.side-sec:last-child{border-bottom:none;flex:1;display:flex;flex-direction:column}
-          .side-sec h3{font-size:.9rem;margin-bottom:3px}.side-hint{color:var(--muted);font-size:.75rem;margin-bottom:10px}
-          .tc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:8px 10px;margin-bottom:6px}
-          .tc.on{border-color:var(--accent);box-shadow:0 0 0 1px rgba(79,143,247,.15)}
-          .tc.hl{border-color:var(--warn);box-shadow:0 0 8px rgba(251,191,36,.2)}
-          .tc-h{display:flex;align-items:center;gap:6px}.tc-n{font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.76rem;color:var(--accent)}
-          .tc-d{color:var(--muted);font-size:.72rem;margin-top:3px}
-          .rpanel{flex:1;overflow-y:auto;min-height:100px}
-          .rempty{color:var(--muted);font-size:.78rem;text-align:center;padding:20px 10px;font-style:italic}
-          .rstep{padding:7px 9px;border-radius:var(--rs);margin-bottom:5px;font-size:.78rem;animation:fi .3s ease;line-height:1.5}
-          .rstep.thinking{background:#1f1c2e;border-left:3px solid #a78bfa;color:#c4b5fd}
-          .rstep.tool-call{background:#1c2333;border-left:3px solid var(--warn);color:var(--warn)}
-          .rstep.tool-result{background:#162016;border-left:3px solid var(--success);color:var(--success)}
-          .rstep.response{background:#1a2430;border-left:3px solid var(--accent);color:var(--accent)}
-          .rstep .sl{font-weight:600;display:block;margin-bottom:1px}.rstep .sd{color:var(--text2);font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:.7rem;word-break:break-word}
-          ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-          @media(max-width:700px){main{flex-direction:column}.side{width:100%;border-left:none;border-top:1px solid var(--border);max-height:45vh}.msg{max-width:95%}.hdr-sub{display:none}}
-        </style>
-      </head>
-      <body>
-        <div id="km" class="modal"><div class="modal-box"><h2>🔐 Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input type="text" id="ki" placeholder="Enter workshop key..." autocomplete="off" onkeydown="if(event.key==='Enter')sk()" /><button onclick="sk()">Enter Playground</button><p id="ke" class="err-text"></p></div></div>
-        <div id="app" style="display:none">
-          <header><div><h1>🤖 Agent Playground  - Lab 3</h1><span class="hdr-sub">All tools enabled</span></div><div style="display:flex;gap:6px;align-items:center"><span class="badge badge-model">Microsoft Foundry</span><span class="badge badge-status" id="st">Ready</span></div></header>
-          <main>
-            <section class="chat-panel">
-              <div class="msgs" id="msgs"><div class="msg assistant"><div class="msg-av">🤖</div><div class="msg-body"><p>Now I have <strong>four tools</strong>! I can check dates, get live Charlotte weather, fetch random fun facts, and share cinnamon roll rankings.</p><p>Try: <em>"I'm visiting Charlotte for a data science conference - any tips?"</em></p></div></div></div>
-              <div class="input-area"><input type="text" id="ci" placeholder="Ask the agent something..." onkeydown="if(event.key==='Enter')sm()" autocomplete="off" /><button id="sb" onclick="sm()">Send</button></div>
-            </section>
-            <aside class="side">
-              <div class="side-sec"><h3>🛠️ Available Tools</h3><p class="side-hint">The agent <strong>decides</strong> when to use tools.</p>
-                <div class="tc on" id="tc0"><div class="tc-h"><span>🗓️</span><span class="tc-n">get_current_date</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Gets the current date and time.</div></div>
-                <div class="tc on" id="tc1"><div class="tc-h"><span>🌤️</span><span class="tc-n">get_charlotte_weather</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Live weather and 3-day forecast for Charlotte, NC.</div></div>
-                <div class="tc on" id="tc2"><div class="tc-h"><span>🎲</span><span class="tc-n">get_random_fact</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Returns a random fun fact.</div></div>
-                <div class="tc on" id="tc3"><div class="tc-h"><span>🧁</span><span class="tc-n">get_charlotte_cinnamon_roll_rankings</span><span style="margin-left:auto;color:var(--success);font-size:.72rem;font-weight:600">ON</span></div><div class="tc-d">Segun's cinnamon roll rankings for Charlotte.</div></div>
-              </div>
-              <div class="side-sec"><h3>🧠 Agent Reasoning</h3><p class="side-hint">Watch the decision-making process.</p><div id="rp" class="rpanel"><div class="rempty">Send a message to see the agent think!</div></div></div>
-            </aside>
-          </main>
-        </div>
-        <script>
-          const API="https://agentic-ai-playground.vercel.app",TOOLS=["get_current_date","get_charlotte_weather","get_random_fact","get_charlotte_cinnamon_roll_rankings"];const TM={get_current_date:"tc0",get_charlotte_weather:"tc1",get_random_fact:"tc2",get_charlotte_cinnamon_roll_rankings:"tc3"};let wk="",hist=[],busy=false,trusted=false;function unlock(){document.getElementById("km").style.display="none";document.getElementById("app").style.display="block"}(async function(){const s=localStorage.getItem("wk");if(s){wk=s;unlock();return}try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:"ping"}],enabledTools:[]})});if(r.ok||r.status!==401){trusted=true;unlock()}}catch(e){}}());
-          function sk(){const v=document.getElementById("ki").value.trim();if(!v){document.getElementById("ke").textContent="Please enter a key.";document.getElementById("ke").style.display="block";return}wk=v;try{localStorage.setItem("wk",v)}catch(e){}unlock();document.getElementById("ci").focus()}
-          function am(r,t){const c=document.getElementById("msgs"),d=document.createElement("div");d.className="msg "+r;const a=document.createElement("div");a.className="msg-av";a.textContent=r==="user"?"You":"🤖";const b=document.createElement("div");b.className="msg-body";b.innerHTML="<p>"+t.replace(/\n/g,"</p><p>")+"</p>";d.appendChild(a);d.appendChild(b);c.appendChild(d);c.scrollTop=c.scrollHeight}
-          function sl(v){busy=v;document.getElementById("sb").disabled=v;document.getElementById("ci").disabled=v;document.getElementById("sb").textContent=v?"...":"Send";const s=document.getElementById("st");s.textContent=v?"Thinking...":"Ready";s.className=v?"badge badge-status loading":"badge badge-status"}
-          function cr(){document.getElementById("rp").innerHTML=""}
-          function ar(t,l,d){const p=document.getElementById("rp");if(p.querySelector(".rempty"))p.innerHTML="";const s=document.createElement("div");s.className="rstep "+t;s.innerHTML='<span class="sl">'+l+"</span>"+(d?'<span class="sd">'+d+"</span>":"");p.appendChild(s);p.scrollTop=p.scrollHeight}
-          function hl(n){const c=document.getElementById(TM[n]);if(c){c.classList.add("hl");setTimeout(()=>c.classList.remove("hl"),3000)}}
-          async function sm(){const i=document.getElementById("ci"),t=i.value.trim();if(!t||busy)return;am("user",t);i.value="";hist.push({role:"user",content:t});sl(true);cr();ar("thinking","🤔 Thinking","Processing your message...");try{const r=await fetch(API+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json","X-Workshop-Key":wk},body:JSON.stringify({messages:hist,enabledTools:TOOLS,workshopKey:wk})});if(r.status===401){am("assistant","⚠️ Invalid workshop key.");sl(false);return}if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();cr();if(d.reasoning)for(const s of d.reasoning){if(s.type==="thinking")ar("thinking","🤔 Thinking",s.content);else if(s.type==="tool_call"){ar("tool-call","🔧 Calling: "+s.tool,s.args&&Object.keys(s.args).length?JSON.stringify(s.args):"()");hl(s.tool)}else if(s.type==="tool_result")ar("tool-result","📋 Result from "+s.tool,JSON.stringify(s.result).slice(0,200));else if(s.type==="response")ar("response","💬 Response",s.content?.slice(0,100)+"...")}am("assistant",d.response);hist.push({role:"assistant",content:d.response})}catch(e){am("assistant","⚠️ Error: "+e.message);ar("response","❌ Error",e.message)}sl(false)}
-        </script>
-      </body>
+
       </html>
 units:
   - unit1/index.yml

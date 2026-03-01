@@ -1,15 +1,23 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
-title: "What Are Tools?"
-content: |
+title: What Are Tools?
+content: >
   ## Tools Give AI Superpowers
 
-  **Tools** are functions that an AI can *choose* to call  - just like you might pick up a calculator for math.
 
-  The key word is **choose**. You don't tell it which tool to use. *It decides.* That autonomy is what makes it an **agent**.
+  **Tools** are functions that an AI can *choose* to call  - just like you might
+  pick up a calculator for math.
+
+
+  The key word is **choose**. You don't tell it which tool to use. *It decides.*
+  That autonomy is what makes it an **agent**.
+
 
   On the next page, the AI now has **one tool**: `get_current_date`.
 
-  👉 Ask it *"What is today's date?"* again. Watch the **Agent Reasoning** panel on the right  - you'll see the tool-calling loop in action.
+
+  👉 Ask it *"What is today's date?"* again. Watch the **Agent Reasoning** panel
+  on the right  - you'll see the tool-calling loop in action.
+
 
   Also try: *"Tell me a joke."*  - does it use the tool for that?
