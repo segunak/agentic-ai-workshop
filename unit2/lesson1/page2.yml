@@ -19,5 +19,3 @@ dependsOn:
   - unit1:lesson1:page1
 editors:
   - course1/playground-lab1.html
-hiddenEditors:
-  - course1/playground-lab1.html

@@ -1,6 +1,0 @@
-{
-  "workbench.editorAssociations": {
-    "*.html": "simpleBrowser.show"
-  },
-  "workbench.editor.enablePreview": true
-}
