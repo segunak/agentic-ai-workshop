@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: page1
+title: "What is Agentic AI?"
+content: |
+  ## Welcome to the Agent Playground
+
+  In this workshop, you'll interact with a real AI agent and discover what makes it different from a regular chatbot. No coding required.
+
+  **Generative AI** creates content when you ask, then stops. You prompt, it responds, done. **Agentic AI** makes decisions and takes actions on its own. It uses **tools in a loop** to achieve a goal.
+
+  > "An LLM agent runs tools in a loop to achieve a goal." - Simon Willison
+
+  **Tools** are functions the AI can call. **Loop** means it can call them multiple times, feeding results back in. **Goal** means there's a stopping condition. A chatbot just predicts the next word. An agent *does things*.
+
+  You're about to see this in action.
+questionGroups:
+  - questions:
+      - id: "1"
+        type: choice
+        content: "A user asks an AI to summarize a report. It reads the report, gives a summary, and stops. What kind of AI is this?"
+        options:
+          - id: a
+            value: "Generative AI"
+            isCorrect: true
+            explanation: "It only responds when prompted and stops after. Classic Generative AI."
+          - id: b
+            value: "Agentic AI"
+            isCorrect: false
+            incorrectExplanation: "Agentic AI would act autonomously, not just respond to a prompt."
+          - id: c
+            value: "Neither"
+            isCorrect: false
+            incorrectExplanation: "It is AI. It's generating content. It's just not agentic."

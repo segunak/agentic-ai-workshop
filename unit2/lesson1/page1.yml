@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: page1
+title: "Instructions"
+content: |
+  ## Lab 1: The Chatbot (No Tools)
+
+  On the next page, you'll open the **Agent Playground**  - a chat interface connected to an AI model.
+
+  Right now, the AI has **no tools**. It can only answer from what it memorized during training.
+
+  👉 **Try asking it:** *"What is today's date?"*
+
+  Pay attention to what it says. Is the answer correct?
+
+  ⚠️ You'll need the **workshop key** displayed on the projector screen.

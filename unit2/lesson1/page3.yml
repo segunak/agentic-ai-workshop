@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: page3
+title: "What Did You Notice?"
+content: |
+  ## Reflection
+
+  You just chatted with an AI that had **no tools**  - just its training data.
+questionGroups:
+  - questions:
+      - id: "1"
+        type: choice
+        content: "When you asked for today's date, what happened?"
+        options:
+          - id: a
+            value: "It gave the correct date"
+            isCorrect: false
+            incorrectExplanation: "Without a tool to check the real date, the model can only guess from training data."
+          - id: b
+            value: "It guessed or made up a date"
+            isCorrect: true
+            explanation: "Exactly! Without a date tool, it can only hallucinate  - guess based on training data."
+          - id: c
+            value: "It refused to answer"
+            isCorrect: false
+            incorrectExplanation: "Most models will try to answer, even if they have to guess."
+      - id: "2"
+        type: choice
+        content: "Why couldn't it give you the real date?"
+        options:
+          - id: a
+            value: "It's broken"
+            isCorrect: false
+            incorrectExplanation: "It's working as designed  - it just doesn't have access to real-time information."
+          - id: b
+            value: "It only knows what was in its training data"
+            isCorrect: true
+            explanation: "Right! LLMs are trained on data up to a cutoff date. They can't access live information without tools."
+          - id: c
+            value: "It chose not to tell me"
+            isCorrect: false
+            incorrectExplanation: "It genuinely doesn't know  - it's not withholding information."
+      - id: "3"
+        type: reflection
+        content: "Is this AI an 'agent' right now? Why or why not?"

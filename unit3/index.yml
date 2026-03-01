@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: unit3
+title: "Lab 2  - Give It a Tool"
+lessons:
+  - lesson1/index.yml

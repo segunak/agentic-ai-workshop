@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: page1
+title: "Decoding the Acronyms"
+content: |
+  ## You Just Experienced These Concepts
+
+  Everything you did in the labs maps to real AI terminology:
+
+  - **RAG** (Retrieval-Augmented Generation) - When the agent fetched live weather data or fun facts and used those results to answer you. That's the RAG pattern: look it up, add it to context, answer with it.
+
+  - **MCP** (Model Context Protocol) - The standardized way tools connect to AI. Like USB-C for AI. The tool definitions the agent used are a simplified version of this idea.
+
+  - **RLHF** (Reinforcement Learning from Human Feedback) - How models like GPT improve over time from human ratings. The model you used today was shaped by millions of human evaluations.
+
+  - **Context Window** - The conversation history the agent remembered between your messages. That's its working memory.
+questionGroups:
+  - questions:
+      - id: "1"
+        type: multiple
+        content: "Which of these did your agent demonstrate today? (Select all that apply)"
+        options:
+          - id: a
+            value: "Autonomous tool selection"
+            isCorrect: true
+            explanation: "The agent chose which tools to call on its own."
+          - id: b
+            value: "Multi-step reasoning"
+            isCorrect: true
+            explanation: "It chained multiple tool calls to answer complex questions."
+          - id: c
+            value: "Retrieving external data to augment responses"
+            isCorrect: true
+            explanation: "It fetched live weather and fun facts to augment its answers - that's the RAG pattern in action."
+          - id: d
+            value: "Replacing human workers"
+            isCorrect: false
+            incorrectExplanation: "Agents assist and augment - they don't replace human expertise."

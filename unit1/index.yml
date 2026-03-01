@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: unit1
+title: "What is Agentic AI?"
+lessons:
+  - lesson1/index.yml

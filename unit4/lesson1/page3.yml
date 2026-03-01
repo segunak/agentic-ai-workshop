@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: page3
+title: "Putting It Together"
+content: |
+  ## Multi-Tool Orchestration
+
+  You just watched an agent **chain multiple tool calls** to answer a single question. It decided the order, picked the tools, and synthesized everything into one response.
+
+  That's orchestration  - and it happened autonomously.
+questionGroups:
+  - questions:
+      - id: "1"
+        type: choice
+        content: "When the agent used multiple tools, who decided the order?"
+        options:
+          - id: a
+            value: "I did"
+            isCorrect: false
+            incorrectExplanation: "You only asked a question. The agent planned and sequenced the tool calls."
+          - id: b
+            value: "The agent decided"
+            isCorrect: true
+            explanation: "Correct! The agent autonomously planned which tools to call and in what order."
+          - id: c
+            value: "It was random"
+            isCorrect: false
+            incorrectExplanation: "The agent reasoned about which tools were relevant  - it wasn't random."
+      - id: "2"
+        type: choice
+        content: "A system answers questions about sales using real-time data AND monitors trends 24/7 to alert managers. What is it?"
+        options:
+          - id: a
+            value: "Generative AI"
+            isCorrect: false
+            incorrectExplanation: "Answering questions is generative, but the autonomous monitoring is agentic."
+          - id: b
+            value: "Agentic AI"
+            isCorrect: false
+            incorrectExplanation: "It does have agentic behavior, but it also generates answers  - it's both."
+          - id: c
+            value: "Both"
+            isCorrect: true
+            explanation: "Correct! Answering questions = Generative. Autonomous monitoring = Agentic. It's both."
+          - id: d
+            value: "Neither"
+            isCorrect: false
+            incorrectExplanation: "This uses AI for both generation and autonomous action."
+      - id: "3"
+        type: choice
+        content: "What is the core definition of an AI agent?"
+        options:
+          - id: a
+            value: "An AI that chats with users"
+            isCorrect: false
+            incorrectExplanation: "That's a chatbot. Agents do more  - they use tools autonomously."
+          - id: b
+            value: "An LLM that runs tools in a loop to achieve a goal"
+            isCorrect: true
+            explanation: "That's the definition! Tools + loop + goal = agent."
+          - id: c
+            value: "A robot that replaces human workers"
+            isCorrect: false
+            incorrectExplanation: "That's a common misconception. Agents are software patterns, not replacements."
+          - id: d
+            value: "Any AI system made by a big tech company"
+            isCorrect: false
+            incorrectExplanation: "Anyone can build an agent  - it's a pattern, not a brand."
