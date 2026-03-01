@@ -1,51 +1,45 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
 title: Decoding the Acronyms
-content: >
+content: |
   ## You Just Experienced These Concepts
 
+  Everything you did in the labs maps to real AI terminology. Here's your cheat sheet.
 
-  Everything you did in the labs maps to real AI terminology:
+  **GPT** ([Generative Pre-trained Transformer](https://en.wikipedia.org/wiki/Generative_pre-trained_transformer)) - The architecture behind models like [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT). Generative means it creates text. Pre-trained means it learned from massive amounts of data before you ever used it. Transformer is the type of neural network that makes it work.
 
+  **LLM** ([Large Language Model](https://en.wikipedia.org/wiki/Large_language_model)) - The broad category for AI models trained on huge amounts of text. GPT is one example. [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)), and [Llama](https://en.wikipedia.org/wiki/Llama_(language_model)) are others.
 
-  - **RAG** (Retrieval-Augmented Generation) - When the agent fetched live
-  weather data or fun facts and used those results to answer you. That's the RAG
-  pattern: look it up, add it to context, answer with it.
+  **NLP** ([Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing)) - The field of AI that lets computers understand human language, whether written, spoken, or even emojis. It's been around since the 1950s but got dramatically better in 2017 when [Google](https://en.wikipedia.org/wiki/Google) invented a new approach called the [Transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)), which is the "T" in GPT.
 
+  **Context and Context Window** - Context is the conversation history and information the AI uses to understand what you mean. The context window is how much it can hold at once, like short-term memory. Larger context windows let AI handle longer conversations and bigger documents.
 
-  - **MCP** (Model Context Protocol) - The standardized way tools connect to AI.
-  Like USB-C for AI. The tool definitions the agent used are a simplified
-  version of this idea.
+  **RAG** ([Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) - When the agent fetched live weather data or fun facts and used those results to answer you. That's RAG: look it up, add it to context, answer with it. It lets AI go beyond its training data.
 
+  **MCP** ([Model Context Protocol](https://en.wikipedia.org/wiki/Model_Context_Protocol)) - A standard way for tools to connect to AI. Think of it like USB-C for AI. One standard connector instead of custom integrations for every tool. Created by [Anthropic](https://en.wikipedia.org/wiki/Anthropic) and now widely adopted.
 
-  - **RLHF** (Reinforcement Learning from Human Feedback) - How models like GPT
-  improve over time from human ratings. The model you used today was shaped by
-  millions of human evaluations.
+  **RLHF** ([Reinforcement Learning from Human Feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)) - How models get better over time. Humans rate AI outputs, and the model learns from those ratings to be more helpful and less harmful. It's a big part of why [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT) improved so quickly after launch.
 
-
-  - **Context Window** - The conversation history the agent remembered between
-  your messages. That's its working memory.
+  **GANs** ([Generative Adversarial Networks](https://en.wikipedia.org/wiki/Generative_adversarial_network)) - Two AIs competing against each other. One creates fake content, the other tries to detect it. Through this competition, both improve. Invented by [Ian Goodfellow](https://en.wikipedia.org/wiki/Ian_Goodfellow) in 2014.
 questionGroups:
-  - id: ""
-    questions:
+  - questions:
       - id: "1"
         type: multiple
-        content: Which of these did your agent demonstrate today? (Select all that
-          apply)
+        content: "Which of these did your agent demonstrate today? (Select all that apply)"
         options:
           - id: a
-            value: Autonomous tool selection
-            explanation: The agent chose which tools to call on its own.
+            value: "Autonomous tool selection"
             isCorrect: true
+            explanation: "The agent chose which tools to call on its own."
           - id: b
-            value: Multi-step reasoning
-            explanation: It chained multiple tool calls to answer complex questions.
+            value: "Multi-step reasoning"
             isCorrect: true
+            explanation: "It chained multiple tool calls to answer complex questions."
           - id: c
-            value: Retrieving external data to augment responses
-            explanation: It fetched live weather and fun facts to augment its answers -
-              that's the RAG pattern in action.
+            value: "Retrieving external data to augment responses"
             isCorrect: true
+            explanation: "It fetched live weather and fun facts to augment its answers. That's the RAG pattern in action."
           - id: d
-            value: Replacing human workers
-            incorrectExplanation: Agents assist and augment - they don't replace human expertise.
+            value: "Replacing human workers"
+            isCorrect: false
+            incorrectExplanation: "Agents assist and augment. They don't replace human expertise."

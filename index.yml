@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: course1
 title: "Agentic AI: From Acronyms to Applications"
-duration: 30
-level: beginner
+duration: 40
+level: intermediate
 description: Interact with a real AI agent, toggle its tools on and off, and
   discover what makes Agentic AI different from a regular chatbot.
 objectives: Distinguish Generative AI from Agentic AI. Experience autonomous
@@ -11,6 +11,7 @@ prerequisites: No coding experience required. Just a laptop and a Microsoft acco
 cardImageUrl: https://vscodeedu.com/assets/course-cards/card8.png
 contacts:
   - displayName: Segun Akinyemi
+    pictureUrl: https://avatars.githubusercontent.com/u/16299574?v=4
     homePageUrl: https://segunakinyemi.com
 files:
   - path: course1/playground-lab2.html

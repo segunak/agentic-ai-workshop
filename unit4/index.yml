@@ -1,5 +1,7 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: unit4
 title: Lab 3  - Multi-Tool Agent
+description: Enable all four tools and watch the agent chain them together to answer complex questions.
+objectives: Observe multi-tool orchestration. See the agent plan and sequence tool calls on its own.
 lessons:
   - lesson1/index.yml
