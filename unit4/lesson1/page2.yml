@@ -13,7 +13,7 @@ content: |
   - "What's the weather like and where should I get cinnamon rolls?"
   - "Tell me something interesting"
 
-  Watch the reasoning panel. The agent may chain multiple tools in a single response. Notice which tools it picks and which it skips.
+  Watch the tool cards in the chat. The agent may chain multiple tools in a single response. Notice which tools it picks and which it skips.
 showEditor: true
 dependsOn:
   - unit3:lesson1:page3

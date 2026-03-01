@@ -12,7 +12,7 @@ content: |
   - "What's the weather in Charlotte right now?" (same question as Lab 1!)
   - "Who won the last Super Bowl?" (does it use the weather tool for this?)
 
-  Watch the **Agent Reasoning** panel on the right. You'll see when the agent decides to call a tool and what it gets back.
+  Watch for the blue **tool cards** that appear in the chat. You'll see when the agent decides to call a tool and when it gets results back.
 showEditor: true
 dependsOn:
   - unit2:lesson1:page3

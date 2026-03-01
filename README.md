@@ -34,12 +34,12 @@ Students interact with the Agent Playground with **no tools enabled**. The AI ca
 
 ### Unit 3: Lab 2 - Give It a Tool
 
-The `get_current_date` tool is now enabled. Students ask the same date question and watch the reasoning panel light up as the agent autonomously calls the tool. This is the moment it becomes an agent.
+The `get_charlotte_weather` tool is now enabled. Students ask the same weather question from Lab 1 and watch the tool cards appear as the agent autonomously fetches live data. This is the moment it becomes an agent.
 
 | Page | Title | Type |
 |------|-------|------|
 | 1 | What Are Tools? | Content |
-| 2 | Agent Playground | Embedded HTML (date tool) |
+| 2 | Agent Playground | Embedded HTML (weather tool) |
 | 3 | The Agent in Action | Quiz |
 
 ### Unit 4: Lab 3 - Multi-Tool Agent
