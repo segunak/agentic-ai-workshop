@@ -1,22 +1,31 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
 title: Agent Playground
-content: |
+content: >
   ## Lab 3: All Tools Enabled
+
 
   **Click the green play button (top right) to load the Agent Playground.**
 
-  The AI now has four tools: weather, people in space, earthquakes, and cinnamon roll rankings. You can toggle tools on and off using the checkboxes!
+
+  The AI now has four tools: weather, people in space, earthquakes, and cinnamon
+  roll rankings. You can toggle tools on and off using the checkboxes!
+
 
   Run these prompts in order:
 
-  1. `I'm visiting Charlotte for a data conference. What should I know?`
-  2. `Who is currently in space and have there been any earthquakes this week?`
-  3. `What's the weather, any earthquake news, and where should I get cinnamon rolls?`
 
-  Now try toggling tools on and off using the checkboxes, then ask the same question again. Watch how the agent adapts! Get creative with your own questions.
+  1. `I'm visiting Charlotte for a data conference. What should I know?`
+
+  2. `Who is currently in space and have there been any earthquakes this week?`
+
+  3. `What's the weather, any earthquake news, and where should I get cinnamon
+  rolls?`
+
+
+  Now try toggling tools on and off using the checkboxes, then ask the same
+  question again. Watch how the agent adapts! Get creative with your own
+  questions.
 showEditor: true
-dependsOn:
-  - unit3:lesson1:page3
 editors:
   - course1/playground-lab3.html

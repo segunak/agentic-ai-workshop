@@ -3,6 +3,7 @@ id: unit3
 title: Lab 2  - Give It a Tool
 duration: 7
 description: Enable a single tool and watch the AI decide on its own to use it.
-objectives: See autonomous tool-calling in action. Understand that the agent chooses when to use a tool, not you.
+objectives: See autonomous tool-calling in action. Understand that the agent
+  chooses when to use a tool, not you.
 lessons:
   - lesson1/index.yml

@@ -5,20 +5,25 @@ content: >
   ## Four Tools, One Agent
 
 
-  Real agents have access to many tools and **choose between them** - or **chain
+  Real agents have access to many tools and **choose between them**, or **chain
   several** in sequence.
 
 
   You now have four tools:
 
-  - 🌤️ **get_charlotte_weather** - live weather and forecast for Charlotte, NC
 
-  - 🚀 **get_people_in_space** - who is currently in space right now
+  * 🌤️ **get\_charlotte\_weather** - live weather and forecast for Charlotte,
+  NC
 
-  - 🌍 **get_recent_earthquakes** - significant earthquakes from the past week
 
-  - � **get_charlotte_cinnamon_roll_rankings** - Segun's cinnamon roll rankings
-  for Charlotte, NC
+  * 🚀 **get\_people\_in\_space** - who is currently in space right now
+
+
+  * 🌍 **get\_recent\_earthquakes** - significant earthquakes from the past week
+
+
+  * � **get\_charlotte\_cinnamon\_roll\_rankings** - Segun's cinnamon roll
+  rankings for Charlotte, NC
 
 
   👉 Try: *"I'm visiting Charlotte for a data science conference - any tips?"*
@@ -28,4 +33,5 @@ content: >
   tool? Two? All four? **You don't decide - the agent does.**
 
 
-  **On the next page, click the green play button (top right) to load the Agent Playground.**
+  **On the next page, click the green play button (top right) to load the Agent
+  Playground.**

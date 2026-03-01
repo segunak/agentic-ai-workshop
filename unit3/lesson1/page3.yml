@@ -1,59 +1,66 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page3
 title: The Agent in Action
-dependsOn:
-  - unit3:lesson1:page2
-content: |
+content: >
   ## What Just Happened?
 
-  The AI **autonomously decided** to call `get_charlotte_weather` when you asked about weather. Nobody told it to. That decision is **agency**.
 
-  When you asked a question the weather tool couldn't help with, it answered from training data instead. It made a judgment call about which tool was relevant.
+  The AI **autonomously decided** to call `get_charlotte_weather` when you asked
+  about weather. Nobody told it to. That decision is **agency**.
+
+
+  When you asked a question the weather tool couldn't help with, it answered
+  from training data instead. It made a judgment call about which tool was
+  relevant.
 questionGroups:
   - id: "1"
-    content: "Think about what you observed in the chat - the Thinking section and tool cards."
+    content: Think about what you observed in the chat - the Thinking section and
+      tool cards.
     questions:
       - id: "1"
         type: choice
-        content: "Did YOU tell the agent to use the weather tool?"
+        content: Did YOU tell the agent to use the weather tool?
         options:
           - id: a
-            value: "Yes, I told it"
-            isCorrect: false
-            incorrectExplanation: "You only asked a question. The agent decided on its own to call the tool."
+            value: Yes, I told it
+            incorrectExplanation: You only asked a question. The agent decided on its own to
+              call the tool.
           - id: b
-            value: "No, it decided on its own"
+            value: No, it decided on its own
+            explanation: That's right! The agent autonomously chose to use the tool. That's
+              what makes it agentic.
             isCorrect: true
-            explanation: "That's right! The agent autonomously chose to use the tool. That's what makes it agentic."
   - id: "2"
     questions:
       - id: "1"
         type: choice
-        content: "When you asked a question the weather tool couldn't help with, did it use the tool anyway?"
+        content: When you asked a question the weather tool couldn't help with, did it
+          use the tool anyway?
         options:
           - id: a
-            value: "Yes"
-            isCorrect: false
-            incorrectExplanation: "The agent knew the tool wasn't relevant to that question and skipped it."
+            value: Yes
+            incorrectExplanation: The agent knew the tool wasn't relevant to that question
+              and skipped it.
           - id: b
-            value: "No, it knew that question didn't need the weather tool"
+            value: No, it knew that question didn't need the weather tool
+            explanation: Correct! The agent reasoned about which tool was relevant and only
+              used it when appropriate.
             isCorrect: true
-            explanation: "Correct! The agent reasoned about which tool was relevant and only used it when appropriate."
   - id: "3"
     questions:
       - id: "1"
         type: choice
-        content: "A system monitors meetings and automatically creates action items without being asked. What kind of AI behavior is this?"
+        content: A system monitors meetings and automatically creates action items
+          without being asked. What kind of AI behavior is this?
         options:
           - id: a
-            value: "Generative AI"
-            isCorrect: false
-            incorrectExplanation: "Generative AI only responds when prompted. This system acts on its own."
+            value: Generative AI
+            incorrectExplanation: Generative AI only responds when prompted. This system
+              acts on its own.
           - id: b
-            value: "Agentic AI"
+            value: Agentic AI
+            explanation: It acts autonomously without prompting. That's Agentic AI.
             isCorrect: true
-            explanation: "It acts autonomously without prompting. That's Agentic AI."
           - id: c
-            value: "Neither"
-            isCorrect: false
-            incorrectExplanation: "It's using AI to understand meetings and take actions."
+            value: Neither
+            incorrectExplanation: It's using AI to understand meetings and take actions.

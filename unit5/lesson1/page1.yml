@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
 title: Decoding the Acronyms
-dependsOn:
-  - unit4:lesson1:page3
 content: |
   ## You Just Experienced These Concepts
 
@@ -25,31 +23,33 @@ content: |
   **GANs** ([Generative Adversarial Networks](https://en.wikipedia.org/wiki/Generative_adversarial_network)) - Two AIs competing against each other. One creates fake content, the other tries to detect it. Through this competition, both improve. Invented by [Ian Goodfellow](https://en.wikipedia.org/wiki/Ian_Goodfellow) in 2014.
 questionGroups:
   - id: "1"
-    content: "Think about what you experienced across all three labs."
+    content: Think about what you experienced across all three labs.
     questions:
       - id: "1"
         type: multiple
-        content: "Which of these did your agent demonstrate today? (Select all that apply)"
+        content: Which of these did your agent demonstrate today? (Select all that
+          apply)
         options:
           - id: a
-            value: "Autonomous tool selection"
+            value: Autonomous tool selection
+            explanation: The agent chose which tools to call on its own.
             isCorrect: true
-            explanation: "The agent chose which tools to call on its own."
           - id: b
-            value: "Multi-step reasoning"
+            value: Multi-step reasoning
+            explanation: It chained multiple tool calls to answer complex questions.
             isCorrect: true
-            explanation: "It chained multiple tool calls to answer complex questions."
           - id: c
-            value: "Retrieving external data to augment responses"
+            value: Retrieving external data to augment responses
+            explanation: It fetched live weather, space crew data, and earthquake reports to
+              augment its answers. That's the RAG pattern in action.
             isCorrect: true
-            explanation: "It fetched live weather, space crew data, and earthquake reports to augment its answers. That's the RAG pattern in action."
           - id: d
-            value: "Replacing human workers"
-            isCorrect: false
-            incorrectExplanation: "Agents assist and augment. They don't replace human expertise."
+            value: Replacing human workers
+            incorrectExplanation: Agents assist and augment. They don't replace human expertise.
   - id: "2"
     questions:
       - id: "1"
         type: reflection
-        content: "After everything you've seen and learned today, how would you explain the difference between Generative AI and Agentic AI to a friend, classmate, or coworker?"
-        options: []
+        content: After everything you've seen and learned today, how would you explain
+          the difference between Generative AI and Agentic AI to a friend,
+          classmate, or coworker?

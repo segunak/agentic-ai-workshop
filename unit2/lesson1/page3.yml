@@ -1,53 +1,53 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page3
 title: What Did You Notice?
-dependsOn:
-  - unit2:lesson1:page2
 content: |
   ## Reflection
 
   You just chatted with an AI that had **no tools**, just its training data.
 questionGroups:
   - id: "1"
-    content: "Think back to what happened in the playground."
+    content: Think back to what happened in the playground.
     questions:
       - id: "1"
         type: choice
-        content: "When you asked about something that requires real-time or very recent information, what happened?"
+        content: When you asked about something that requires real-time or very recent
+          information, what happened?
         options:
           - id: a
-            value: "It gave me accurate, current information"
-            isCorrect: false
-            incorrectExplanation: "Without tools, the model has no way to access live data or events after its training cutoff."
+            value: It gave me accurate, current information
+            incorrectExplanation: Without tools, the model has no way to access live data or
+              events after its training cutoff.
           - id: b
-            value: "It couldn't give a real answer, or it hedged and gave general info"
+            value: It couldn't give a real answer, or it hedged and gave general info
+            explanation: Exactly! Without tools, it can only offer general knowledge from
+              training. No live data, no recent events.
             isCorrect: true
-            explanation: "Exactly! Without tools, it can only offer general knowledge from training. No live data, no recent events."
           - id: c
-            value: "It refused to answer"
-            isCorrect: false
-            incorrectExplanation: "It probably tried to help with general climate info, but couldn't give real-time data."
+            value: It refused to answer
+            incorrectExplanation: It probably tried to help with general climate info, but
+              couldn't give real-time data.
   - id: "2"
     questions:
       - id: "1"
         type: choice
-        content: "Why couldn't it accurately answer questions about recent events or real-time information?"
+        content: Why couldn't it accurately answer questions about recent events or
+          real-time information?
         options:
           - id: a
-            value: "It's broken"
-            isCorrect: false
-            incorrectExplanation: "It's working as designed. It just doesn't have access to information after its training cutoff."
+            value: It's broken
+            incorrectExplanation: It's working as designed. It just doesn't have access to
+              information after its training cutoff.
           - id: b
-            value: "It only knows what was in its training data"
+            value: It only knows what was in its training data
+            explanation: Right! LLMs are trained on data up to a cutoff date. Anything after
+              that, they genuinely don't know without tools.
             isCorrect: true
-            explanation: "Right! LLMs are trained on data up to a cutoff date. Anything after that, they genuinely don't know without tools."
           - id: c
-            value: "It chose not to tell me"
-            isCorrect: false
-            incorrectExplanation: "It genuinely doesn't know. It's not withholding information."
+            value: It chose not to tell me
+            incorrectExplanation: It genuinely doesn't know. It's not withholding information.
   - id: "3"
     questions:
       - id: "1"
         type: reflection
-        content: "Is this AI an 'agent' right now? Why or why not?"
-        options: []
+        content: Is this AI an 'agent' right now? Why or why not?

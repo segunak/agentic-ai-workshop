@@ -27,59 +27,64 @@ content: |
   You're about to see this in action.
 questionGroups:
   - id: "1"
-    content: "Based on what you just read, classify these scenarios."
+    content: Based on what you just read, classify these scenarios.
     questions:
       - id: "1"
         type: choice
-        content: "You paste a paragraph into a chatbot and ask it to rewrite it in a more professional tone. It rewrites it and stops. What kind of AI behavior is this?"
+        content: You paste a paragraph into a chatbot and ask it to rewrite it in a more
+          professional tone. It rewrites it and stops. What kind of AI behavior
+          is this?
         options:
           - id: a
-            value: "Generative AI"
+            value: Generative AI
+            explanation: It responded to a prompt and stopped. No tools, no planning, no
+              autonomy. That's Generative AI.
             isCorrect: true
-            explanation: "It responded to a prompt and stopped. No tools, no planning, no autonomy. That's Generative AI."
           - id: b
-            value: "Agentic AI"
-            isCorrect: false
-            incorrectExplanation: "Agentic AI would use tools to get the job done. This system just generated text and stopped."
+            value: Agentic AI
+            incorrectExplanation: Agentic AI would use tools to get the job done. This
+              system just generated text and stopped.
           - id: c
-            value: "Neither"
-            isCorrect: false
-            incorrectExplanation: "It is AI. It's generating content. It's just not agentic."
+            value: Neither
+            incorrectExplanation: It is AI. It's generating content. It's just not agentic.
   - id: "2"
     questions:
       - id: "1"
         type: choice
-        content: "A system monitors your meetings, creates action items without being asked, and schedules follow-ups on its own. What kind of AI behavior is this?"
-        hint: "Think about whether someone prompted it or it acted on its own."
+        content: A system monitors your meetings, creates action items without being
+          asked, and schedules follow-ups on its own. What kind of AI behavior
+          is this?
+        hint: Think about whether someone prompted it or it acted on its own.
         options:
           - id: a
-            value: "Generative AI"
-            isCorrect: false
-            incorrectExplanation: "Generative AI only responds when prompted. This system acts without being asked."
+            value: Generative AI
+            incorrectExplanation: Generative AI only responds when prompted. This system
+              acts without being asked.
           - id: b
-            value: "Agentic AI"
+            value: Agentic AI
+            explanation: It acts on its own without being asked, plans next steps, and takes
+              actions. That's Agentic AI.
             isCorrect: true
-            explanation: "It acts on its own without being asked, plans next steps, and takes actions. That's Agentic AI."
           - id: c
-            value: "Neither"
-            isCorrect: false
-            incorrectExplanation: "It uses AI to understand language and take actions. Definitely AI."
+            value: Neither
+            incorrectExplanation: It uses AI to understand language and take actions. Definitely AI.
   - id: "3"
     questions:
       - id: "1"
         type: choice
-        content: "A script runs every night at 2 AM, copies data to backup storage, sends a notification, same steps every time. What is this?"
-        hint: "Is there any AI involved at all?"
+        content: A script runs every night at 2 AM, copies data to backup storage, sends
+          a notification, same steps every time. What is this?
+        hint: Is there any AI involved at all?
         options:
           - id: a
-            value: "Generative AI"
-            isCorrect: false
-            incorrectExplanation: "It's not generating any content. Just following preset rules."
+            value: Generative AI
+            incorrectExplanation: It's not generating any content. Just following preset rules.
           - id: b
-            value: "Agentic AI"
-            isCorrect: false
-            incorrectExplanation: "There's no decision-making or reasoning. It runs the same steps every time."
+            value: Agentic AI
+            incorrectExplanation: There's no decision-making or reasoning. It runs the same
+              steps every time.
           - id: c
-            value: "Neither - traditional automation"
+            value: Neither - traditional automation
+            explanation: No AI involved. Just a scheduled script following preset rules. Not
+              everything needs AI!
             isCorrect: true
-            explanation: "No AI involved. Just a scheduled script following preset rules. Not everything needs AI!"

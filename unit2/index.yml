@@ -2,7 +2,9 @@
 id: unit2
 title: Lab 1  - Meet the Chatbot
 duration: 5
-description: Chat with an AI that has no tools. See what happens when it can only rely on training data.
-objectives: Experience a model's limitations without tools. Observe how it handles questions about real-time information.
+description: Chat with an AI that has no tools. See what happens when it can
+  only rely on training data.
+objectives: Experience a model's limitations without tools. Observe how it
+  handles questions about real-time information.
 lessons:
   - lesson1/index.yml

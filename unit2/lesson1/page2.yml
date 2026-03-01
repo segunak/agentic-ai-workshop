@@ -1,24 +1,32 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
 title: Agent Playground
-content: |
+content: >
   ## Lab 1: No Tools
+
 
   **Click the green play button (top right) to load the Agent Playground.**
 
+
   This AI has **no tools**. It can only respond from its training data.
+
 
   Run these prompts in order:
 
+
   1. `What's the weather in Charlotte right now?`
+
   2. `Who is in space right now?`
+
   3. `Have there been any major earthquakes this week?`
+
   4. `Who won the last Super Bowl?`
+
   5. `What are Segun Akinyemi's top cinnamon roll spots in Charlotte?`
 
-  Pay attention to its answers. Can it give you real, current information? Now try your own questions that require real-time data and see what happens.
+
+  Pay attention to its answers. Can it give you real, current information? Now
+  try your own questions that require real-time data and see what happens.
 showEditor: true
-dependsOn:
-  - unit1:lesson1:page1
 editors:
   - course1/playground-lab1.html

@@ -3,6 +3,7 @@ id: unit1
 title: What is Agentic AI?
 duration: 2
 description: Learn the difference between Generative AI and Agentic AI, and why it matters.
-objectives: Distinguish generative behavior from agentic behavior. Understand the "tools in a loop" definition of an agent.
+objectives: Distinguish generative behavior from agentic behavior. Understand
+  the "tools in a loop" definition of an agent.
 lessons:
   - lesson1/index.yml

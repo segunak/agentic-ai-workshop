@@ -3,8 +3,10 @@ id: course1
 title: "Agentic AI: From Acronyms to Applications"
 duration: 30
 level: intermediate
-description: Interact with a real AI agent, toggle its tools on and off, and discover what makes Agentic AI different from a regular chatbot.
-objectives: Distinguish Generative AI from Agentic AI. Experience autonomous tool-calling firsthand. Decode acronyms like RAG, MCP, and RLHF.
+description: Interact with a real AI agent, toggle its tools on and off, and
+  discover what makes Agentic AI different from a regular chatbot.
+objectives: Distinguish Generative AI from Agentic AI. Experience autonomous
+  tool-calling firsthand. Decode acronyms like RAG, MCP, and RLHF.
 prerequisites: No coding experience required. Just a laptop and a Microsoft account.
 cardImageUrl: https://vscodeedu.com/assets/course-cards/card8.png
 contacts:
@@ -25,7 +27,7 @@ files:
       html,body{height:100%;overflow:hidden}
       body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
       #app{display:flex;flex-direction:column;height:100vh}
-      
+
       /* Header */
       header{padding:10px 14px 8px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
       .left{min-width:0;flex:1}
@@ -41,43 +43,43 @@ files:
       .pill.no-tools{background:rgba(110,118,129,.1);color:#6e7681;border:1px dashed #30363d;font-style:italic;font-weight:400}
       #nb{font-size:11px;padding:6px 16px;border-radius:18px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600;margin-top:2px}
       #nb:hover{background:#8957e5;color:#fff}
-      
+
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
       .hint strong{color:#fff}
-      
+
       /* Messages */
       .msg{max-width:85%;animation:fadeIn .25s ease}
       .msg.u{align-self:flex-end}
       .msg.a{align-self:flex-start;width:85%}
       @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-      
+
       /* Avatar labels */
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
       .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
       .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
       .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
-      
+
       /* Bubbles */
       .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
       .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
       .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
-      
+
       /* Tool call cards */
       .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
       .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
       .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
       .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
       .tc.ok .tn{color:#d2a8ff}
-      
+
       /* Reasoning accordion */
       .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
       .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
       .rz[open] summary{margin-bottom:4px}
       .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
-      
+
       /* Input area */
       #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
       #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
@@ -86,7 +88,7 @@ files:
       #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
       #f button:hover{background:#a371f7}
       #f button:disabled{opacity:.4;cursor:not-allowed}
-      
+
       /* Workshop key modal */
       .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
       .ov.h{display:none}
@@ -98,14 +100,14 @@ files:
       .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
       .ml .bt:hover{background:#a371f7}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
-      
+
       /* Typing indicator */
       .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
       .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
       .typing-dots span:nth-child(2){animation-delay:.15s}
       .typing-dots span:nth-child(3){animation-delay:.3s}
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
-      
+
       /* Lab 3 toggle checkboxes */
       .toggles{display:flex;gap:6px;flex-wrap:wrap}
       .tgl{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
@@ -164,7 +166,7 @@ files:
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('tt').textContent=TITLE;$('hi').innerHTML=HINT;
-      
+
       if(IS_LAB3){
       const wrap=document.createElement('div');wrap.className='toggles';
       AT.forEach(n=>{
@@ -185,7 +187,7 @@ files:
       }
       $('ch').appendChild(wrap);
       }
-      
+
       (async()=>{
       try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
@@ -241,7 +243,7 @@ files:
       html,body{height:100%;overflow:hidden}
       body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
       #app{display:flex;flex-direction:column;height:100vh}
-      
+
       /* Header */
       header{padding:10px 14px 8px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
       .left{min-width:0;flex:1}
@@ -257,43 +259,43 @@ files:
       .pill.no-tools{background:rgba(110,118,129,.1);color:#6e7681;border:1px dashed #30363d;font-style:italic;font-weight:400}
       #nb{font-size:11px;padding:6px 16px;border-radius:18px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600;margin-top:2px}
       #nb:hover{background:#8957e5;color:#fff}
-      
+
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
       .hint strong{color:#fff}
-      
+
       /* Messages */
       .msg{max-width:85%;animation:fadeIn .25s ease}
       .msg.u{align-self:flex-end}
       .msg.a{align-self:flex-start;width:85%}
       @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-      
+
       /* Avatar labels */
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
       .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
       .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
       .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
-      
+
       /* Bubbles */
       .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
       .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
       .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
-      
+
       /* Tool call cards */
       .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
       .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
       .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
       .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
       .tc.ok .tn{color:#d2a8ff}
-      
+
       /* Reasoning accordion */
       .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
       .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
       .rz[open] summary{margin-bottom:4px}
       .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
-      
+
       /* Input area */
       #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
       #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
@@ -302,7 +304,7 @@ files:
       #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
       #f button:hover{background:#a371f7}
       #f button:disabled{opacity:.4;cursor:not-allowed}
-      
+
       /* Workshop key modal */
       .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
       .ov.h{display:none}
@@ -314,14 +316,14 @@ files:
       .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
       .ml .bt:hover{background:#a371f7}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
-      
+
       /* Typing indicator */
       .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
       .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
       .typing-dots span:nth-child(2){animation-delay:.15s}
       .typing-dots span:nth-child(3){animation-delay:.3s}
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
-      
+
       /* Lab 3 toggle checkboxes */
       .toggles{display:flex;gap:6px;flex-wrap:wrap}
       .tgl{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
@@ -380,7 +382,7 @@ files:
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('tt').textContent=TITLE;$('hi').innerHTML=HINT;
-      
+
       if(IS_LAB3){
       const wrap=document.createElement('div');wrap.className='toggles';
       AT.forEach(n=>{
@@ -401,7 +403,7 @@ files:
       }
       $('ch').appendChild(wrap);
       }
-      
+
       (async()=>{
       try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
@@ -457,7 +459,7 @@ files:
       html,body{height:100%;overflow:hidden}
       body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
       #app{display:flex;flex-direction:column;height:100vh}
-      
+
       /* Header */
       header{padding:10px 14px 8px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
       .left{min-width:0;flex:1}
@@ -473,43 +475,43 @@ files:
       .pill.no-tools{background:rgba(110,118,129,.1);color:#6e7681;border:1px dashed #30363d;font-style:italic;font-weight:400}
       #nb{font-size:11px;padding:6px 16px;border-radius:18px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600;margin-top:2px}
       #nb:hover{background:#8957e5;color:#fff}
-      
+
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
       .hint strong{color:#fff}
-      
+
       /* Messages */
       .msg{max-width:85%;animation:fadeIn .25s ease}
       .msg.u{align-self:flex-end}
       .msg.a{align-self:flex-start;width:85%}
       @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-      
+
       /* Avatar labels */
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
       .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
       .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
       .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
-      
+
       /* Bubbles */
       .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
       .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
       .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
-      
+
       /* Tool call cards */
       .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
       .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
       .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
       .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
       .tc.ok .tn{color:#d2a8ff}
-      
+
       /* Reasoning accordion */
       .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
       .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
       .rz[open] summary{margin-bottom:4px}
       .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
-      
+
       /* Input area */
       #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
       #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
@@ -518,7 +520,7 @@ files:
       #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
       #f button:hover{background:#a371f7}
       #f button:disabled{opacity:.4;cursor:not-allowed}
-      
+
       /* Workshop key modal */
       .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
       .ov.h{display:none}
@@ -530,14 +532,14 @@ files:
       .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
       .ml .bt:hover{background:#a371f7}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
-      
+
       /* Typing indicator */
       .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
       .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
       .typing-dots span:nth-child(2){animation-delay:.15s}
       .typing-dots span:nth-child(3){animation-delay:.3s}
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
-      
+
       /* Lab 3 toggle checkboxes */
       .toggles{display:flex;gap:6px;flex-wrap:wrap}
       .tgl{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
@@ -596,7 +598,7 @@ files:
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('tt').textContent=TITLE;$('hi').innerHTML=HINT;
-      
+
       if(IS_LAB3){
       const wrap=document.createElement('div');wrap.className='toggles';
       AT.forEach(n=>{
@@ -617,7 +619,7 @@ files:
       }
       $('ch').appendChild(wrap);
       }
-      
+
       (async()=>{
       try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
