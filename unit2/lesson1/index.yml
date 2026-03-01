@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: lesson1
-title: "What Happens Without Tools?"
+title: What Happens Without Tools?
 lessonParts:
   - page1.yml
   - page2.yml

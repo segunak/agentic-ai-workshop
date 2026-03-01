@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: unit5
-title: "From Acronyms to Applications"
+title: From Acronyms to Applications
 lessons:
   - lesson1/index.yml

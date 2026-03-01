@@ -1,17 +1,28 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
-title: "Multiple Tools, One Agent"
-content: |
+title: Multiple Tools, One Agent
+content: >
   ## Four Tools, One Agent
 
-  Real agents have access to many tools and **choose between them** - or **chain several** in sequence.
+
+  Real agents have access to many tools and **choose between them** - or **chain
+  several** in sequence.
+
 
   You now have four tools:
+
   - 🗓️ **get_current_date** - gets the real date
+
   - 🌤️ **get_charlotte_weather** - live weather and forecast for Charlotte, NC
+
   - 🎲 **get_random_fact** - returns a random fun fact
-  - 🧁 **get_charlotte_cinnamon_roll_rankings** - Segun's cinnamon roll rankings for Charlotte, NC
+
+  - 🧁 **get_charlotte_cinnamon_roll_rankings** - Segun's cinnamon roll rankings
+  for Charlotte, NC
+
 
   👉 Try: *"I'm visiting Charlotte for a data science conference - any tips?"*
 
-  Watch the reasoning panel. Will it use one tool? Two? All four? **You don't decide - the agent does.**
+
+  Watch the reasoning panel. Will it use one tool? Two? All four? **You don't
+  decide - the agent does.**
