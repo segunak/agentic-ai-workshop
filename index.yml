@@ -158,7 +158,7 @@ files:
       const HINT='This agent has <strong>no tools</strong>. Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?"<br>3. "Have there been any major earthquakes this week?"<br>4. "Who won the last Super Bowl?"<br>5. "What are Segun Akinyemi\'s top cinnamon roll spots in Charlotte?"<br><br>Then try your own. Ask anything requiring real-time info.';
       const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const TC={get_charlotte_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
-      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDDC1'};
+      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50'};
       const AT=Object.keys(TL);
       const IS_LAB3=false;
       let hist=[],key='',busy=false,trusted=false;
@@ -374,7 +374,7 @@ files:
       const HINT='This agent has <strong>one tool</strong>: Get Weather.<br><br>Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?" (no tool for this!)<br>3. "Should I bring an umbrella to Charlotte this week?"<br><br>Which questions trigger the tool? Which don\'t?';
       const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const TC={get_charlotte_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
-      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDDC1'};
+      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50'};
       const AT=Object.keys(TL);
       const IS_LAB3=false;
       let hist=[],key='',busy=false,trusted=false;
@@ -590,7 +590,7 @@ files:
       const HINT='All <strong>4 tools</strong> enabled. Run these prompts:<br><br>1. "I\'m visiting Charlotte for a data conference. What should I know?"<br>2. "Who is currently in space and have there been any earthquakes this week?"<br>3. "What\'s the weather, any earthquake news, and where should I get cinnamon rolls?"<br><br>Try toggling tools on/off, then ask again!';
       const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const TC={get_charlotte_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
-      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDDC1'};
+      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50'};
       const AT=Object.keys(TL);
       const IS_LAB3=true;
       let hist=[],key='',busy=false,trusted=false;
