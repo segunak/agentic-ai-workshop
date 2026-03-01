@@ -13,7 +13,8 @@ content: |
   1. `What's the weather in Charlotte right now?`
   2. `Who is in space right now?`
   3. `Have there been any major earthquakes this week?`
-  4. `Where should I get cinnamon rolls in Charlotte?`
+  4. `Who won the last Super Bowl?`
+  5. `What are Segun Akinyemi's top cinnamon roll spots in Charlotte?`
 
   Pay attention to its answers. Can it give you real, current information? Now try your own questions that require real-time data and see what happens.
 showEditor: true

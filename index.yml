@@ -27,21 +27,25 @@ files:
       #app{display:flex;flex-direction:column;height:100vh}
       
       /* Header */
-      header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
-      .left{min-width:0}
-      .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
-      .pill{font-size:10px;padding:3px 9px;border-radius:12px;background:transparent;color:#484f58;display:flex;align-items:center;gap:4px;user-select:none}
-      .pill .dot{width:6px;height:6px;border-radius:50%;background:#484f58;flex-shrink:0}
-      .pill.on{color:#8b949e}
-      .pill.on .dot{background:#8957e5}
-      #nb{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:500}
-      #nb:hover{background:rgba(137,87,229,.15);color:#a371f7}
+      header{padding:10px 14px 8px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+      .left{min-width:0;flex:1}
+      .left h1{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+      .pills{display:flex;gap:6px;flex-wrap:wrap}
+      .pill{font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;display:inline-flex;align-items:center;gap:5px;user-select:none;letter-spacing:.2px}
+      .pill .ico{font-size:12px}
+      .pill.off{background:rgba(110,118,129,.15);color:#484f58;border:1px solid #30363d}
+      .pill.on-weather{background:rgba(56,139,253,.2);color:#58a6ff;border:1px solid rgba(56,139,253,.4)}
+      .pill.on-space{background:rgba(163,113,247,.2);color:#bc8cff;border:1px solid rgba(163,113,247,.4)}
+      .pill.on-quake{background:rgba(240,136,62,.2);color:#f0883e;border:1px solid rgba(240,136,62,.4)}
+      .pill.on-cinnamon{background:rgba(219,171,93,.2);color:#e3b341;border:1px solid rgba(219,171,93,.4)}
+      .pill.no-tools{background:rgba(110,118,129,.1);color:#6e7681;border:1px dashed #30363d;font-style:italic;font-weight:400}
+      #nb{font-size:11px;padding:6px 16px;border-radius:18px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600;margin-top:2px}
+      #nb:hover{background:#8957e5;color:#fff}
       
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
-      .hint strong{color:#e6edf3}
+      .hint strong{color:#fff}
       
       /* Messages */
       .msg{max-width:85%;animation:fadeIn .25s ease}
@@ -51,10 +55,10 @@ files:
       
       /* Avatar labels */
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
-      .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+      .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
       .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
-      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
       
       /* Bubbles */
       .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
@@ -103,11 +107,27 @@ files:
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
       
       /* Lab 3 toggle checkboxes */
-      .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
-      .tgl{display:flex;align-items:center;gap:4px;font-size:10px;color:#7d8590;cursor:pointer;user-select:none;padding:3px 8px;border-radius:12px;background:rgba(137,87,229,.08);border:1px solid rgba(137,87,229,.2);transition:all .2s}
-      .tgl:hover{border-color:rgba(137,87,229,.5)}
-      .tgl input{accent-color:#8957e5;width:12px;height:12px;cursor:pointer}
-      .tgl.off{background:transparent;border-color:#30363d;color:#484f58}
+      .toggles{display:flex;gap:6px;flex-wrap:wrap}
+      .tgl{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
+      .tgl input{display:none}
+      .tgl .sw{width:28px;height:16px;border-radius:8px;background:#30363d;position:relative;transition:background .2s;flex-shrink:0}
+      .tgl .sw::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#484f58;transition:all .2s}
+      .tgl.on-weather{color:#58a6ff;border:1px solid rgba(56,139,253,.4);background:rgba(56,139,253,.12)}
+      .tgl.on-weather .sw{background:rgba(56,139,253,.5)}
+      .tgl.on-weather .sw::after{transform:translateX(12px);background:#58a6ff}
+      .tgl.on-space{color:#bc8cff;border:1px solid rgba(163,113,247,.4);background:rgba(163,113,247,.12)}
+      .tgl.on-space .sw{background:rgba(163,113,247,.5)}
+      .tgl.on-space .sw::after{transform:translateX(12px);background:#bc8cff}
+      .tgl.on-quake{color:#f0883e;border:1px solid rgba(240,136,62,.4);background:rgba(240,136,62,.12)}
+      .tgl.on-quake .sw{background:rgba(240,136,62,.5)}
+      .tgl.on-quake .sw::after{transform:translateX(12px);background:#f0883e}
+      .tgl.on-cinnamon{color:#e3b341;border:1px solid rgba(219,171,93,.4);background:rgba(219,171,93,.12)}
+      .tgl.on-cinnamon .sw{background:rgba(219,171,93,.5)}
+      .tgl.on-cinnamon .sw::after{transform:translateX(12px);background:#e3b341}
+      .tgl.off{color:#484f58;border:1px solid #30363d;background:transparent}
+      .tgl.off .sw{background:#30363d}
+      .tgl.off .sw::after{background:#484f58;transform:translateX(0)}
+      .tgl:hover{filter:brightness(1.15)}
       </style>
       </head>
       <body>
@@ -135,8 +155,10 @@ files:
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       let TOOLS=[];
       const TITLE='Lab 1: No Tools';
-      const HINT='This agent has <strong>no tools</strong>. Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?"<br>3. "Have there been any major earthquakes this week?"<br>4. "Where should I get cinnamon rolls in Charlotte?"<br><br>Then try your own. Ask anything requiring real-time info.';
+      const HINT='This agent has <strong>no tools</strong>. Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?"<br>3. "Have there been any major earthquakes this week?"<br>4. "Who won the last Super Bowl?"<br>5. "What are Segun Akinyemi\'s top cinnamon roll spots in Charlotte?"<br><br>Then try your own. Ask anything requiring real-time info.';
       const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const TC={get_charlotte_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
+      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDDC1'};
       const AT=Object.keys(TL);
       const IS_LAB3=false;
       let hist=[],key='',busy=false,trusted=false;
@@ -145,12 +167,22 @@ files:
       
       if(IS_LAB3){
       const wrap=document.createElement('div');wrap.className='toggles';
-      AT.forEach(n=>{const lbl=document.createElement('label');lbl.className='tgl'+(TOOLS.includes(n)?'':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=TOOLS.includes(n);cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.classList.remove('off')}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.classList.add('off')}};lbl.appendChild(cb);lbl.appendChild(document.createTextNode(TL[n]));wrap.appendChild(lbl)});
+      AT.forEach(n=>{
+      const lbl=document.createElement('label');
+      const isOn=TOOLS.includes(n);
+      lbl.className='tgl'+(isOn?' on-'+TC[n]:' off');
+      const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;
+      const sw=document.createElement('span');sw.className='sw';
+      cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tgl on-'+TC[n]}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tgl off'}};
+      lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));wrap.appendChild(lbl)});
       $('ch').appendChild(wrap);
       }else{
       const wrap=document.createElement('div');wrap.className='pills';
-      AT.forEach(n=>{const p=document.createElement('span');p.className='pill'+(TOOLS.includes(n)?' on':'');const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode(TL[n]));wrap.appendChild(p)});
-      if(!TOOLS.length){const p=document.createElement('span');p.className='pill';const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode('No tools'));wrap.appendChild(p)}
+      if(!TOOLS.length){
+      AT.forEach(n=>{const p=document.createElement('span');p.className='pill off';p.innerHTML='<span class="ico">'+TI[n]+'</span>'+TL[n];wrap.appendChild(p)});
+      }else{
+      AT.forEach(n=>{const isOn=TOOLS.includes(n);const p=document.createElement('span');p.className='pill '+(isOn?'on-'+TC[n]:'off');p.innerHTML='<span class="ico">'+TI[n]+'</span>'+TL[n];wrap.appendChild(p)});
+      }
       $('ch').appendChild(wrap);
       }
       
@@ -182,7 +214,7 @@ files:
       switch(ev.type){
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
       case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
-      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
+      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TI[ev.toolName]||'\u2699\uFE0F')+' '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
       case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
       if(dots.parentNode)dots.remove();
@@ -211,21 +243,25 @@ files:
       #app{display:flex;flex-direction:column;height:100vh}
       
       /* Header */
-      header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
-      .left{min-width:0}
-      .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
-      .pill{font-size:10px;padding:3px 9px;border-radius:12px;background:transparent;color:#484f58;display:flex;align-items:center;gap:4px;user-select:none}
-      .pill .dot{width:6px;height:6px;border-radius:50%;background:#484f58;flex-shrink:0}
-      .pill.on{color:#8b949e}
-      .pill.on .dot{background:#8957e5}
-      #nb{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:500}
-      #nb:hover{background:rgba(137,87,229,.15);color:#a371f7}
+      header{padding:10px 14px 8px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+      .left{min-width:0;flex:1}
+      .left h1{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+      .pills{display:flex;gap:6px;flex-wrap:wrap}
+      .pill{font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;display:inline-flex;align-items:center;gap:5px;user-select:none;letter-spacing:.2px}
+      .pill .ico{font-size:12px}
+      .pill.off{background:rgba(110,118,129,.15);color:#484f58;border:1px solid #30363d}
+      .pill.on-weather{background:rgba(56,139,253,.2);color:#58a6ff;border:1px solid rgba(56,139,253,.4)}
+      .pill.on-space{background:rgba(163,113,247,.2);color:#bc8cff;border:1px solid rgba(163,113,247,.4)}
+      .pill.on-quake{background:rgba(240,136,62,.2);color:#f0883e;border:1px solid rgba(240,136,62,.4)}
+      .pill.on-cinnamon{background:rgba(219,171,93,.2);color:#e3b341;border:1px solid rgba(219,171,93,.4)}
+      .pill.no-tools{background:rgba(110,118,129,.1);color:#6e7681;border:1px dashed #30363d;font-style:italic;font-weight:400}
+      #nb{font-size:11px;padding:6px 16px;border-radius:18px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600;margin-top:2px}
+      #nb:hover{background:#8957e5;color:#fff}
       
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
-      .hint strong{color:#e6edf3}
+      .hint strong{color:#fff}
       
       /* Messages */
       .msg{max-width:85%;animation:fadeIn .25s ease}
@@ -235,10 +271,10 @@ files:
       
       /* Avatar labels */
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
-      .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+      .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
       .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
-      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
       
       /* Bubbles */
       .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
@@ -287,11 +323,27 @@ files:
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
       
       /* Lab 3 toggle checkboxes */
-      .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
-      .tgl{display:flex;align-items:center;gap:4px;font-size:10px;color:#7d8590;cursor:pointer;user-select:none;padding:3px 8px;border-radius:12px;background:rgba(137,87,229,.08);border:1px solid rgba(137,87,229,.2);transition:all .2s}
-      .tgl:hover{border-color:rgba(137,87,229,.5)}
-      .tgl input{accent-color:#8957e5;width:12px;height:12px;cursor:pointer}
-      .tgl.off{background:transparent;border-color:#30363d;color:#484f58}
+      .toggles{display:flex;gap:6px;flex-wrap:wrap}
+      .tgl{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
+      .tgl input{display:none}
+      .tgl .sw{width:28px;height:16px;border-radius:8px;background:#30363d;position:relative;transition:background .2s;flex-shrink:0}
+      .tgl .sw::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#484f58;transition:all .2s}
+      .tgl.on-weather{color:#58a6ff;border:1px solid rgba(56,139,253,.4);background:rgba(56,139,253,.12)}
+      .tgl.on-weather .sw{background:rgba(56,139,253,.5)}
+      .tgl.on-weather .sw::after{transform:translateX(12px);background:#58a6ff}
+      .tgl.on-space{color:#bc8cff;border:1px solid rgba(163,113,247,.4);background:rgba(163,113,247,.12)}
+      .tgl.on-space .sw{background:rgba(163,113,247,.5)}
+      .tgl.on-space .sw::after{transform:translateX(12px);background:#bc8cff}
+      .tgl.on-quake{color:#f0883e;border:1px solid rgba(240,136,62,.4);background:rgba(240,136,62,.12)}
+      .tgl.on-quake .sw{background:rgba(240,136,62,.5)}
+      .tgl.on-quake .sw::after{transform:translateX(12px);background:#f0883e}
+      .tgl.on-cinnamon{color:#e3b341;border:1px solid rgba(219,171,93,.4);background:rgba(219,171,93,.12)}
+      .tgl.on-cinnamon .sw{background:rgba(219,171,93,.5)}
+      .tgl.on-cinnamon .sw::after{transform:translateX(12px);background:#e3b341}
+      .tgl.off{color:#484f58;border:1px solid #30363d;background:transparent}
+      .tgl.off .sw{background:#30363d}
+      .tgl.off .sw::after{background:#484f58;transform:translateX(0)}
+      .tgl:hover{filter:brightness(1.15)}
       </style>
       </head>
       <body>
@@ -321,6 +373,8 @@ files:
       const TITLE='Lab 2: Weather Tool';
       const HINT='This agent has <strong>one tool</strong>: Get Weather.<br><br>Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?" (no tool for this!)<br>3. "Should I bring an umbrella to Charlotte this week?"<br><br>Which questions trigger the tool? Which don\'t?';
       const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const TC={get_charlotte_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
+      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDDC1'};
       const AT=Object.keys(TL);
       const IS_LAB3=false;
       let hist=[],key='',busy=false,trusted=false;
@@ -329,12 +383,22 @@ files:
       
       if(IS_LAB3){
       const wrap=document.createElement('div');wrap.className='toggles';
-      AT.forEach(n=>{const lbl=document.createElement('label');lbl.className='tgl'+(TOOLS.includes(n)?'':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=TOOLS.includes(n);cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.classList.remove('off')}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.classList.add('off')}};lbl.appendChild(cb);lbl.appendChild(document.createTextNode(TL[n]));wrap.appendChild(lbl)});
+      AT.forEach(n=>{
+      const lbl=document.createElement('label');
+      const isOn=TOOLS.includes(n);
+      lbl.className='tgl'+(isOn?' on-'+TC[n]:' off');
+      const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;
+      const sw=document.createElement('span');sw.className='sw';
+      cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tgl on-'+TC[n]}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tgl off'}};
+      lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));wrap.appendChild(lbl)});
       $('ch').appendChild(wrap);
       }else{
       const wrap=document.createElement('div');wrap.className='pills';
-      AT.forEach(n=>{const p=document.createElement('span');p.className='pill'+(TOOLS.includes(n)?' on':'');const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode(TL[n]));wrap.appendChild(p)});
-      if(!TOOLS.length){const p=document.createElement('span');p.className='pill';const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode('No tools'));wrap.appendChild(p)}
+      if(!TOOLS.length){
+      AT.forEach(n=>{const p=document.createElement('span');p.className='pill off';p.innerHTML='<span class="ico">'+TI[n]+'</span>'+TL[n];wrap.appendChild(p)});
+      }else{
+      AT.forEach(n=>{const isOn=TOOLS.includes(n);const p=document.createElement('span');p.className='pill '+(isOn?'on-'+TC[n]:'off');p.innerHTML='<span class="ico">'+TI[n]+'</span>'+TL[n];wrap.appendChild(p)});
+      }
       $('ch').appendChild(wrap);
       }
       
@@ -366,7 +430,7 @@ files:
       switch(ev.type){
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
       case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
-      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
+      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TI[ev.toolName]||'\u2699\uFE0F')+' '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
       case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
       if(dots.parentNode)dots.remove();
@@ -395,21 +459,25 @@ files:
       #app{display:flex;flex-direction:column;height:100vh}
       
       /* Header */
-      header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
-      .left{min-width:0}
-      .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
-      .pill{font-size:10px;padding:3px 9px;border-radius:12px;background:transparent;color:#484f58;display:flex;align-items:center;gap:4px;user-select:none}
-      .pill .dot{width:6px;height:6px;border-radius:50%;background:#484f58;flex-shrink:0}
-      .pill.on{color:#8b949e}
-      .pill.on .dot{background:#8957e5}
-      #nb{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:500}
-      #nb:hover{background:rgba(137,87,229,.15);color:#a371f7}
+      header{padding:10px 14px 8px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+      .left{min-width:0;flex:1}
+      .left h1{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+      .pills{display:flex;gap:6px;flex-wrap:wrap}
+      .pill{font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;display:inline-flex;align-items:center;gap:5px;user-select:none;letter-spacing:.2px}
+      .pill .ico{font-size:12px}
+      .pill.off{background:rgba(110,118,129,.15);color:#484f58;border:1px solid #30363d}
+      .pill.on-weather{background:rgba(56,139,253,.2);color:#58a6ff;border:1px solid rgba(56,139,253,.4)}
+      .pill.on-space{background:rgba(163,113,247,.2);color:#bc8cff;border:1px solid rgba(163,113,247,.4)}
+      .pill.on-quake{background:rgba(240,136,62,.2);color:#f0883e;border:1px solid rgba(240,136,62,.4)}
+      .pill.on-cinnamon{background:rgba(219,171,93,.2);color:#e3b341;border:1px solid rgba(219,171,93,.4)}
+      .pill.no-tools{background:rgba(110,118,129,.1);color:#6e7681;border:1px dashed #30363d;font-style:italic;font-weight:400}
+      #nb{font-size:11px;padding:6px 16px;border-radius:18px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600;margin-top:2px}
+      #nb:hover{background:#8957e5;color:#fff}
       
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
-      .hint strong{color:#e6edf3}
+      .hint strong{color:#fff}
       
       /* Messages */
       .msg{max-width:85%;animation:fadeIn .25s ease}
@@ -419,10 +487,10 @@ files:
       
       /* Avatar labels */
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
-      .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+      .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
       .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
-      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
       
       /* Bubbles */
       .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
@@ -471,11 +539,27 @@ files:
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
       
       /* Lab 3 toggle checkboxes */
-      .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
-      .tgl{display:flex;align-items:center;gap:4px;font-size:10px;color:#7d8590;cursor:pointer;user-select:none;padding:3px 8px;border-radius:12px;background:rgba(137,87,229,.08);border:1px solid rgba(137,87,229,.2);transition:all .2s}
-      .tgl:hover{border-color:rgba(137,87,229,.5)}
-      .tgl input{accent-color:#8957e5;width:12px;height:12px;cursor:pointer}
-      .tgl.off{background:transparent;border-color:#30363d;color:#484f58}
+      .toggles{display:flex;gap:6px;flex-wrap:wrap}
+      .tgl{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
+      .tgl input{display:none}
+      .tgl .sw{width:28px;height:16px;border-radius:8px;background:#30363d;position:relative;transition:background .2s;flex-shrink:0}
+      .tgl .sw::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#484f58;transition:all .2s}
+      .tgl.on-weather{color:#58a6ff;border:1px solid rgba(56,139,253,.4);background:rgba(56,139,253,.12)}
+      .tgl.on-weather .sw{background:rgba(56,139,253,.5)}
+      .tgl.on-weather .sw::after{transform:translateX(12px);background:#58a6ff}
+      .tgl.on-space{color:#bc8cff;border:1px solid rgba(163,113,247,.4);background:rgba(163,113,247,.12)}
+      .tgl.on-space .sw{background:rgba(163,113,247,.5)}
+      .tgl.on-space .sw::after{transform:translateX(12px);background:#bc8cff}
+      .tgl.on-quake{color:#f0883e;border:1px solid rgba(240,136,62,.4);background:rgba(240,136,62,.12)}
+      .tgl.on-quake .sw{background:rgba(240,136,62,.5)}
+      .tgl.on-quake .sw::after{transform:translateX(12px);background:#f0883e}
+      .tgl.on-cinnamon{color:#e3b341;border:1px solid rgba(219,171,93,.4);background:rgba(219,171,93,.12)}
+      .tgl.on-cinnamon .sw{background:rgba(219,171,93,.5)}
+      .tgl.on-cinnamon .sw::after{transform:translateX(12px);background:#e3b341}
+      .tgl.off{color:#484f58;border:1px solid #30363d;background:transparent}
+      .tgl.off .sw{background:#30363d}
+      .tgl.off .sw::after{background:#484f58;transform:translateX(0)}
+      .tgl:hover{filter:brightness(1.15)}
       </style>
       </head>
       <body>
@@ -503,8 +587,10 @@ files:
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       let TOOLS=['get_charlotte_weather','get_people_in_space','get_recent_earthquakes','get_charlotte_cinnamon_roll_rankings'];
       const TITLE='Lab 3: Full Agent';
-      const HINT='All <strong>4 tools</strong> enabled. Run these prompts:<br><br>1. "I\'m visiting Charlotte for a data conference. What should I know?"<br>2. "Who is currently in space and have there been any earthquakes this week?"<br>3. "What\'s the weather, any earthquake news, and where should I get cinnamon rolls?"<br><br>Try toggling tools on/off with the checkboxes, then ask again!';
+      const HINT='All <strong>4 tools</strong> enabled. Run these prompts:<br><br>1. "I\'m visiting Charlotte for a data conference. What should I know?"<br>2. "Who is currently in space and have there been any earthquakes this week?"<br>3. "What\'s the weather, any earthquake news, and where should I get cinnamon rolls?"<br><br>Try toggling tools on/off, then ask again!';
       const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const TC={get_charlotte_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
+      const TI={get_charlotte_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDDC1'};
       const AT=Object.keys(TL);
       const IS_LAB3=true;
       let hist=[],key='',busy=false,trusted=false;
@@ -513,12 +599,22 @@ files:
       
       if(IS_LAB3){
       const wrap=document.createElement('div');wrap.className='toggles';
-      AT.forEach(n=>{const lbl=document.createElement('label');lbl.className='tgl'+(TOOLS.includes(n)?'':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=TOOLS.includes(n);cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.classList.remove('off')}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.classList.add('off')}};lbl.appendChild(cb);lbl.appendChild(document.createTextNode(TL[n]));wrap.appendChild(lbl)});
+      AT.forEach(n=>{
+      const lbl=document.createElement('label');
+      const isOn=TOOLS.includes(n);
+      lbl.className='tgl'+(isOn?' on-'+TC[n]:' off');
+      const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;
+      const sw=document.createElement('span');sw.className='sw';
+      cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tgl on-'+TC[n]}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tgl off'}};
+      lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));wrap.appendChild(lbl)});
       $('ch').appendChild(wrap);
       }else{
       const wrap=document.createElement('div');wrap.className='pills';
-      AT.forEach(n=>{const p=document.createElement('span');p.className='pill'+(TOOLS.includes(n)?' on':'');const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode(TL[n]));wrap.appendChild(p)});
-      if(!TOOLS.length){const p=document.createElement('span');p.className='pill';const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode('No tools'));wrap.appendChild(p)}
+      if(!TOOLS.length){
+      AT.forEach(n=>{const p=document.createElement('span');p.className='pill off';p.innerHTML='<span class="ico">'+TI[n]+'</span>'+TL[n];wrap.appendChild(p)});
+      }else{
+      AT.forEach(n=>{const isOn=TOOLS.includes(n);const p=document.createElement('span');p.className='pill '+(isOn?'on-'+TC[n]:'off');p.innerHTML='<span class="ico">'+TI[n]+'</span>'+TL[n];wrap.appendChild(p)});
+      }
       $('ch').appendChild(wrap);
       }
       
@@ -550,7 +646,7 @@ files:
       switch(ev.type){
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
       case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
-      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
+      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TI[ev.toolName]||'\u2699\uFE0F')+' '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
       case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
       if(dots.parentNode)dots.remove();
