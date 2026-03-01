@@ -52,3 +52,4 @@ questionGroups:
       - id: "1"
         type: reflection
         content: "After everything you've seen and learned today, how would you explain the difference between Generative AI and Agentic AI to a friend, classmate, or coworker?"
+        options: []

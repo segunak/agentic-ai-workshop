@@ -83,3 +83,4 @@ questionGroups:
       - id: "1"
         type: reflection
         content: "What surprised you most about how the agent used its tools? Was there a moment where it did something you didn't expect?"
+        options: []

@@ -50,3 +50,4 @@ questionGroups:
       - id: "1"
         type: reflection
         content: "Is this AI an 'agent' right now? Why or why not?"
+        options: []
