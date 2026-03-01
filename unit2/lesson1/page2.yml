@@ -1,8 +1,19 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
 title: Agent Playground
-content: ""
-showEditor: true
+content: |
+  ## Lab 1: No Tools
+
+  This AI has **no tools**. It can only respond from its training data.
+
+  Try asking:
+  - "What is today's date?"
+  - "Tell me a joke"
+  - "What's the weather in Charlotte?"
+
+  Pay attention to its answers. Are they accurate? How does it handle questions about real-time information?
+
+  <iframe src="https://agentic-ai-playground.vercel.app/?tools=none" width="100%" height="600" style="border:none; border-radius:8px;"></iframe>
 dependsOn:
   - unit1:lesson1:page1
 editors:

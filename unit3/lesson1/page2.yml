@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
 title: Agent Playground
-content: ""
+content: |
+  ## Lab 2: One Tool Enabled
+
+  **Click the green play button (top right) to load the Agent Playground.**
+
+  The AI now has one tool: `get_current_date`.
+
+  Try asking:
+  - "What is today's date?" (same question as Lab 1!)
+  - "Tell me a joke" (does it use the tool for this?)
+
+  Watch the **Agent Reasoning** panel on the right. You'll see when the agent decides to call a tool and what it gets back.
 showEditor: true
 dependsOn:
   - unit2:lesson1:page3

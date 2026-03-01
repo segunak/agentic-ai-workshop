@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
 title: Agent Playground
-content: ""
+content: |
+  ## Lab 3: All Tools Enabled
+
+  **Click the green play button (top right) to load the Agent Playground.**
+
+  The AI now has four tools: date, weather, fun facts, and cinnamon roll rankings.
+
+  Try asking:
+  - "I'm visiting Charlotte for a data science conference. Any tips?"
+  - "What's the weather like and where should I get cinnamon rolls?"
+  - "Tell me something interesting"
+
+  Watch the reasoning panel. The agent may chain multiple tools in a single response. Notice which tools it picks and which it skips.
 showEditor: true
 dependsOn:
   - unit3:lesson1:page3
