@@ -16,7 +16,7 @@ content: |
 
   **Context and Context Window** - Context is the conversation history and information the AI uses to understand what you mean. The context window is how much it can hold at once, like short-term memory. Larger context windows let AI handle longer conversations and bigger documents.
 
-  **RAG** ([Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) - When the agent fetched live weather data or fun facts and used those results to answer you. That's RAG: look it up, add it to context, answer with it. It lets AI go beyond its training data.
+  **RAG** ([Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) - When the agent fetched live weather data, astronaut crew lists, or earthquake reports and used those results to answer you. That's RAG: look it up, add it to context, answer with it. It lets AI go beyond its training data.
 
   **MCP** ([Model Context Protocol](https://en.wikipedia.org/wiki/Model_Context_Protocol)) - A standard way for tools to connect to AI. Think of it like USB-C for AI. One standard connector instead of custom integrations for every tool. Created by [Anthropic](https://en.wikipedia.org/wiki/Anthropic) and now widely adopted.
 
@@ -42,7 +42,7 @@ questionGroups:
           - id: c
             value: "Retrieving external data to augment responses"
             isCorrect: true
-            explanation: "It fetched live weather and fun facts to augment its answers. That's the RAG pattern in action."
+            explanation: "It fetched live weather, space crew data, and earthquake reports to augment its answers. That's the RAG pattern in action."
           - id: d
             value: "Replacing human workers"
             isCorrect: false

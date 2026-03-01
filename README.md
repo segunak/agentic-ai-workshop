@@ -44,7 +44,7 @@ The `get_charlotte_weather` tool is now enabled. Students ask the same weather q
 
 ### Unit 4: Lab 3 - Multi-Tool Agent
 
-All three tools are enabled: `get_charlotte_weather`, `get_random_fact`, and `get_charlotte_cinnamon_roll_rankings`. Students ask complex questions and watch the agent chain multiple tools autonomously.
+All four tools are enabled: `get_charlotte_weather`, `get_people_in_space`, `get_recent_earthquakes`, and `get_charlotte_cinnamon_roll_rankings`. Students ask complex questions and watch the agent chain multiple tools autonomously.
 
 | Page | Title | Type |
 |------|-------|------|

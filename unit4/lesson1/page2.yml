@@ -6,14 +6,15 @@ content: |
 
   **Click the green play button (top right) to load the Agent Playground.**
 
-  The AI now has three tools: weather, fun facts, and cinnamon roll rankings.
+  The AI now has four tools: weather, people in space, earthquakes, and cinnamon roll rankings. You can toggle tools on and off using the checkboxes!
 
-  Try asking:
-  - "I'm visiting Charlotte for a data science conference. Any tips?"
-  - "What's the weather like and where should I get cinnamon rolls?"
-  - "Tell me something interesting"
+  Run these prompts in order:
 
-  Watch the tool cards in the chat. The agent may chain multiple tools in a single response. Notice which tools it picks and which it skips.
+  1. `I'm visiting Charlotte for a data conference. What should I know?`
+  2. `Who is currently in space and have there been any earthquakes this week?`
+  3. `What's the weather, any earthquake news, and where should I get cinnamon rolls?`
+
+  Now try toggling tools on and off using the checkboxes, then ask the same question again. Watch how the agent adapts! Get creative with your own questions.
 showEditor: true
 dependsOn:
   - unit3:lesson1:page3

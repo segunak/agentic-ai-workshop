@@ -8,11 +8,13 @@ content: |
 
   The AI now has one tool: `get_charlotte_weather`.
 
-  Try asking:
-  - "What's the weather in Charlotte right now?" (same question as Lab 1!)
-  - "Who won the last Super Bowl?" (does it use the weather tool for this?)
+  Run these same prompts from Lab 1:
 
-  Watch for the blue **tool cards** that appear in the chat. You'll see when the agent decides to call a tool and when it gets results back.
+  1. `What's the weather in Charlotte right now?` (same question - now watch what happens!)
+  2. `Who is in space right now?` (does it use the weather tool for this?)
+  3. `Should I bring an umbrella to Charlotte this week?`
+
+  Watch for the **tool cards** that appear in the chat. Notice which questions trigger the tool and which don't. Try your own weather-related questions.
 showEditor: true
 dependsOn:
   - unit2:lesson1:page3

@@ -30,11 +30,13 @@ files:
       header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
       .left{min-width:0}
       .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
-      .chip{font-size:10px;padding:2px 8px;border-radius:12px;background:#21262d;color:#7d8590;border:1px solid #30363d;transition:all .2s}
-      .chip.on{background:rgba(56,139,253,.15);color:#58a6ff;border-color:rgba(56,139,253,.4)}
-      #nb{font-size:11px;padding:4px 12px;border-radius:16px;background:transparent;color:#7d8590;border:1px solid #30363d;cursor:pointer;transition:all .2s;white-space:nowrap}
-      #nb:hover{color:#e6edf3;border-color:#58a6ff;background:rgba(56,139,253,.1)}
+      .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+      .pill{font-size:10px;padding:3px 9px;border-radius:12px;background:transparent;color:#484f58;display:flex;align-items:center;gap:4px;user-select:none}
+      .pill .dot{width:6px;height:6px;border-radius:50%;background:#484f58;flex-shrink:0}
+      .pill.on{color:#8b949e}
+      .pill.on .dot{background:#8957e5}
+      #nb{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:500}
+      #nb:hover{background:rgba(137,87,229,.15);color:#a371f7}
       
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
@@ -51,7 +53,7 @@ files:
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
       .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
-      .msg.a .av{background:linear-gradient(135deg,#238636,#3fb950);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
       .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
       
       /* Bubbles */
@@ -60,11 +62,11 @@ files:
       .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
       
       /* Tool call cards */
-      .tc{background:rgba(56,139,253,.08);border-left:3px solid #388bfd;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
-      .tc .tn{font-weight:600;color:#58a6ff;display:flex;align-items:center;gap:4px}
+      .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
       .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
-      .tc.ok{border-left-color:#3fb950;background:rgba(63,185,80,.08)}
-      .tc.ok .tn{color:#3fb950}
+      .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
+      .tc.ok .tn{color:#d2a8ff}
       
       /* Reasoning accordion */
       .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
@@ -75,10 +77,10 @@ files:
       /* Input area */
       #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
       #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
-      #f input:focus{border-color:#58a6ff;box-shadow:0 0 0 2px rgba(56,139,253,.2)}
+      #f input:focus{border-color:#8957e5;box-shadow:0 0 0 2px rgba(137,87,229,.25)}
       #f input:disabled{opacity:.4}
-      #f button{background:#238636;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
-      #f button:hover{background:#2ea043}
+      #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+      #f button:hover{background:#a371f7}
       #f button:disabled{opacity:.4;cursor:not-allowed}
       
       /* Workshop key modal */
@@ -88,23 +90,30 @@ files:
       .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
       .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
       .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
-      .ml input:focus{border-color:#58a6ff}
-      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
-      .ml .bt:hover{background:#2ea043}
+      .ml input:focus{border-color:#8957e5}
+      .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+      .ml .bt:hover{background:#a371f7}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
       
       /* Typing indicator */
       .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
-      .typing-dots span{width:5px;height:5px;background:#58a6ff;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
       .typing-dots span:nth-child(2){animation-delay:.15s}
       .typing-dots span:nth-child(3){animation-delay:.3s}
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+      
+      /* Lab 3 toggle checkboxes */
+      .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+      .tgl{display:flex;align-items:center;gap:4px;font-size:10px;color:#7d8590;cursor:pointer;user-select:none;padding:3px 8px;border-radius:12px;background:rgba(137,87,229,.08);border:1px solid rgba(137,87,229,.2);transition:all .2s}
+      .tgl:hover{border-color:rgba(137,87,229,.5)}
+      .tgl input{accent-color:#8957e5;width:12px;height:12px;cursor:pointer}
+      .tgl.off{background:transparent;border-color:#30363d;color:#484f58}
       </style>
       </head>
       <body>
       <div id="app">
       <header>
-      <div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div>
+      <div class="left"><h1 id="tt"></h1><div id="ch"></div></div>
       <button id="nb" type="button">New Chat</button>
       </header>
       <main id="m"><div id="hi" class="hint"></div></main>
@@ -124,16 +133,27 @@ files:
       </div>
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
-      const TOOLS=[];
+      let TOOLS=[];
       const TITLE='Lab 1: No Tools';
-      const HINT='This agent has <strong>no tools</strong>. Try asking:<br><br>\u2022 "What\'s the weather in Charlotte right now?"<br>\u2022 "Who won the last Super Bowl?"<br>\u2022 "Tell me a fun fact"<br><br>Notice how it can only respond from training data.';
-      const TL={get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const HINT='This agent has <strong>no tools</strong>. Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?"<br>3. "Have there been any major earthquakes this week?"<br>4. "Where should I get cinnamon rolls in Charlotte?"<br><br>Then try your own. Ask anything requiring real-time info.';
+      const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const AT=Object.keys(TL);
+      const IS_LAB3=false;
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('tt').textContent=TITLE;$('hi').innerHTML=HINT;
-      AT.forEach(n=>{const c=document.createElement('span');c.className='chip'+(TOOLS.includes(n)?' on':'');c.textContent=TL[n];$('ch').appendChild(c)});
-      if(!TOOLS.length){const c=document.createElement('span');c.className='chip';c.textContent='No tools';$('ch').appendChild(c)}
+      
+      if(IS_LAB3){
+      const wrap=document.createElement('div');wrap.className='toggles';
+      AT.forEach(n=>{const lbl=document.createElement('label');lbl.className='tgl'+(TOOLS.includes(n)?'':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=TOOLS.includes(n);cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.classList.remove('off')}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.classList.add('off')}};lbl.appendChild(cb);lbl.appendChild(document.createTextNode(TL[n]));wrap.appendChild(lbl)});
+      $('ch').appendChild(wrap);
+      }else{
+      const wrap=document.createElement('div');wrap.className='pills';
+      AT.forEach(n=>{const p=document.createElement('span');p.className='pill'+(TOOLS.includes(n)?' on':'');const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode(TL[n]));wrap.appendChild(p)});
+      if(!TOOLS.length){const p=document.createElement('span');p.className='pill';const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode('No tools'));wrap.appendChild(p)}
+      $('ch').appendChild(wrap);
+      }
+      
       (async()=>{
       try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
@@ -163,7 +183,7 @@ files:
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
       case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
       case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
-      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2705 '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
+      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
       if(dots.parentNode)dots.remove();
       if(ft)hist.push({role:'assistant',content:ft})
@@ -194,11 +214,13 @@ files:
       header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
       .left{min-width:0}
       .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
-      .chip{font-size:10px;padding:2px 8px;border-radius:12px;background:#21262d;color:#7d8590;border:1px solid #30363d;transition:all .2s}
-      .chip.on{background:rgba(56,139,253,.15);color:#58a6ff;border-color:rgba(56,139,253,.4)}
-      #nb{font-size:11px;padding:4px 12px;border-radius:16px;background:transparent;color:#7d8590;border:1px solid #30363d;cursor:pointer;transition:all .2s;white-space:nowrap}
-      #nb:hover{color:#e6edf3;border-color:#58a6ff;background:rgba(56,139,253,.1)}
+      .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+      .pill{font-size:10px;padding:3px 9px;border-radius:12px;background:transparent;color:#484f58;display:flex;align-items:center;gap:4px;user-select:none}
+      .pill .dot{width:6px;height:6px;border-radius:50%;background:#484f58;flex-shrink:0}
+      .pill.on{color:#8b949e}
+      .pill.on .dot{background:#8957e5}
+      #nb{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:500}
+      #nb:hover{background:rgba(137,87,229,.15);color:#a371f7}
       
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
@@ -215,7 +237,7 @@ files:
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
       .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
-      .msg.a .av{background:linear-gradient(135deg,#238636,#3fb950);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
       .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
       
       /* Bubbles */
@@ -224,11 +246,11 @@ files:
       .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
       
       /* Tool call cards */
-      .tc{background:rgba(56,139,253,.08);border-left:3px solid #388bfd;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
-      .tc .tn{font-weight:600;color:#58a6ff;display:flex;align-items:center;gap:4px}
+      .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
       .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
-      .tc.ok{border-left-color:#3fb950;background:rgba(63,185,80,.08)}
-      .tc.ok .tn{color:#3fb950}
+      .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
+      .tc.ok .tn{color:#d2a8ff}
       
       /* Reasoning accordion */
       .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
@@ -239,10 +261,10 @@ files:
       /* Input area */
       #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
       #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
-      #f input:focus{border-color:#58a6ff;box-shadow:0 0 0 2px rgba(56,139,253,.2)}
+      #f input:focus{border-color:#8957e5;box-shadow:0 0 0 2px rgba(137,87,229,.25)}
       #f input:disabled{opacity:.4}
-      #f button{background:#238636;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
-      #f button:hover{background:#2ea043}
+      #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+      #f button:hover{background:#a371f7}
       #f button:disabled{opacity:.4;cursor:not-allowed}
       
       /* Workshop key modal */
@@ -252,23 +274,30 @@ files:
       .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
       .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
       .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
-      .ml input:focus{border-color:#58a6ff}
-      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
-      .ml .bt:hover{background:#2ea043}
+      .ml input:focus{border-color:#8957e5}
+      .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+      .ml .bt:hover{background:#a371f7}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
       
       /* Typing indicator */
       .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
-      .typing-dots span{width:5px;height:5px;background:#58a6ff;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
       .typing-dots span:nth-child(2){animation-delay:.15s}
       .typing-dots span:nth-child(3){animation-delay:.3s}
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+      
+      /* Lab 3 toggle checkboxes */
+      .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+      .tgl{display:flex;align-items:center;gap:4px;font-size:10px;color:#7d8590;cursor:pointer;user-select:none;padding:3px 8px;border-radius:12px;background:rgba(137,87,229,.08);border:1px solid rgba(137,87,229,.2);transition:all .2s}
+      .tgl:hover{border-color:rgba(137,87,229,.5)}
+      .tgl input{accent-color:#8957e5;width:12px;height:12px;cursor:pointer}
+      .tgl.off{background:transparent;border-color:#30363d;color:#484f58}
       </style>
       </head>
       <body>
       <div id="app">
       <header>
-      <div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div>
+      <div class="left"><h1 id="tt"></h1><div id="ch"></div></div>
       <button id="nb" type="button">New Chat</button>
       </header>
       <main id="m"><div id="hi" class="hint"></div></main>
@@ -288,16 +317,27 @@ files:
       </div>
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
-      const TOOLS=['get_charlotte_weather'];
+      let TOOLS=['get_charlotte_weather'];
       const TITLE='Lab 2: Weather Tool';
-      const HINT='The agent now has <strong>one tool</strong>: Get Weather.<br><br>Try the same questions from Lab 1:<br><br>\u2022 "What\'s the weather in Charlotte right now?"<br>\u2022 "Who won the last Super Bowl?"<br><br>Watch for the tool cards that appear when the agent acts!';
-      const TL={get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const HINT='This agent has <strong>one tool</strong>: Get Weather.<br><br>Run these prompts in order:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?" (no tool for this!)<br>3. "Should I bring an umbrella to Charlotte this week?"<br><br>Which questions trigger the tool? Which don\'t?';
+      const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const AT=Object.keys(TL);
+      const IS_LAB3=false;
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('tt').textContent=TITLE;$('hi').innerHTML=HINT;
-      AT.forEach(n=>{const c=document.createElement('span');c.className='chip'+(TOOLS.includes(n)?' on':'');c.textContent=TL[n];$('ch').appendChild(c)});
-      if(!TOOLS.length){const c=document.createElement('span');c.className='chip';c.textContent='No tools';$('ch').appendChild(c)}
+      
+      if(IS_LAB3){
+      const wrap=document.createElement('div');wrap.className='toggles';
+      AT.forEach(n=>{const lbl=document.createElement('label');lbl.className='tgl'+(TOOLS.includes(n)?'':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=TOOLS.includes(n);cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.classList.remove('off')}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.classList.add('off')}};lbl.appendChild(cb);lbl.appendChild(document.createTextNode(TL[n]));wrap.appendChild(lbl)});
+      $('ch').appendChild(wrap);
+      }else{
+      const wrap=document.createElement('div');wrap.className='pills';
+      AT.forEach(n=>{const p=document.createElement('span');p.className='pill'+(TOOLS.includes(n)?' on':'');const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode(TL[n]));wrap.appendChild(p)});
+      if(!TOOLS.length){const p=document.createElement('span');p.className='pill';const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode('No tools'));wrap.appendChild(p)}
+      $('ch').appendChild(wrap);
+      }
+      
       (async()=>{
       try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
@@ -327,7 +367,7 @@ files:
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
       case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
       case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
-      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2705 '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
+      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
       if(dots.parentNode)dots.remove();
       if(ft)hist.push({role:'assistant',content:ft})
@@ -358,11 +398,13 @@ files:
       header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
       .left{min-width:0}
       .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
-      .chip{font-size:10px;padding:2px 8px;border-radius:12px;background:#21262d;color:#7d8590;border:1px solid #30363d;transition:all .2s}
-      .chip.on{background:rgba(56,139,253,.15);color:#58a6ff;border-color:rgba(56,139,253,.4)}
-      #nb{font-size:11px;padding:4px 12px;border-radius:16px;background:transparent;color:#7d8590;border:1px solid #30363d;cursor:pointer;transition:all .2s;white-space:nowrap}
-      #nb:hover{color:#e6edf3;border-color:#58a6ff;background:rgba(56,139,253,.1)}
+      .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+      .pill{font-size:10px;padding:3px 9px;border-radius:12px;background:transparent;color:#484f58;display:flex;align-items:center;gap:4px;user-select:none}
+      .pill .dot{width:6px;height:6px;border-radius:50%;background:#484f58;flex-shrink:0}
+      .pill.on{color:#8b949e}
+      .pill.on .dot{background:#8957e5}
+      #nb{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:500}
+      #nb:hover{background:rgba(137,87,229,.15);color:#a371f7}
       
       /* Messages area */
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
@@ -379,7 +421,7 @@ files:
       .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
       .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
       .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
-      .msg.a .av{background:linear-gradient(135deg,#238636,#3fb950);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
       .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
       
       /* Bubbles */
@@ -388,11 +430,11 @@ files:
       .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
       
       /* Tool call cards */
-      .tc{background:rgba(56,139,253,.08);border-left:3px solid #388bfd;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
-      .tc .tn{font-weight:600;color:#58a6ff;display:flex;align-items:center;gap:4px}
+      .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
       .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
-      .tc.ok{border-left-color:#3fb950;background:rgba(63,185,80,.08)}
-      .tc.ok .tn{color:#3fb950}
+      .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
+      .tc.ok .tn{color:#d2a8ff}
       
       /* Reasoning accordion */
       .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
@@ -403,10 +445,10 @@ files:
       /* Input area */
       #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
       #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
-      #f input:focus{border-color:#58a6ff;box-shadow:0 0 0 2px rgba(56,139,253,.2)}
+      #f input:focus{border-color:#8957e5;box-shadow:0 0 0 2px rgba(137,87,229,.25)}
       #f input:disabled{opacity:.4}
-      #f button{background:#238636;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
-      #f button:hover{background:#2ea043}
+      #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+      #f button:hover{background:#a371f7}
       #f button:disabled{opacity:.4;cursor:not-allowed}
       
       /* Workshop key modal */
@@ -416,23 +458,30 @@ files:
       .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
       .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
       .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
-      .ml input:focus{border-color:#58a6ff}
-      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
-      .ml .bt:hover{background:#2ea043}
+      .ml input:focus{border-color:#8957e5}
+      .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+      .ml .bt:hover{background:#a371f7}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
       
       /* Typing indicator */
       .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
-      .typing-dots span{width:5px;height:5px;background:#58a6ff;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
       .typing-dots span:nth-child(2){animation-delay:.15s}
       .typing-dots span:nth-child(3){animation-delay:.3s}
       @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+      
+      /* Lab 3 toggle checkboxes */
+      .toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+      .tgl{display:flex;align-items:center;gap:4px;font-size:10px;color:#7d8590;cursor:pointer;user-select:none;padding:3px 8px;border-radius:12px;background:rgba(137,87,229,.08);border:1px solid rgba(137,87,229,.2);transition:all .2s}
+      .tgl:hover{border-color:rgba(137,87,229,.5)}
+      .tgl input{accent-color:#8957e5;width:12px;height:12px;cursor:pointer}
+      .tgl.off{background:transparent;border-color:#30363d;color:#484f58}
       </style>
       </head>
       <body>
       <div id="app">
       <header>
-      <div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div>
+      <div class="left"><h1 id="tt"></h1><div id="ch"></div></div>
       <button id="nb" type="button">New Chat</button>
       </header>
       <main id="m"><div id="hi" class="hint"></div></main>
@@ -452,16 +501,27 @@ files:
       </div>
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
-      const TOOLS=['get_charlotte_weather','get_random_fact','get_charlotte_cinnamon_roll_rankings'];
+      let TOOLS=['get_charlotte_weather','get_people_in_space','get_recent_earthquakes','get_charlotte_cinnamon_roll_rankings'];
       const TITLE='Lab 3: Full Agent';
-      const HINT='The agent has <strong>all 3 tools</strong>. Try:<br><br>\u2022 "I\'m visiting Charlotte for a data conference. Any tips?"<br>\u2022 "What\'s the weather and where should I get cinnamon rolls?"<br>\u2022 "Tell me something interesting"<br><br>Watch it orchestrate multiple tools in one response!';
-      const TL={get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const HINT='All <strong>4 tools</strong> enabled. Run these prompts:<br><br>1. "I\'m visiting Charlotte for a data conference. What should I know?"<br>2. "Who is currently in space and have there been any earthquakes this week?"<br>3. "What\'s the weather, any earthquake news, and where should I get cinnamon rolls?"<br><br>Try toggling tools on/off with the checkboxes, then ask again!';
+      const TL={get_charlotte_weather:'Get Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const AT=Object.keys(TL);
+      const IS_LAB3=true;
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('tt').textContent=TITLE;$('hi').innerHTML=HINT;
-      AT.forEach(n=>{const c=document.createElement('span');c.className='chip'+(TOOLS.includes(n)?' on':'');c.textContent=TL[n];$('ch').appendChild(c)});
-      if(!TOOLS.length){const c=document.createElement('span');c.className='chip';c.textContent='No tools';$('ch').appendChild(c)}
+      
+      if(IS_LAB3){
+      const wrap=document.createElement('div');wrap.className='toggles';
+      AT.forEach(n=>{const lbl=document.createElement('label');lbl.className='tgl'+(TOOLS.includes(n)?'':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=TOOLS.includes(n);cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.classList.remove('off')}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.classList.add('off')}};lbl.appendChild(cb);lbl.appendChild(document.createTextNode(TL[n]));wrap.appendChild(lbl)});
+      $('ch').appendChild(wrap);
+      }else{
+      const wrap=document.createElement('div');wrap.className='pills';
+      AT.forEach(n=>{const p=document.createElement('span');p.className='pill'+(TOOLS.includes(n)?' on':'');const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode(TL[n]));wrap.appendChild(p)});
+      if(!TOOLS.length){const p=document.createElement('span');p.className='pill';const d=document.createElement('span');d.className='dot';p.appendChild(d);p.appendChild(document.createTextNode('No tools'));wrap.appendChild(p)}
+      $('ch').appendChild(wrap);
+      }
+      
       (async()=>{
       try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
@@ -491,7 +551,7 @@ files:
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
       case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
       case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
-      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2705 '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
+      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
       if(dots.parentNode)dots.remove();
       if(ft)hist.push({role:'assistant',content:ft})

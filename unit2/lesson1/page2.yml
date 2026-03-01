@@ -8,12 +8,14 @@ content: |
 
   This AI has **no tools**. It can only respond from its training data.
 
-  Try asking:
-  - "What's the weather in Charlotte right now?"
-  - "Who won the last Super Bowl?"
-  - "What country led the medal count at the 2026 Winter Olympics?"
+  Run these prompts in order:
 
-  Pay attention to its answers. Can it give you real, current information?
+  1. `What's the weather in Charlotte right now?`
+  2. `Who is in space right now?`
+  3. `Have there been any major earthquakes this week?`
+  4. `Where should I get cinnamon rolls in Charlotte?`
+
+  Pay attention to its answers. Can it give you real, current information? Now try your own questions that require real-time data and see what happens.
 showEditor: true
 dependsOn:
   - unit1:lesson1:page1
