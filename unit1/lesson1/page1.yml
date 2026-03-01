@@ -4,9 +4,9 @@ title: "What is Agentic AI?"
 content: |
   ## Welcome to the Agent Playground
 
-  In this workshop, you'll interact with a real AI agent and discover what makes it different from a regular chatbot.
+  In this workshop, you'll interact with AI firsthand and see the difference between Generative AI and Agentic AI for yourself.
 
-  **Generative AI** creates new content from patterns it learned during training. It only knows what was in that training data and has no way to look anything up or take actions. Reactive: prompt and stop.
+  **Generative AI** creates new content from patterns it learned during training. When it's just responding from that training data without using any tools (more on what tools are below), that's generative behavior. Reactive: prompt and stop.
 
   **Agentic AI** uses tools in a loop to achieve a goal. It plans, reasons, and decides which tools to call without you telling it. Proactive: plan and act.
 
