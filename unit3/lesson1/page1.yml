@@ -10,9 +10,8 @@ content: |
 
   On the next page, the AI now has **one tool**: `get_charlotte_weather`.
 
-  Ask it *"What's the weather in Charlotte right now?"* again. The same question from Lab 1! Watch the **Agent Reasoning** panel on the right.
+  Ask it *"What's the weather in Charlotte right now?"* again. The same question from Lab 1! Watch the **Thinking** section and the **tool cards** that appear in the chat.
 
   Also try: *"Who won the last Super Bowl?"* Does it use the weather tool for that?
 
-  **On the next page, click the green play button (top right) to load the Agent Playground.**
   **On the next page, click the green play button (top right) to load the Agent Playground.**

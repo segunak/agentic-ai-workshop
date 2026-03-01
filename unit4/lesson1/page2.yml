@@ -6,7 +6,7 @@ content: |
 
   **Click the green play button (top right) to load the Agent Playground.**
 
-  The AI now has four tools: date, weather, fun facts, and cinnamon roll rankings.
+  The AI now has three tools: weather, fun facts, and cinnamon roll rankings.
 
   Try asking:
   - "I'm visiting Charlotte for a data science conference. Any tips?"

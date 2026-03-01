@@ -11,7 +11,7 @@ content: |
   When you asked a question the weather tool couldn't help with, it answered from training data instead. It made a judgment call about which tool was relevant.
 questionGroups:
   - id: "1"
-    content: "Think about what you just observed in the reasoning panel."
+    content: "Think about what you observed in the chat - the Thinking section and tool cards."
     questions:
       - id: "1"
         type: choice

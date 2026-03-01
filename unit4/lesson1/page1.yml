@@ -2,16 +2,14 @@
 id: page1
 title: Multiple Tools, One Agent
 content: >
-  ## Four Tools, One Agent
+  ## Three Tools, One Agent
 
 
   Real agents have access to many tools and **choose between them** - or **chain
   several** in sequence.
 
 
-  You now have four tools:
-
-  - 🗓️ **get_current_date** - gets the real date
+  You now have three tools:
 
   - 🌤️ **get_charlotte_weather** - live weather and forecast for Charlotte, NC
 
@@ -24,8 +22,8 @@ content: >
   👉 Try: *"I'm visiting Charlotte for a data science conference - any tips?"*
 
 
-  Watch the reasoning panel. Will it use one tool? Two? All four? **You don't
-  decide - the agent does.**
+  Watch the **Thinking** section and **tool cards** in the chat. Will it use one
+  tool? Two? All three? **You don't decide - the agent does.**
 
 
   **On the next page, click the green play button (top right) to load the Agent Playground.**

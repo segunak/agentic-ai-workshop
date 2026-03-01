@@ -19,65 +19,115 @@ files:
       <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
-      <title>Agent Playground - Lab 1</title>
+      <title>Agent Playground - Lab 1: No Tools</title>
       <style>
-      *{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;overflow:hidden}
+      *{margin:0;padding:0;box-sizing:border-box}
+      html,body{height:100%;overflow:hidden}
       body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
       #app{display:flex;flex-direction:column;height:100vh}
-      header{padding:10px 16px;border-bottom:1px solid #30363d;background:#161b22;display:flex;align-items:center;justify-content:space-between}
-      .left h1{font-size:15px;font-weight:600;margin-bottom:3px}
-      .chips{display:flex;gap:4px;flex-wrap:wrap}
-      .chip{font-size:11px;padding:2px 8px;border-radius:10px;background:#30363d;color:#8b949e}
-      .chip.on{background:#1f3a5f;color:#58a6ff}
-      #nb{font-size:11px;padding:4px 10px;border-radius:6px;background:#30363d;color:#8b949e;border:1px solid #444c56;cursor:pointer}
-      #nb:hover{background:#444c56;color:#e6edf3}
-      #m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-      .hint{text-align:center;color:#8b949e;font-size:13px;padding:20px;line-height:1.7}
-      .msg{max-width:88%}.msg.u{align-self:flex-end}.msg.a{align-self:flex-start;width:88%}
-      .lbl{font-size:11px;color:#8b949e;margin-bottom:2px;padding:0 4px}
-      .bub{padding:10px 14px;border-radius:12px;line-height:1.6;word-wrap:break-word}
-      .msg.u .bub{background:#1f6feb;color:#fff}
-      .msg.a .bub{background:#161b22;border:1px solid #30363d}
-      .tc{background:#1a1e2e;border-left:3px solid #3b82f6;padding:6px 10px;margin:6px 0;border-radius:0 6px 6px 0;font-size:12px}
-      .tc .tn{font-weight:600;color:#58a6ff}.tc .ts{color:#8b949e;font-size:11px}
-      .tc.ok{border-left-color:#3fb950}.tc.ok .tn{color:#3fb950}
-      .rz{font-size:12px;color:#8b949e;font-style:italic;margin-bottom:4px}
-      .rz summary{cursor:pointer;user-select:none}
-      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:100px;overflow-y:auto}
-      #f{padding:10px 16px;border-top:1px solid #30363d;display:flex;gap:8px;background:#0d1117}
-      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 12px;border-radius:8px;font-size:14px;outline:none}
-      #f input:focus{border-color:#58a6ff}
-      #f input:disabled{opacity:.5}
-      #f button{background:#238636;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+      
+      /* Header */
+      header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
+      .left{min-width:0}
+      .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+      .chip{font-size:10px;padding:2px 8px;border-radius:12px;background:#21262d;color:#7d8590;border:1px solid #30363d;transition:all .2s}
+      .chip.on{background:rgba(56,139,253,.15);color:#58a6ff;border-color:rgba(56,139,253,.4)}
+      #nb{font-size:11px;padding:4px 12px;border-radius:16px;background:transparent;color:#7d8590;border:1px solid #30363d;cursor:pointer;transition:all .2s;white-space:nowrap}
+      #nb:hover{color:#e6edf3;border-color:#58a6ff;background:rgba(56,139,253,.1)}
+      
+      /* Messages area */
+      #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+      .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
+      .hint strong{color:#e6edf3}
+      
+      /* Messages */
+      .msg{max-width:85%;animation:fadeIn .25s ease}
+      .msg.u{align-self:flex-end}
+      .msg.a{align-self:flex-start;width:85%}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+      
+      /* Avatar labels */
+      .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
+      .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+      .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#238636,#3fb950);color:#fff}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
+      
+      /* Bubbles */
+      .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
+      .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
+      .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
+      
+      /* Tool call cards */
+      .tc{background:rgba(56,139,253,.08);border-left:3px solid #388bfd;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#58a6ff;display:flex;align-items:center;gap:4px}
+      .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
+      .tc.ok{border-left-color:#3fb950;background:rgba(63,185,80,.08)}
+      .tc.ok .tn{color:#3fb950}
+      
+      /* Reasoning accordion */
+      .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
+      .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
+      .rz[open] summary{margin-bottom:4px}
+      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
+      
+      /* Input area */
+      #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
+      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
+      #f input:focus{border-color:#58a6ff;box-shadow:0 0 0 2px rgba(56,139,253,.2)}
+      #f input:disabled{opacity:.4}
+      #f button{background:#238636;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
       #f button:hover{background:#2ea043}
-      #f button:disabled{opacity:.5;cursor:not-allowed}
-      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:100}
+      #f button:disabled{opacity:.4;cursor:not-allowed}
+      
+      /* Workshop key modal */
+      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
       .ov.h{display:none}
-      .ml{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:24px;max-width:360px;width:90%}
-      .ml h2{font-size:18px;margin-bottom:6px}
-      .ml p{color:#8b949e;font-size:13px;margin-bottom:14px}
-      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px;border-radius:8px;font-size:14px;margin-bottom:10px;outline:none}
+      .ml{background:#161b22;border:1px solid #30363d;border-radius:16px;padding:28px;max-width:340px;width:90%;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+      .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
+      .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
+      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
       .ml input:focus{border-color:#58a6ff}
-      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
       .ml .bt:hover{background:#2ea043}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
-      .typing::after{content:"";display:inline-block;width:6px;height:14px;background:#58a6ff;margin-left:2px;vertical-align:text-bottom;animation:bk .7s step-end infinite}
-      @keyframes bk{50%{opacity:0}}
+      
+      /* Typing indicator */
+      .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
+      .typing-dots span{width:5px;height:5px;background:#58a6ff;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span:nth-child(2){animation-delay:.15s}
+      .typing-dots span:nth-child(3){animation-delay:.3s}
+      @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
       </style>
       </head>
       <body>
       <div id="app">
-      <header><div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div><button id="nb" type="button">New Chat</button></header>
+      <header>
+      <div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div>
+      <button id="nb" type="button">New Chat</button>
+      </header>
       <main id="m"><div id="hi" class="hint"></div></main>
-      <form id="f"><input id="i" type="text" placeholder="Type a message..." autocomplete="off" disabled/><button id="sb" type="submit" disabled>Send</button></form>
+      <form id="f">
+      <input id="i" type="text" placeholder="Ask me something..." autocomplete="off" disabled/>
+      <button id="sb" type="submit" disabled>Send</button>
+      </form>
       </div>
-      <div id="mo" class="ov h"><div class="ml"><h2>Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/><button class="bt" id="kb" type="button">Submit</button><div id="ke" class="er"></div></div></div>
+      <div id="mo" class="ov h">
+      <div class="ml">
+      <h2>Workshop Key</h2>
+      <p>Enter the key shared at the start of the workshop.</p>
+      <input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/>
+      <button class="bt" id="kb" type="button">Submit</button>
+      <div id="ke" class="er"></div>
+      </div>
+      </div>
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       const TOOLS=[];
       const TITLE='Lab 1: No Tools';
-      const HINT='This agent has <strong>no tools</strong>. Try asking:<br><br>\u2022 "What\'s the weather in Charlotte right now?"<br>\u2022 "What\'s today\'s date?"<br>\u2022 "Tell me a fun fact"<br><br>Notice how it can only respond from training data.';
-      const TL={get_current_date:'Get Date',get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const HINT='This agent has <strong>no tools</strong>. Try asking:<br><br>\u2022 "What\'s the weather in Charlotte right now?"<br>\u2022 "Who won the last Super Bowl?"<br>\u2022 "Tell me a fun fact"<br><br>Notice how it can only respond from training data.';
+      const TL={get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const AT=Object.keys(TL);
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
@@ -85,7 +135,7 @@ files:
       AT.forEach(n=>{const c=document.createElement('span');c.className='chip'+(TOOLS.includes(n)?' on':'');c.textContent=TL[n];$('ch').appendChild(c)});
       if(!TOOLS.length){const c=document.createElement('span');c.className='chip';c.textContent='No tools';$('ch').appendChild(c)}
       (async()=>{
-      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please wait for your facilitator.';return}if(r.status!==401){trusted=true;go();return}}catch{}
+      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
       $('mo').classList.remove('h');$('ki').focus()
       })();
@@ -97,26 +147,30 @@ files:
       e.preventDefault();const txt=$('i').value.trim();if(!txt||busy)return;
       const hi=$('m').querySelector('.hint');if(hi)hi.remove();
       hist.push({role:'user',content:txt});addMsg('u',txt);$('i').value='';setBusy(true);
-      const el=addMsg('a','');const bub=el.querySelector('.bub');let cs=null,rz=null,ft='';
+      const el=addMsg('a','');const bub=el.querySelector('.bub');
+      const dots=document.createElement('div');dots.className='typing-dots';dots.innerHTML='<span></span><span></span><span></span>';bub.appendChild(dots);
+      let cs=null,rz=null,ft='';
       try{
       const hd={'Content-Type':'application/json'};if(!trusted&&key)hd['X-Workshop-Key']=key;
       const r=await fetch(API,{method:'POST',headers:hd,body:JSON.stringify({messages:hist,enabledTools:TOOLS})});
       if(!r.ok){const er=await r.json().catch(()=>({error:'Request failed'}));if(r.status===401){key='';localStorage.removeItem('agentic-ai-key');$('mo').classList.remove('h');$('ki').focus();$('ke').textContent='Invalid key. Try again.'}throw new Error(er.error||'Error '+r.status)}
-      const rd=r.body.getReader(),dc=new TextDecoder();let buf='';bub.classList.add('typing');
+      const rd=r.body.getReader(),dc=new TextDecoder();let buf='';
       while(true){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value,{stream:true});const ps=buf.split('\n\n');buf=ps.pop();
       for(const p of ps){const ln=p.trim();if(!ln.startsWith('data: '))continue;const d=ln.slice(6);if(d==='[DONE]')continue;
       let ev;try{ev=JSON.parse(d)}catch{continue}
+      if(dots.parentNode)dots.remove();
       switch(ev.type){
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
-      case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.innerHTML='<summary>Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
-      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TL[ev.toolName]||ev.toolName)+' ...</div><div class="ts">Calling</div>';bub.appendChild(tc)}sc();break;
-      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').textContent=(TL[ev.toolName]||ev.toolName)+' \u2713';te.querySelector('.ts').textContent='Done'}}sc();break;
+      case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
+      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
+      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2705 '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
-      bub.classList.remove('typing');if(ft)hist.push({role:'assistant',content:ft})
-      }catch(err){bub.classList.remove('typing');bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
-      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';l.textContent=r==='u'?'You':'Assistant';const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
+      if(dots.parentNode)dots.remove();
+      if(ft)hist.push({role:'assistant',content:ft})
+      }catch(err){if(dots.parentNode)dots.remove();bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
+      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Assistant';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
-      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<100)el.scrollTop=el.scrollHeight}
+      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
       function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
@@ -129,65 +183,115 @@ files:
       <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
-      <title>Agent Playground - Lab 2</title>
+      <title>Agent Playground - Lab 2: Weather Tool</title>
       <style>
-      *{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;overflow:hidden}
+      *{margin:0;padding:0;box-sizing:border-box}
+      html,body{height:100%;overflow:hidden}
       body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
       #app{display:flex;flex-direction:column;height:100vh}
-      header{padding:10px 16px;border-bottom:1px solid #30363d;background:#161b22;display:flex;align-items:center;justify-content:space-between}
-      .left h1{font-size:15px;font-weight:600;margin-bottom:3px}
-      .chips{display:flex;gap:4px;flex-wrap:wrap}
-      .chip{font-size:11px;padding:2px 8px;border-radius:10px;background:#30363d;color:#8b949e}
-      .chip.on{background:#1f3a5f;color:#58a6ff}
-      #nb{font-size:11px;padding:4px 10px;border-radius:6px;background:#30363d;color:#8b949e;border:1px solid #444c56;cursor:pointer}
-      #nb:hover{background:#444c56;color:#e6edf3}
-      #m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-      .hint{text-align:center;color:#8b949e;font-size:13px;padding:20px;line-height:1.7}
-      .msg{max-width:88%}.msg.u{align-self:flex-end}.msg.a{align-self:flex-start;width:88%}
-      .lbl{font-size:11px;color:#8b949e;margin-bottom:2px;padding:0 4px}
-      .bub{padding:10px 14px;border-radius:12px;line-height:1.6;word-wrap:break-word}
-      .msg.u .bub{background:#1f6feb;color:#fff}
-      .msg.a .bub{background:#161b22;border:1px solid #30363d}
-      .tc{background:#1a1e2e;border-left:3px solid #3b82f6;padding:6px 10px;margin:6px 0;border-radius:0 6px 6px 0;font-size:12px}
-      .tc .tn{font-weight:600;color:#58a6ff}.tc .ts{color:#8b949e;font-size:11px}
-      .tc.ok{border-left-color:#3fb950}.tc.ok .tn{color:#3fb950}
-      .rz{font-size:12px;color:#8b949e;font-style:italic;margin-bottom:4px}
-      .rz summary{cursor:pointer;user-select:none}
-      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:100px;overflow-y:auto}
-      #f{padding:10px 16px;border-top:1px solid #30363d;display:flex;gap:8px;background:#0d1117}
-      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 12px;border-radius:8px;font-size:14px;outline:none}
-      #f input:focus{border-color:#58a6ff}
-      #f input:disabled{opacity:.5}
-      #f button{background:#238636;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+      
+      /* Header */
+      header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
+      .left{min-width:0}
+      .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+      .chip{font-size:10px;padding:2px 8px;border-radius:12px;background:#21262d;color:#7d8590;border:1px solid #30363d;transition:all .2s}
+      .chip.on{background:rgba(56,139,253,.15);color:#58a6ff;border-color:rgba(56,139,253,.4)}
+      #nb{font-size:11px;padding:4px 12px;border-radius:16px;background:transparent;color:#7d8590;border:1px solid #30363d;cursor:pointer;transition:all .2s;white-space:nowrap}
+      #nb:hover{color:#e6edf3;border-color:#58a6ff;background:rgba(56,139,253,.1)}
+      
+      /* Messages area */
+      #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+      .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
+      .hint strong{color:#e6edf3}
+      
+      /* Messages */
+      .msg{max-width:85%;animation:fadeIn .25s ease}
+      .msg.u{align-self:flex-end}
+      .msg.a{align-self:flex-start;width:85%}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+      
+      /* Avatar labels */
+      .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
+      .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+      .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#238636,#3fb950);color:#fff}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
+      
+      /* Bubbles */
+      .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
+      .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
+      .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
+      
+      /* Tool call cards */
+      .tc{background:rgba(56,139,253,.08);border-left:3px solid #388bfd;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#58a6ff;display:flex;align-items:center;gap:4px}
+      .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
+      .tc.ok{border-left-color:#3fb950;background:rgba(63,185,80,.08)}
+      .tc.ok .tn{color:#3fb950}
+      
+      /* Reasoning accordion */
+      .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
+      .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
+      .rz[open] summary{margin-bottom:4px}
+      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
+      
+      /* Input area */
+      #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
+      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
+      #f input:focus{border-color:#58a6ff;box-shadow:0 0 0 2px rgba(56,139,253,.2)}
+      #f input:disabled{opacity:.4}
+      #f button{background:#238636;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
       #f button:hover{background:#2ea043}
-      #f button:disabled{opacity:.5;cursor:not-allowed}
-      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:100}
+      #f button:disabled{opacity:.4;cursor:not-allowed}
+      
+      /* Workshop key modal */
+      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
       .ov.h{display:none}
-      .ml{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:24px;max-width:360px;width:90%}
-      .ml h2{font-size:18px;margin-bottom:6px}
-      .ml p{color:#8b949e;font-size:13px;margin-bottom:14px}
-      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px;border-radius:8px;font-size:14px;margin-bottom:10px;outline:none}
+      .ml{background:#161b22;border:1px solid #30363d;border-radius:16px;padding:28px;max-width:340px;width:90%;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+      .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
+      .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
+      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
       .ml input:focus{border-color:#58a6ff}
-      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
       .ml .bt:hover{background:#2ea043}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
-      .typing::after{content:"";display:inline-block;width:6px;height:14px;background:#58a6ff;margin-left:2px;vertical-align:text-bottom;animation:bk .7s step-end infinite}
-      @keyframes bk{50%{opacity:0}}
+      
+      /* Typing indicator */
+      .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
+      .typing-dots span{width:5px;height:5px;background:#58a6ff;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span:nth-child(2){animation-delay:.15s}
+      .typing-dots span:nth-child(3){animation-delay:.3s}
+      @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
       </style>
       </head>
       <body>
       <div id="app">
-      <header><div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div><button id="nb" type="button">New Chat</button></header>
+      <header>
+      <div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div>
+      <button id="nb" type="button">New Chat</button>
+      </header>
       <main id="m"><div id="hi" class="hint"></div></main>
-      <form id="f"><input id="i" type="text" placeholder="Type a message..." autocomplete="off" disabled/><button id="sb" type="submit" disabled>Send</button></form>
+      <form id="f">
+      <input id="i" type="text" placeholder="Ask me something..." autocomplete="off" disabled/>
+      <button id="sb" type="submit" disabled>Send</button>
+      </form>
       </div>
-      <div id="mo" class="ov h"><div class="ml"><h2>Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/><button class="bt" id="kb" type="button">Submit</button><div id="ke" class="er"></div></div></div>
+      <div id="mo" class="ov h">
+      <div class="ml">
+      <h2>Workshop Key</h2>
+      <p>Enter the key shared at the start of the workshop.</p>
+      <input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/>
+      <button class="bt" id="kb" type="button">Submit</button>
+      <div id="ke" class="er"></div>
+      </div>
+      </div>
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       const TOOLS=['get_charlotte_weather'];
       const TITLE='Lab 2: Weather Tool';
-      const HINT='The agent now has <strong>one tool</strong>: Get Weather.<br><br>Try the same questions from Lab 1:<br><br>\u2022 "What\'s the weather in Charlotte right now?"<br>\u2022 "Who won the last Super Bowl?"<br><br>Watch for the blue tool cards that appear when the agent acts!';
-      const TL={get_current_date:'Get Date',get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const HINT='The agent now has <strong>one tool</strong>: Get Weather.<br><br>Try the same questions from Lab 1:<br><br>\u2022 "What\'s the weather in Charlotte right now?"<br>\u2022 "Who won the last Super Bowl?"<br><br>Watch for the tool cards that appear when the agent acts!';
+      const TL={get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const AT=Object.keys(TL);
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
@@ -195,7 +299,7 @@ files:
       AT.forEach(n=>{const c=document.createElement('span');c.className='chip'+(TOOLS.includes(n)?' on':'');c.textContent=TL[n];$('ch').appendChild(c)});
       if(!TOOLS.length){const c=document.createElement('span');c.className='chip';c.textContent='No tools';$('ch').appendChild(c)}
       (async()=>{
-      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please wait for your facilitator.';return}if(r.status!==401){trusted=true;go();return}}catch{}
+      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
       $('mo').classList.remove('h');$('ki').focus()
       })();
@@ -207,26 +311,30 @@ files:
       e.preventDefault();const txt=$('i').value.trim();if(!txt||busy)return;
       const hi=$('m').querySelector('.hint');if(hi)hi.remove();
       hist.push({role:'user',content:txt});addMsg('u',txt);$('i').value='';setBusy(true);
-      const el=addMsg('a','');const bub=el.querySelector('.bub');let cs=null,rz=null,ft='';
+      const el=addMsg('a','');const bub=el.querySelector('.bub');
+      const dots=document.createElement('div');dots.className='typing-dots';dots.innerHTML='<span></span><span></span><span></span>';bub.appendChild(dots);
+      let cs=null,rz=null,ft='';
       try{
       const hd={'Content-Type':'application/json'};if(!trusted&&key)hd['X-Workshop-Key']=key;
       const r=await fetch(API,{method:'POST',headers:hd,body:JSON.stringify({messages:hist,enabledTools:TOOLS})});
       if(!r.ok){const er=await r.json().catch(()=>({error:'Request failed'}));if(r.status===401){key='';localStorage.removeItem('agentic-ai-key');$('mo').classList.remove('h');$('ki').focus();$('ke').textContent='Invalid key. Try again.'}throw new Error(er.error||'Error '+r.status)}
-      const rd=r.body.getReader(),dc=new TextDecoder();let buf='';bub.classList.add('typing');
+      const rd=r.body.getReader(),dc=new TextDecoder();let buf='';
       while(true){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value,{stream:true});const ps=buf.split('\n\n');buf=ps.pop();
       for(const p of ps){const ln=p.trim();if(!ln.startsWith('data: '))continue;const d=ln.slice(6);if(d==='[DONE]')continue;
       let ev;try{ev=JSON.parse(d)}catch{continue}
+      if(dots.parentNode)dots.remove();
       switch(ev.type){
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
-      case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.innerHTML='<summary>Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
-      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TL[ev.toolName]||ev.toolName)+' ...</div><div class="ts">Calling</div>';bub.appendChild(tc)}sc();break;
-      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').textContent=(TL[ev.toolName]||ev.toolName)+' \u2713';te.querySelector('.ts').textContent='Done'}}sc();break;
+      case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
+      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
+      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2705 '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
-      bub.classList.remove('typing');if(ft)hist.push({role:'assistant',content:ft})
-      }catch(err){bub.classList.remove('typing');bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
-      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';l.textContent=r==='u'?'You':'Assistant';const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
+      if(dots.parentNode)dots.remove();
+      if(ft)hist.push({role:'assistant',content:ft})
+      }catch(err){if(dots.parentNode)dots.remove();bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
+      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Assistant';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
-      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<100)el.scrollTop=el.scrollHeight}
+      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
       function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
@@ -239,65 +347,115 @@ files:
       <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
-      <title>Agent Playground - Lab 3</title>
+      <title>Agent Playground - Lab 3: Full Agent</title>
       <style>
-      *{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;overflow:hidden}
+      *{margin:0;padding:0;box-sizing:border-box}
+      html,body{height:100%;overflow:hidden}
       body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
       #app{display:flex;flex-direction:column;height:100vh}
-      header{padding:10px 16px;border-bottom:1px solid #30363d;background:#161b22;display:flex;align-items:center;justify-content:space-between}
-      .left h1{font-size:15px;font-weight:600;margin-bottom:3px}
-      .chips{display:flex;gap:4px;flex-wrap:wrap}
-      .chip{font-size:11px;padding:2px 8px;border-radius:10px;background:#30363d;color:#8b949e}
-      .chip.on{background:#1f3a5f;color:#58a6ff}
-      #nb{font-size:11px;padding:4px 10px;border-radius:6px;background:#30363d;color:#8b949e;border:1px solid #444c56;cursor:pointer}
-      #nb:hover{background:#444c56;color:#e6edf3}
-      #m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-      .hint{text-align:center;color:#8b949e;font-size:13px;padding:20px;line-height:1.7}
-      .msg{max-width:88%}.msg.u{align-self:flex-end}.msg.a{align-self:flex-start;width:88%}
-      .lbl{font-size:11px;color:#8b949e;margin-bottom:2px;padding:0 4px}
-      .bub{padding:10px 14px;border-radius:12px;line-height:1.6;word-wrap:break-word}
-      .msg.u .bub{background:#1f6feb;color:#fff}
-      .msg.a .bub{background:#161b22;border:1px solid #30363d}
-      .tc{background:#1a1e2e;border-left:3px solid #3b82f6;padding:6px 10px;margin:6px 0;border-radius:0 6px 6px 0;font-size:12px}
-      .tc .tn{font-weight:600;color:#58a6ff}.tc .ts{color:#8b949e;font-size:11px}
-      .tc.ok{border-left-color:#3fb950}.tc.ok .tn{color:#3fb950}
-      .rz{font-size:12px;color:#8b949e;font-style:italic;margin-bottom:4px}
-      .rz summary{cursor:pointer;user-select:none}
-      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:100px;overflow-y:auto}
-      #f{padding:10px 16px;border-top:1px solid #30363d;display:flex;gap:8px;background:#0d1117}
-      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 12px;border-radius:8px;font-size:14px;outline:none}
-      #f input:focus{border-color:#58a6ff}
-      #f input:disabled{opacity:.5}
-      #f button{background:#238636;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+      
+      /* Header */
+      header{padding:8px 14px;border-bottom:1px solid #21262d;background:linear-gradient(180deg,#161b22,#131820);display:flex;align-items:center;justify-content:space-between;gap:8px}
+      .left{min-width:0}
+      .left h1{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+      .chip{font-size:10px;padding:2px 8px;border-radius:12px;background:#21262d;color:#7d8590;border:1px solid #30363d;transition:all .2s}
+      .chip.on{background:rgba(56,139,253,.15);color:#58a6ff;border-color:rgba(56,139,253,.4)}
+      #nb{font-size:11px;padding:4px 12px;border-radius:16px;background:transparent;color:#7d8590;border:1px solid #30363d;cursor:pointer;transition:all .2s;white-space:nowrap}
+      #nb:hover{color:#e6edf3;border-color:#58a6ff;background:rgba(56,139,253,.1)}
+      
+      /* Messages area */
+      #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+      .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
+      .hint strong{color:#e6edf3}
+      
+      /* Messages */
+      .msg{max-width:85%;animation:fadeIn .25s ease}
+      .msg.u{align-self:flex-end}
+      .msg.a{align-self:flex-start;width:85%}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+      
+      /* Avatar labels */
+      .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
+      .av{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+      .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#238636,#3fb950);color:#fff}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px}
+      
+      /* Bubbles */
+      .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
+      .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
+      .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
+      
+      /* Tool call cards */
+      .tc{background:rgba(56,139,253,.08);border-left:3px solid #388bfd;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#58a6ff;display:flex;align-items:center;gap:4px}
+      .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
+      .tc.ok{border-left-color:#3fb950;background:rgba(63,185,80,.08)}
+      .tc.ok .tn{color:#3fb950}
+      
+      /* Reasoning accordion */
+      .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
+      .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
+      .rz[open] summary{margin-bottom:4px}
+      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
+      
+      /* Input area */
+      #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
+      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
+      #f input:focus{border-color:#58a6ff;box-shadow:0 0 0 2px rgba(56,139,253,.2)}
+      #f input:disabled{opacity:.4}
+      #f button{background:#238636;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
       #f button:hover{background:#2ea043}
-      #f button:disabled{opacity:.5;cursor:not-allowed}
-      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:100}
+      #f button:disabled{opacity:.4;cursor:not-allowed}
+      
+      /* Workshop key modal */
+      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
       .ov.h{display:none}
-      .ml{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:24px;max-width:360px;width:90%}
-      .ml h2{font-size:18px;margin-bottom:6px}
-      .ml p{color:#8b949e;font-size:13px;margin-bottom:14px}
-      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px;border-radius:8px;font-size:14px;margin-bottom:10px;outline:none}
+      .ml{background:#161b22;border:1px solid #30363d;border-radius:16px;padding:28px;max-width:340px;width:90%;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+      .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
+      .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
+      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
       .ml input:focus{border-color:#58a6ff}
-      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+      .ml .bt{width:100%;background:#238636;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
       .ml .bt:hover{background:#2ea043}
       .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
-      .typing::after{content:"";display:inline-block;width:6px;height:14px;background:#58a6ff;margin-left:2px;vertical-align:text-bottom;animation:bk .7s step-end infinite}
-      @keyframes bk{50%{opacity:0}}
+      
+      /* Typing indicator */
+      .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
+      .typing-dots span{width:5px;height:5px;background:#58a6ff;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span:nth-child(2){animation-delay:.15s}
+      .typing-dots span:nth-child(3){animation-delay:.3s}
+      @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
       </style>
       </head>
       <body>
       <div id="app">
-      <header><div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div><button id="nb" type="button">New Chat</button></header>
+      <header>
+      <div class="left"><h1 id="tt"></h1><div id="ch" class="chips"></div></div>
+      <button id="nb" type="button">New Chat</button>
+      </header>
       <main id="m"><div id="hi" class="hint"></div></main>
-      <form id="f"><input id="i" type="text" placeholder="Type a message..." autocomplete="off" disabled/><button id="sb" type="submit" disabled>Send</button></form>
+      <form id="f">
+      <input id="i" type="text" placeholder="Ask me something..." autocomplete="off" disabled/>
+      <button id="sb" type="submit" disabled>Send</button>
+      </form>
       </div>
-      <div id="mo" class="ov h"><div class="ml"><h2>Workshop Key</h2><p>Enter the key from your workshop facilitator.</p><input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/><button class="bt" id="kb" type="button">Submit</button><div id="ke" class="er"></div></div></div>
+      <div id="mo" class="ov h">
+      <div class="ml">
+      <h2>Workshop Key</h2>
+      <p>Enter the key shared at the start of the workshop.</p>
+      <input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/>
+      <button class="bt" id="kb" type="button">Submit</button>
+      <div id="ke" class="er"></div>
+      </div>
+      </div>
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
-      const TOOLS=['get_current_date','get_charlotte_weather','get_random_fact','get_charlotte_cinnamon_roll_rankings'];
+      const TOOLS=['get_charlotte_weather','get_random_fact','get_charlotte_cinnamon_roll_rankings'];
       const TITLE='Lab 3: Full Agent';
-      const HINT='The agent has <strong>all 4 tools</strong>. Try:<br><br>\u2022 "I\'m visiting Charlotte for a data conference. Any tips?"<br>\u2022 "What\'s the weather and where should I get cinnamon rolls?"<br>\u2022 "Tell me something interesting"<br><br>Watch it orchestrate multiple tools in one response!';
-      const TL={get_current_date:'Get Date',get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
+      const HINT='The agent has <strong>all 3 tools</strong>. Try:<br><br>\u2022 "I\'m visiting Charlotte for a data conference. Any tips?"<br>\u2022 "What\'s the weather and where should I get cinnamon rolls?"<br>\u2022 "Tell me something interesting"<br><br>Watch it orchestrate multiple tools in one response!';
+      const TL={get_charlotte_weather:'Get Weather',get_random_fact:'Random Fact',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const AT=Object.keys(TL);
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
@@ -305,7 +463,7 @@ files:
       AT.forEach(n=>{const c=document.createElement('span');c.className='chip'+(TOOLS.includes(n)?' on':'');c.textContent=TL[n];$('ch').appendChild(c)});
       if(!TOOLS.length){const c=document.createElement('span');c.className='chip';c.textContent='No tools';$('ch').appendChild(c)}
       (async()=>{
-      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please wait for your facilitator.';return}if(r.status!==401){trusted=true;go();return}}catch{}
+      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
       $('mo').classList.remove('h');$('ki').focus()
       })();
@@ -317,26 +475,30 @@ files:
       e.preventDefault();const txt=$('i').value.trim();if(!txt||busy)return;
       const hi=$('m').querySelector('.hint');if(hi)hi.remove();
       hist.push({role:'user',content:txt});addMsg('u',txt);$('i').value='';setBusy(true);
-      const el=addMsg('a','');const bub=el.querySelector('.bub');let cs=null,rz=null,ft='';
+      const el=addMsg('a','');const bub=el.querySelector('.bub');
+      const dots=document.createElement('div');dots.className='typing-dots';dots.innerHTML='<span></span><span></span><span></span>';bub.appendChild(dots);
+      let cs=null,rz=null,ft='';
       try{
       const hd={'Content-Type':'application/json'};if(!trusted&&key)hd['X-Workshop-Key']=key;
       const r=await fetch(API,{method:'POST',headers:hd,body:JSON.stringify({messages:hist,enabledTools:TOOLS})});
       if(!r.ok){const er=await r.json().catch(()=>({error:'Request failed'}));if(r.status===401){key='';localStorage.removeItem('agentic-ai-key');$('mo').classList.remove('h');$('ki').focus();$('ke').textContent='Invalid key. Try again.'}throw new Error(er.error||'Error '+r.status)}
-      const rd=r.body.getReader(),dc=new TextDecoder();let buf='';bub.classList.add('typing');
+      const rd=r.body.getReader(),dc=new TextDecoder();let buf='';
       while(true){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value,{stream:true});const ps=buf.split('\n\n');buf=ps.pop();
       for(const p of ps){const ln=p.trim();if(!ln.startsWith('data: '))continue;const d=ln.slice(6);if(d==='[DONE]')continue;
       let ev;try{ev=JSON.parse(d)}catch{continue}
+      if(dots.parentNode)dots.remove();
       switch(ev.type){
       case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;
-      case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.innerHTML='<summary>Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
-      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TL[ev.toolName]||ev.toolName)+' ...</div><div class="ts">Calling</div>';bub.appendChild(tc)}sc();break;
-      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').textContent=(TL[ev.toolName]||ev.toolName)+' \u2713';te.querySelector('.ts').textContent='Done'}}sc();break;
+      case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;
+      case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">\u2699\uFE0F '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;
+      case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2705 '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;
       case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}
-      bub.classList.remove('typing');if(ft)hist.push({role:'assistant',content:ft})
-      }catch(err){bub.classList.remove('typing');bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
-      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';l.textContent=r==='u'?'You':'Assistant';const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
+      if(dots.parentNode)dots.remove();
+      if(ft)hist.push({role:'assistant',content:ft})
+      }catch(err){if(dots.parentNode)dots.remove();bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
+      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Assistant';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
-      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<100)el.scrollTop=el.scrollHeight}
+      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
       function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
