@@ -4,6 +4,8 @@ title: Agent Playground
 content: |
   ## Lab 1: No Tools
 
+  **Click the green play button (top right) to load the Agent Playground.**
+
   This AI has **no tools**. It can only respond from its training data.
 
   Try asking:
@@ -12,9 +14,10 @@ content: |
   - "What's the weather in Charlotte?"
 
   Pay attention to its answers. Are they accurate? How does it handle questions about real-time information?
-
-  <iframe src="https://agentic-ai-playground.vercel.app/?tools=none" width="100%" height="600" style="border:none; border-radius:8px;"></iframe>
+showEditor: true
 dependsOn:
   - unit1:lesson1:page1
 editors:
+  - course1/playground-lab1.html
+hiddenEditors:
   - course1/playground-lab1.html
