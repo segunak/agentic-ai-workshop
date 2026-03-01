@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: unit5
 title: From Acronyms to Applications
+duration: 4
 description: Decode the acronyms behind what you just built. Covers GPT, LLM, NLP, Context Windows, RAG, MCP, RLHF, and GANs.
 objectives: Connect your hands-on experience to real AI terminology. Walk away with a cheat sheet and resources to keep learning.
 lessons:

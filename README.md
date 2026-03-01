@@ -6,7 +6,7 @@ This repo contains the YAML source files that define the course structure, conte
 
 The Agent Playground that powers the hands-on labs lives in a separate repo: [agentic-ai-playground](https://github.com/segunak/agentic-ai-playground).
 
-## What Is an Agent?
+## What Is An Agent?
 
 > An LLM agent runs tools in a loop to achieve a goal.
 
@@ -16,7 +16,7 @@ This definition, articulated by [Simon Willison](https://simonwillison.net/2025/
 
 ### Unit 1: What is Agentic AI?
 
-Quick conceptual primer. Covers GenAI vs Agentic AI, the "tools in a loop" definition, and one quiz question. Designed to be a 30-second read for live attendees (since the slides cover this in depth) while giving enough context for someone doing the course independently.
+Quick conceptual primer. Covers Generative AI vs Agentic AI, the "tools in a loop" definition, and quiz questions. Designed to be a 30-second read for live attendees (since my slides cover this in depth) while giving enough context for someone doing the course independently.
 
 | Page | Title | Type |
 |------|-------|------|
@@ -60,3 +60,41 @@ Maps what students just experienced to real terminology: RAG, MCP, RLHF, Context
 |------|-------|------|
 | 1 | Decoding the Acronyms | Content + Quiz |
 | 2 | Next Steps | Content |
+
+## File Structure
+
+```text
+index.yml              # Course root: metadata, embedded HTML files, unit references
+unit1/                 # What is Agentic AI?
+unit2/                 # Lab 1 - Meet the Chatbot
+unit3/                 # Lab 2 - Give It a Tool
+unit4/                 # Lab 3 - Multi-Tool Agent
+unit5/                 # From Acronyms to Applications
+```
+
+Each unit follows the pattern: `unitN/index.yml` > `unitN/lesson1/index.yml` > `unitN/lesson1/pageN.yml`.
+
+## Schema Features Used
+
+This course uses the [VS Code for Education course-v2 schema](https://vscodeedu.com/assets/schema/course-v2.schema.json) ([local copy](course-v2.schema.json)). Notable features:
+
+- **`questionGroups`** with `choice`, `multiple`, and `reflection` question types
+- **`dependsOn`** to gate pages so students complete labs in order
+- **`duration`** at the course and unit level for pacing
+- **`showEditor`** to render embedded HTML playgrounds in the preview pane
+- **`hint`** on harder questions to nudge students in the right direction
+- **`content`** on question groups to add intro text before questions
+
+### Features I Didn't Use But Are Worth Knowing About
+
+- **`codePrompts`** lets students write natural language prompts that a built-in AI converts to code and writes to a target file. This is how [Slither Slam](https://aka.ms/slither-slam) works, where students describe [snake game](https://snake-game.io/) AI strategies in English.
+- **`showTerminal`** and **`showExplorer`** toggle terminal and file explorer panels.
+- **`standards`** aligns lessons to [CSTA K-12 CS Standards](https://www.csteachers.org/page/standards).
+- **`mapping`** question type for match-the-pairs exercises.
+
+[VS Code for Education](https://vscodeedu.com/) is a genuinely great platform for building interactive workshops. It runs entirely in the browser, requires only a Microsoft account, and the YAML authoring format is clean and well-designed. I hope Microsoft keeps working on it, would hate to see it end up [in their graveyard](https://killedbymicrosoft.info/).
+
+## Related Stuff
+
+- [agentic-ai-playground](https://github.com/segunak/agentic-ai-playground) - The Vercel-hosted Agent Playground that powers the embedded labs
+- [Companion article](https://segunakinyemi.com/blog/agentic-ai-from-acronyms-to-applications/)

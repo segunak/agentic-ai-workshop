@@ -1,6 +1,8 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
 title: Decoding the Acronyms
+dependsOn:
+  - unit4:lesson1:page3
 content: |
   ## You Just Experienced These Concepts
 
@@ -22,7 +24,9 @@ content: |
 
   **GANs** ([Generative Adversarial Networks](https://en.wikipedia.org/wiki/Generative_adversarial_network)) - Two AIs competing against each other. One creates fake content, the other tries to detect it. Through this competition, both improve. Invented by [Ian Goodfellow](https://en.wikipedia.org/wiki/Ian_Goodfellow) in 2014.
 questionGroups:
-  - questions:
+  - id: "1"
+    content: "Think about what you experienced across all three labs."
+    questions:
       - id: "1"
         type: multiple
         content: "Which of these did your agent demonstrate today? (Select all that apply)"
@@ -43,3 +47,8 @@ questionGroups:
             value: "Replacing human workers"
             isCorrect: false
             incorrectExplanation: "Agents assist and augment. They don't replace human expertise."
+  - id: "2"
+    questions:
+      - id: "1"
+        type: reflection
+        content: "After everything you've seen and learned today, how would you explain the difference between Generative AI and Agentic AI to a friend, classmate, or coworker?"

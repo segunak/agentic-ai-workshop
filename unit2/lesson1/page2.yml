@@ -3,5 +3,7 @@ id: page2
 title: Agent Playground
 content: ""
 showEditor: true
+dependsOn:
+  - unit1:lesson1:page1
 editors:
   - course1/playground-lab1.html

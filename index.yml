@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: course1
 title: "Agentic AI: From Acronyms to Applications"
-duration: 40
+duration: 30
 level: intermediate
 description: Interact with a real AI agent, toggle its tools on and off, and
   discover what makes Agentic AI different from a regular chatbot.
