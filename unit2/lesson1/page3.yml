@@ -20,7 +20,7 @@ questionGroups:
               events after its training cutoff.
           - id: b
             value: It couldn't give a real answer, or it hedged and gave general info
-            explanation: Exactly! Without tools, it can only offer general knowledge from
+            explanation: Without tools, it can only offer general knowledge from
               training. No live data, no recent events.
             isCorrect: true
           - id: c
@@ -40,7 +40,7 @@ questionGroups:
               information after its training cutoff.
           - id: b
             value: It only knows what was in its training data
-            explanation: Right! LLMs are trained on data up to a cutoff date. Anything after
+            explanation: LLMs are trained on data up to a cutoff date. Anything after
               that, they genuinely don't know without tools.
             isCorrect: true
           - id: c

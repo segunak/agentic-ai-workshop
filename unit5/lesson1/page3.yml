@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
+id: page3
+title: What Did You Build?
+dependsOn:
+  - unit5:lesson1:page2
+content: |
+  ## Reflection
+
+  You configured a custom AI agent. You wrote its instructions, chose its tools, and tested it.
+questionGroups:
+  - id: "1"
+    content: "Think about the agent you just built."
+    questions:
+      - id: "1"
+        type: choice
+        content: "When you changed our agent's instructions, what happened?"
+        options:
+          - id: a
+            value: "The agent's personality and tone changed"
+            isCorrect: true
+            explanation: "Instructions shape HOW the agent communicates. Same tools, different personality."
+          - id: b
+            value: "Nothing changed"
+            isCorrect: false
+            incorrectExplanation: "Try changing the instructions to something very different and compare the responses."
+          - id: c
+            value: "The agent got new tools"
+            isCorrect: false
+            incorrectExplanation: "Instructions control personality, not tool access. Tools are separate."
+  - id: "2"
+    questions:
+      - id: "1"
+        type: choice
+        content: "What are the two things that make each agent unique?"
+        options:
+          - id: a
+            value: "Its instructions and its tools"
+            isCorrect: true
+            explanation: "Instructions define what it should do. Tools define what it can do. Together they create a unique agent."
+          - id: b
+            value: "Its name and its color scheme"
+            isCorrect: false
+            incorrectExplanation: "Those are cosmetic. The real differentiators are instructions (personality/behavior) and tools (capabilities)."
+          - id: c
+            value: "The model it uses and its speed"
+            isCorrect: false
+            incorrectExplanation: "All agents in this workshop use the same model. The difference is in instructions and tools."
+  - id: "3"
+    questions:
+      - id: "1"
+        type: reflection
+        content: "If you could give an AI agent any tool in the world, what would it do and who would it help?"
+        options: []

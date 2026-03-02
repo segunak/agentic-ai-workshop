@@ -1,17 +1,22 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page2
-title: Next Steps
+title: Lab 4 - Build Your Own Agent
 content: |
-  ## Keep Learning!
+  ## Build Your Own Agent
 
-  You've interacted with a real AI agent. Here's where to go next:
+  **Click the green play button (top right) to open Lab 4.**
 
-  - **Companion Article**: [segunakinyemi.com/blog/agentic-ai-from-acronyms-to-applications](https://segunakinyemi.com/blog/agentic-ai-from-acronyms-to-applications)
-  - **Microsoft Agent Framework**: [github.com/microsoft/agent-framework](https://github.com/microsoft/agent-framework)
-  - **AI Insights for Students** (curated reading list): [readwise.io/reader/view/2a197170-e112-4033-83b2-288bfbf75194](https://readwise.io/reader/view/2a197170-e112-4033-83b2-288bfbf75194)
-  - **Python Agent Demos** (by Pamela Fox): [github.com/Azure-Samples/python-agentframework-demos](https://github.com/Azure-Samples/python-agentframework-demos)
-  - **Segun's Website**: [segunakinyemi.com](https://segunakinyemi.com)
+  Pick a recipe to start with (or start from scratch), customize the instructions, choose your tools, and test it.
 
-  *"Agentic AI doesn't eliminate the need for human expertise. It amplifies it."*
+  Some ideas to try:
 
-  Thank you for participating!
+  1. Pick the **Breaking News Anchor** recipe and ask about earthquakes
+  2. Change the personality to something completely different and ask the same question
+  3. Toggle tools on and off to see how your agent adapts
+
+  Have fun with it.
+showEditor: true
+dependsOn:
+  - unit5:lesson1:page1
+editors:
+  - course1/agent-workshop.html

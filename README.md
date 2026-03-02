@@ -2,7 +2,7 @@
 
 The [VS Code for Education](https://vscodeedu.com) course for my [**Agentic AI: From Acronyms to Applications**](https://segunakinyemi.com/blog/agentic-ai-from-acronyms-to-applications/) workshop.
 
-This repo contains the YAML source files that define the course structure, content, quizzes, and embedded Agent Playground HTML. Import it into VS Code for Education via the Authoring tab to publish the course.
+Built with the [Vercel AI SDK](https://ai-sdk.dev/) on [Vercel](https://vercel.com/), powered by [Microsoft Foundry](https://learn.microsoft.com/azure/ai-foundry/what-is-foundry) on Azure, and delivered through [Visual Studio Code for Education](https://vscodeedu.com). This repo contains the YAML source files that define the course structure, content, quizzes, and embedded Agent Playground HTML.
 
 The Agent Playground that powers the hands-on labs lives in a separate repo: [agentic-ai-playground](https://github.com/segunak/agentic-ai-playground).
 
@@ -52,7 +52,17 @@ All four tools are enabled: `get_weather`, `get_people_in_space`, `get_recent_ea
 | 2 | Agent Playground | Embedded HTML (all tools) |
 | 3 | Putting It Together | Quiz |
 
-### Unit 5: From Acronyms to Applications
+### Unit 5: Build Your Own Agent
+
+The capstone experience. Students configure their own custom AI agent by writing personality instructions and choosing from 9 available tools. Includes 7 recipe cards (News Anchor, Scientist, Comedian, Charlotte Guide, Radio Host, Wizard, From Scratch) as starting points.
+
+| Page | Title | Type |
+|------|-------|------|
+| 1 | What Makes an Agent Yours? | Content |
+| 2 | Lab 4: Build Your Own Agent | Embedded HTML (configurator + chat) |
+| 3 | What Did You Build? | Quiz |
+
+### Unit 6: From Acronyms to Applications
 
 Maps what students just experienced to real terminology: RAG, MCP, RLHF, Context Window. Links to resources for continued learning.
 
@@ -69,7 +79,8 @@ unit1/                 # What is Agentic AI?
 unit2/                 # Lab 1 - Meet the Chatbot
 unit3/                 # Lab 2 - Give It a Tool
 unit4/                 # Lab 3 - Multi-Tool Agent
-unit5/                 # From Acronyms to Applications
+unit5/                 # Build Your Own Agent
+unit6/                 # From Acronyms to Applications
 ```
 
 Each unit follows the pattern: `unitN/index.yml` > `unitN/lesson1/index.yml` > `unitN/lesson1/pageN.yml`.

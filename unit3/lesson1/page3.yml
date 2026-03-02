@@ -2,11 +2,10 @@
 id: page3
 title: The Agent in Action
 content: >
-  ## What Just Happened?
+  ## What Happened?
 
 
-  The AI **autonomously decided** to call `get_weather` when you asked
-  about weather. Nobody told it to. That decision is **agency**.
+  The AI called `get_weather` on its own when you asked about weather. You didn't tell it to. It decided the question was relevant to that tool and used it.
 
 
   When you asked a question the weather tool couldn't help with, it answered

@@ -1,10 +1,8 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: unit5
-title: From Acronyms to Applications
-duration: 4
-description: Decode the acronyms behind what you just built. Covers GPT, LLM,
-  NLP, Context Windows, RAG, MCP, RLHF, and GANs.
-objectives: Connect your hands-on experience to real AI terminology. Walk away
-  with a cheat sheet and resources to keep learning.
+title: "Build Your Own Agent"
+duration: 10
+description: Configure a custom AI agent with your own personality, instructions, and tool selection.
+objectives: Understand how agent instructions and tool selection shape behavior. Create a personalized AI agent.
 lessons:
   - lesson1/index.yml

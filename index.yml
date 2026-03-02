@@ -662,9 +662,175 @@ files:
       </script>
       </body>
       </html>
+  - path: course1/agent-workshop.html
+    content: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width,initial-scale=1"/>
+      <title>Lab 4: Build Your Own Agent</title>
+      <style>
+      *{margin:0;padding:0;box-sizing:border-box}
+      html,body{height:100%;overflow:hidden}
+      body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
+      #app{display:flex;flex-direction:column;height:100vh}
+      header{padding:8px 14px;border-bottom:1px solid #21262d;background:#0d1117;display:flex;align-items:center;justify-content:space-between;gap:8px}
+      header h1{font-size:15px;font-weight:700;color:#fff}
+      .hdr-btns{display:flex;gap:6px}
+      .hdr-btn{font-size:11px;padding:5px 14px;border-radius:16px;background:transparent;color:#e6edf3;border:1.5px solid #8957e5;cursor:pointer;transition:all .2s;white-space:nowrap;font-weight:600}
+      .hdr-btn:hover{background:#8957e5;color:#fff}
+      #cfg{overflow-y:auto;border-bottom:1px solid #21262d;background:#0d1117;max-height:50vh;transition:max-height .3s}
+      #cfg.collapsed{max-height:0;overflow:hidden;border-bottom:none}
+      .cfg-inner{padding:10px 14px 12px}
+      .sec-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#7d8590;margin-bottom:6px}
+      .recipes{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+      .recipe{flex-shrink:0;padding:8px 12px;border-radius:10px;border:1px solid #30363d;background:#161b22;cursor:pointer;transition:all .2s;min-width:120px;max-width:160px}
+      .recipe:hover{border-color:#8957e5}
+      .recipe.sel{border-color:#8957e5;background:rgba(137,87,229,.12)}
+      .recipe .r-ico{font-size:18px;margin-bottom:3px}
+      .recipe .r-name{font-size:11px;font-weight:600;color:#e6edf3;margin-bottom:2px}
+      .recipe .r-desc{font-size:9px;color:#7d8590;line-height:1.3}
+      .instr-wrap{margin-top:8px}
+      #instr{width:100%;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:8px 10px;border-radius:8px;font-size:12px;font-family:inherit;resize:vertical;min-height:48px;max-height:100px;outline:none;transition:border-color .2s}
+      #instr:focus{border-color:#8957e5}
+      #instr::placeholder{color:#484f58}
+      .tool-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+      .tg{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;cursor:pointer;user-select:none;padding:4px 10px;border-radius:14px;transition:all .2s;letter-spacing:.2px}
+      .tg input{display:none}
+      .tg .sw{width:28px;height:16px;border-radius:8px;background:#30363d;position:relative;transition:background .2s;flex-shrink:0}
+      .tg .sw::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#484f58;transition:all .2s}
+      .tg.on{color:#a371f7;border:1px solid rgba(137,87,229,.4);background:rgba(137,87,229,.12)}
+      .tg.on .sw{background:rgba(137,87,229,.5)}
+      .tg.on .sw::after{transform:translateX(12px);background:#a371f7}
+      .tg.off{color:#484f58;border:1px solid #30363d;background:transparent}
+      .tg:hover{filter:brightness(1.15)}
+      #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+      .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
+      .hint strong{color:#fff}
+      .msg{max-width:85%;animation:fadeIn .25s ease}
+      .msg.u{align-self:flex-end}
+      .msg.a{align-self:flex-start;width:85%}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+      .lbl{display:flex;align-items:center;gap:5px;margin-bottom:3px;padding:0 2px}
+      .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+      .msg.u .av{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff}
+      .msg.a .av{background:linear-gradient(135deg,#8957e5,#a371f7);color:#fff}
+      .ln{font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+      .bub{padding:10px 14px;border-radius:14px;line-height:1.65;word-wrap:break-word;font-size:13.5px}
+      .msg.u .bub{background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;border-bottom-right-radius:4px}
+      .msg.a .bub{background:#161b22;border:1px solid #21262d;border-bottom-left-radius:4px}
+      .tc{background:rgba(137,87,229,.08);border-left:3px solid #8957e5;padding:7px 10px;margin:8px 0;border-radius:0 8px 8px 0;font-size:12px;transition:all .4s ease;animation:fadeIn .3s ease}
+      .tc .tn{font-weight:600;color:#a371f7;display:flex;align-items:center;gap:4px}
+      .tc .ts{color:#7d8590;font-size:11px;margin-top:1px}
+      .tc.ok{border-left-color:#a371f7;background:rgba(137,87,229,.12)}
+      .tc.ok .tn{color:#d2a8ff}
+      .rz{font-size:12px;color:#7d8590;margin-bottom:6px;background:rgba(139,148,158,.06);border-radius:8px;padding:6px 10px;border:1px solid #21262d}
+      .rz summary{cursor:pointer;user-select:none;font-weight:500;color:#8b949e;display:flex;align-items:center;gap:4px}
+      .rz[open] summary{margin-bottom:4px}
+      .rz .rc{padding:4px 0;white-space:pre-wrap;max-height:120px;overflow-y:auto;font-size:11.5px;line-height:1.5;color:#7d8590}
+      #f{padding:10px 14px;border-top:1px solid #21262d;display:flex;gap:8px;background:#0d1117}
+      #f input{flex:1;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:20px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
+      #f input:focus{border-color:#8957e5;box-shadow:0 0 0 2px rgba(137,87,229,.25)}
+      #f input:disabled{opacity:.4}
+      #f button{background:#8957e5;color:#fff;border:none;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+      #f button:hover{background:#a371f7}
+      #f button:disabled{opacity:.4;cursor:not-allowed}
+      .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
+      .ov.h{display:none}
+      .ml{background:#161b22;border:1px solid #30363d;border-radius:16px;padding:28px;max-width:340px;width:90%;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+      .ml h2{font-size:17px;margin-bottom:6px;color:#e6edf3}
+      .ml p{color:#7d8590;font-size:13px;margin-bottom:16px;line-height:1.5}
+      .ml input{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
+      .ml input:focus{border-color:#8957e5}
+      .ml .bt{width:100%;background:#8957e5;color:#fff;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+      .ml .bt:hover{background:#a371f7}
+      .er{color:#f85149;font-size:12px;margin-top:6px;min-height:16px}
+      .typing-dots{display:inline-flex;gap:3px;padding:4px 0;vertical-align:middle}
+      .typing-dots span{width:5px;height:5px;background:#8957e5;border-radius:50%;animation:bounce .6s infinite}
+      .typing-dots span:nth-child(2){animation-delay:.15s}
+      .typing-dots span:nth-child(3){animation-delay:.3s}
+      @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+      </style>
+      </head>
+      <body>
+      <div id="app">
+      <header>
+      <h1>Lab 4: Build Your Own Agent</h1>
+      <div class="hdr-btns">
+      <button class="hdr-btn" id="tb" type="button">Hide Config</button>
+      <button class="hdr-btn" id="nb" type="button">New Chat</button>
+      </div>
+      </header>
+      <div id="cfg">
+      <div class="cfg-inner">
+      <div class="sec-label">Start with a Recipe</div>
+      <div class="recipes" id="rr"></div>
+      <div class="instr-wrap">
+      <div class="sec-label" style="margin-top:8px">Agent Instructions</div>
+      <textarea id="instr" placeholder="Describe your agent's personality... (e.g. You are a dramatic news anchor who treats every fact like breaking news)" rows="2"></textarea>
+      </div>
+      <div class="sec-label" style="margin-top:8px">Tools</div>
+      <div class="tool-grid" id="tg"></div>
+      </div>
+      </div>
+      <main id="m"><div id="hi" class="hint"></div></main>
+      <form id="f">
+      <input id="i" type="text" placeholder="Ask your agent something..." autocomplete="off" disabled/>
+      <button id="sb" type="submit" disabled>Send</button>
+      </form>
+      </div>
+      <div id="mo" class="ov h">
+      <div class="ml">
+      <h2>Workshop Key</h2>
+      <p>Enter the key shared at the start of the workshop.</p>
+      <input id="ki" type="text" placeholder="Enter key..." autocomplete="off"/>
+      <button class="bt" id="kb" type="button">Submit</button>
+      <div id="ke" class="er"></div>
+      </div>
+      </div>
+      <script>
+      const API='https://agentic-ai-playground.vercel.app/api/chat';
+      const HINT='Pick a <strong>recipe</strong> above or start from scratch. Choose your <strong>tools</strong>, write your <strong>instructions</strong>, then send a message!';
+      const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dad_joke:'Dad Jokes',get_dog_image:'Dog Image',get_today_in_history:'Today in History'};
+      const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dad_joke:'\uD83D\uDE02',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC'};
+      const AT=Object.keys(TL);
+      const RECIPES=[
+      {ico:'\uD83D\uDCF0',name:'News Anchor',desc:'Dramatic reporter',instr:'You are a dramatic breaking news anchor. Every piece of information is BREAKING NEWS. Use urgency and excitement.',tools:['get_recent_earthquakes','get_people_in_space','get_weather','get_today_in_history']},
+      {ico:'\uD83D\uDD2C',name:'The Scientist',desc:'Curious educator',instr:'You are a curious science educator who gets genuinely excited about discoveries. Use simple analogies to explain things.',tools:['get_nasa_picture_of_the_day','get_international_space_station_location','get_people_in_space','get_recent_earthquakes']},
+      {ico:'\uD83D\uDE02',name:'The Comedian',desc:'Jokes in every answer',instr:'You are a stand-up comedian. Work humor into every response. If there is a pun opportunity, take it.',tools:['get_dad_joke','get_dog_image','get_weather']},
+      {ico:'\uD83D\uDDFA\uFE0F',name:'Charlotte Guide',desc:'Enthusiastic local',instr:'You are an enthusiastic Charlotte, NC tour guide who loves showing visitors around. Be warm and proud of the city.',tools:['get_weather','get_charlotte_cinnamon_roll_rankings']},
+      {ico:'\uD83C\uDFB6',name:'Radio Host',desc:'Cheerful morning DJ',instr:'You are a cheerful morning radio DJ. Keep it light, fun, and conversational. Throw in bad puns.',tools:['get_weather','get_dad_joke','get_today_in_history','get_dog_image']},
+      {ico:'\uD83E\uDDD9',name:'The Wizard',desc:'Mystical and magical',instr:'You are a mystical wizard. Describe weather as atmospheric enchantments, earthquakes as the earth trembling, and space as the celestial realm.',tools:['get_weather','get_recent_earthquakes','get_nasa_picture_of_the_day','get_people_in_space']},
+      {ico:'\uD83C\uDF1F',name:'From Scratch',desc:'You decide everything',instr:'',tools:[]}
+      ];
+      let TOOLS=[];
+      let hist=[],key='',busy=false,trusted=false,cfgOpen=true;
+      const $=x=>document.getElementById(x);
+      $('hi').innerHTML=HINT;
+      RECIPES.forEach((r,idx)=>{const card=document.createElement('div');card.className='recipe';card.dataset.idx=idx;card.innerHTML='<div class="r-ico">'+r.ico+'</div><div class="r-name">'+r.name+'</div><div class="r-desc">'+r.desc+'</div>';card.onclick=()=>{document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'));card.classList.add('sel');$('instr').value=r.instr;TOOLS=r.tools.slice();renderToggles()};$('rr').appendChild(card)});
+      function renderToggles(){$('tg').innerHTML='';AT.forEach(n=>{const lbl=document.createElement('label');const isOn=TOOLS.includes(n);lbl.className='tg'+(isOn?' on':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;const sw=document.createElement('span');sw.className='sw';cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tg on'}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tg off'}document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'))};lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl)})}
+      renderToggles();
+      $('instr').oninput=()=>{document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'))};
+      $('tb').onclick=()=>{cfgOpen=!cfgOpen;$('cfg').classList.toggle('collapsed',!cfgOpen);$('tb').textContent=cfgOpen?'Hide Config':'Edit Agent'};
+      (async()=>{try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}$('mo').classList.remove('h');$('ki').focus()})();
+      $('kb').onclick=sk;$('ki').onkeydown=e=>{if(e.key==='Enter')sk()};
+      function sk(){const v=$('ki').value.trim();if(!v){$('ke').textContent='Please enter a key.';return}key=v;localStorage.setItem('agentic-ai-key',v);$('mo').classList.add('h');go();$('i').focus()}
+      function go(){$('i').disabled=false;$('sb').disabled=false;$('i').focus()}
+      $('nb').onclick=()=>{hist=[];$('m').innerHTML='';const h=document.createElement('div');h.className='hint';h.innerHTML=HINT;$('m').appendChild(h)};
+      $('f').onsubmit=async e=>{e.preventDefault();const txt=$('i').value.trim();if(!txt||busy)return;const hi=$('m').querySelector('.hint');if(hi)hi.remove();if(cfgOpen){cfgOpen=false;$('cfg').classList.add('collapsed');$('tb').textContent='Edit Agent'}hist.push({role:'user',content:txt});addMsg('u',txt);$('i').value='';setBusy(true);const el=addMsg('a','');const bub=el.querySelector('.bub');const dots=document.createElement('div');dots.className='typing-dots';dots.innerHTML='<span></span><span></span><span></span>';bub.appendChild(dots);let cs=null,rz=null,ft='';try{const hd={'Content-Type':'application/json'};if(!trusted&&key)hd['X-Workshop-Key']=key;const r=await fetch(API,{method:'POST',headers:hd,body:JSON.stringify({messages:hist,enabledTools:TOOLS,customInstructions:$('instr').value.trim()})});if(!r.ok){const er=await r.json().catch(()=>({error:'Request failed'}));if(r.status===401){key='';localStorage.removeItem('agentic-ai-key');$('mo').classList.remove('h');$('ki').focus();$('ke').textContent='Invalid key. Try again.'}throw new Error(er.error||'Error '+r.status)}const rd=r.body.getReader(),dc=new TextDecoder();let buf='';while(true){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value,{stream:true});const ps=buf.split('\n\n');buf=ps.pop();for(const p of ps){const ln=p.trim();if(!ln.startsWith('data: '))continue;const d=ln.slice(6);if(d==='[DONE]')continue;let ev;try{ev=JSON.parse(d)}catch{continue}if(dots.parentNode)dots.remove();switch(ev.type){case'text-delta':if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs._r+=ev.text;ft+=ev.text;cs.innerHTML=md(cs._r);sc();break;case'reasoning-delta':if(!rz){rz=document.createElement('details');rz.className='rz';rz.open=true;rz.innerHTML='<summary>\uD83D\uDCA1 Thinking...</summary><div class="rc"></div>';bub.insertBefore(rz,bub.firstChild)}rz.querySelector('.rc').textContent+=ev.text;break;case'tool-call':cs=null;{const tc=document.createElement('div');tc.className='tc';tc.id='t'+ev.toolCallId;tc.innerHTML='<div class="tn">'+(TI[ev.toolName]||'\u2699\uFE0F')+' '+(TL[ev.toolName]||ev.toolName)+'</div><div class="ts">Calling...</div>';bub.appendChild(tc)}sc();break;case'tool-result':{const te=document.getElementById('t'+ev.toolCallId);if(te){te.classList.add('ok');te.querySelector('.tn').innerHTML='\u2714\uFE0F '+(TL[ev.toolName]||ev.toolName);te.querySelector('.ts').textContent='Done'}}sc();break;case'error':ft+='[Error]';if(!cs){cs=document.createElement('span');cs._r='';bub.appendChild(cs)}cs.innerHTML+='<span style="color:#f85149">['+esc(ev.error)+']</span>';break}}}if(dots.parentNode)dots.remove();if(ft)hist.push({role:'assistant',content:ft})}catch(err){if(dots.parentNode)dots.remove();bub.innerHTML='<span style="color:#f85149">'+esc(err.message)+'</span>'}setBusy(false)};
+      function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Assistant';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
+      function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
+      function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
+      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
+      function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+      </script>
+      </body>
+      </html>
 units:
   - unit1/index.yml
   - unit2/index.yml
   - unit3/index.yml
   - unit4/index.yml
   - unit5/index.yml
+  - unit6/index.yml

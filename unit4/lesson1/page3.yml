@@ -5,15 +5,15 @@ content: >
   ## Multi-Tool Orchestration
 
 
-  You just watched an agent **chain multiple tool calls** to answer a single
-  question. It decided the order, picked the tools, and synthesized everything
-  into one response.
+  The agent chained multiple tool calls to answer a single
+  question. It decided the order, picked the tools, and combined the results
+  into one response. That is orchestration.
 
 
-  That's orchestration  - and it happened autonomously.
+  
 questionGroups:
   - id: "1"
-    content: Think about what you just watched the agent do.
+    content: Think about how the agent handled your questions.
     questions:
       - id: "1"
         type: choice
@@ -67,7 +67,7 @@ questionGroups:
             incorrectExplanation: That's a chatbot. Agents do more - they use tools autonomously.
           - id: b
             value: An LLM that uses tools in a loop to achieve a goal
-            explanation: That's the definition! Tools + loop + goal = agent.
+            explanation: Tools + loop + goal = agent.
             isCorrect: true
           - id: c
             value: A robot that replaces human workers

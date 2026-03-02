@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: lesson1
-title: Lab 4 - Build Your Own Agent
+title: What You Just Built
 lessonParts:
   - page1.yml
   - page2.yml
-  - page3.yml
