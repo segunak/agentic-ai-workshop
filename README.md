@@ -34,7 +34,7 @@ Students interact with the Agent Playground with **no tools enabled**. The AI ca
 
 ### Unit 3: Lab 2 - Give It a Tool
 
-The `get_charlotte_weather` tool is now enabled. Students ask the same weather question from Lab 1 and watch the tool cards appear as the agent autonomously fetches live data. This is the moment it becomes an agent.
+The `get_weather` tool is now enabled. Students ask the same weather question from Lab 1 and watch the tool cards appear as the agent autonomously fetches live data. This is the moment it becomes an agent.
 
 | Page | Title | Type |
 |------|-------|------|
@@ -44,7 +44,7 @@ The `get_charlotte_weather` tool is now enabled. Students ask the same weather q
 
 ### Unit 4: Lab 3 - Multi-Tool Agent
 
-All four tools are enabled: `get_charlotte_weather`, `get_people_in_space`, `get_recent_earthquakes`, and `get_charlotte_cinnamon_roll_rankings`. Students ask complex questions and watch the agent chain multiple tools autonomously.
+All four tools are enabled: `get_weather`, `get_people_in_space`, `get_recent_earthquakes`, and `get_charlotte_cinnamon_roll_rankings`. Students ask complex questions and watch the agent chain multiple tools autonomously.
 
 | Page | Title | Type |
 |------|-------|------|

@@ -5,7 +5,7 @@ content: >
   ## What Just Happened?
 
 
-  The AI **autonomously decided** to call `get_charlotte_weather` when you asked
+  The AI **autonomously decided** to call `get_weather` when you asked
   about weather. Nobody told it to. That decision is **agency**.
 
 

@@ -14,7 +14,7 @@ content: >
   That autonomy is what makes it an **agent**.
 
 
-  On the next page, the AI now has **one tool**: `get_charlotte_weather`.
+  On the next page, the AI now has **one tool**: `get_weather`.
 
 
   Ask it *"What's the weather in Charlotte right now?"* again. The same question

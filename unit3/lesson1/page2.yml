@@ -8,7 +8,7 @@ content: >
   **Click the green play button (top right) to load the Agent Playground.**
 
 
-  The AI now has one tool: `get_charlotte_weather`.
+  The AI now has one tool: `get_weather`.
 
 
   Run these same prompts from Lab 1:
