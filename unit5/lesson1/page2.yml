@@ -16,7 +16,5 @@ content: |
 
   Have fun with it.
 showEditor: true
-dependsOn:
-  - unit5:lesson1:page1
 editors:
   - course1/agent-workshop.html

@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page3
 title: What Did You Build?
-dependsOn:
-  - unit5:lesson1:page2
 content: |
   ## Reflection
 

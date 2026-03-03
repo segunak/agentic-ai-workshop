@@ -90,7 +90,6 @@ Each unit follows the pattern: `unitN/index.yml` > `unitN/lesson1/index.yml` > `
 This course uses the [VS Code for Education course-v2 schema](https://vscodeedu.com/assets/schema/course-v2.schema.json) ([local copy](course-v2.schema.json)). Notable features:
 
 - **`questionGroups`** with `choice`, `multiple`, and `reflection` question types
-- **`dependsOn`** to gate pages so students complete labs in order
 - **`duration`** at the course and unit level for pacing
 - **`showEditor`** to render embedded HTML playgrounds in the preview pane
 - **`hint`** on harder questions to nudge students in the right direction

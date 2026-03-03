@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: page1
 title: What Makes an Agent Yours?
-dependsOn:
-  - unit4:lesson1:page3
 content: |
   ## From User to Builder
 
