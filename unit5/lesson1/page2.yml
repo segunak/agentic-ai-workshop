@@ -6,15 +6,13 @@ content: |
 
   **Click the green play button (top right) to open Lab 4.**
 
-  Pick a recipe to start with (or start from scratch), customize the instructions, choose your tools, and test it.
+  This is how agents are built across the software engineering industry. You describe the agent's behavior in plain English and configure its tools. Some call this natural language programming, where English is the programming language and the instructions you write are the code.
 
-  Some ideas to try:
+  Pick a recipe to start with (or start from scratch), customize the instructions, choose your tools, and test it.
 
   1. Pick the **Breaking News Anchor** recipe and ask about earthquakes
   2. Change the personality to something completely different and ask the same question
   3. Toggle tools on and off to see how your agent adapts
-
-  Have fun with it.
 showEditor: true
 editors:
   - course1/agent-workshop.html
