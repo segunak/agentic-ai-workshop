@@ -54,7 +54,7 @@ All four tools are enabled: `get_weather`, `get_people_in_space`, `get_recent_ea
 
 ### Unit 5: Build Your Own Agent
 
-The capstone experience. Students configure their own custom AI agent by writing personality instructions and choosing from 9 available tools. Includes 7 recipe cards (News Anchor, Scientist, Comedian, Charlotte Guide, Radio Host, Wizard, From Scratch) as starting points.
+The capstone experience. Students configure their own custom AI agent by writing personality instructions and choosing from 10 available tools, including posting to the [live feed](https://live.segunakinyemi.com). Includes 5 recipe cards (From Scratch, News Anchor, Scientist, Comedian, Wizard) as starting points.
 
 | Page | Title | Type |
 |------|-------|------|
