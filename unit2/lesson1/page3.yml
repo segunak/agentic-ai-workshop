@@ -4,7 +4,7 @@ title: What Did You Notice?
 content: |
   ## Reflection
 
-  You just chatted with an AI that had **no tools**, just its training data.
+  That AI had no tools. No way to check the weather, look up recent events, or reach the internet. Everything it told you came from its training data, and that data has a cutoff date. Anything after that, it genuinely does not know.
 questionGroups:
   - id: "1"
     content: Think back to what happened in the playground.

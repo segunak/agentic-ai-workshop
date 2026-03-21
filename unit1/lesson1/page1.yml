@@ -4,13 +4,13 @@ title: What is Agentic AI?
 content: |
   ## Welcome to the Agent Playground
 
-  In this workshop, you'll interact with AI firsthand and see the difference between Generative AI and Agentic AI for yourself.
+  In this workshop, you'll chat with AI and see two different sides of what it can do.
 
-  **Generative AI** creates new content from patterns it learned during training. When it's just responding from that training data without using any tools (more on what tools are below), that's generative behavior. Reactive: prompt and stop.
+  **Generative AI** is the side most people have seen. You ask it a question, it writes an answer, and it stops. It's pulling from things it learned during training, but it can't go out and get new information on its own.
 
-  **Agentic AI** uses tools in a loop to achieve a goal. It plans, reasons, and decides which tools to call without you telling it. Proactive: plan and act.
+  **Agentic AI** is what happens when you give that same AI **tools**, like the ability to check the weather, search for earthquake data, or post to a website. Now instead of just answering from memory, it can actually go do things. It decides which tools to use, calls them, reads the results, and keeps going until it has what it needs. That's the "agent" part.
 
-  These aren't different products. They're different behaviors. The same AI model can do both. Generative is the response. Agentic is the work it does to get there.
+  These aren't different products. They're different behaviors from the same AI. You'll see both in this workshop. Here are some definitions from industry leaders:
 
   > "An LLM agent runs tools in a loop to achieve a goal."
   >
@@ -24,14 +24,10 @@ content: |
   >
   > [OpenAI](https://developers.openai.com/tracks/building-agents/)
 
-  **Tools** are capabilities the AI can reach for, like checking the weather or looking something up online. In technical terms, these are often called **functions**. **Loop** means it can use them multiple times, feeding results back in. **Goal** means there's a stopping condition.
-
-  You may have already seen this in action. Products like [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT) ([OpenAI](https://en.wikipedia.org/wiki/OpenAI)), [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)) ([Anthropic](https://en.wikipedia.org/wiki/Anthropic)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)) ([Google](https://en.wikipedia.org/wiki/Google)), and [GitHub Copilot](https://en.wikipedia.org/wiki/GitHub_Copilot) ([Microsoft](https://en.wikipedia.org/wiki/Microsoft)) show you the model's "reasoning" as it works. When you see it thinking, searching, or calling tools before responding, that's agentic behavior.
-
-  You're about to see this for yourself.
+  If you've used [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT), [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)), or [GitHub Copilot](https://en.wikipedia.org/wiki/GitHub_Copilot) and seen the AI "thinking" or "searching" before it answers, that's agentic behavior. You're about to see it up close.
 questionGroups:
   - id: "1"
-    content: Based on what you just read, classify these scenarios.
+    content: Quick check. Which kind of AI is this?
     questions:
       - id: "1"
         type: choice
@@ -76,7 +72,7 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: A script runs every night at 2 AM, copies data to backup storage, sends
+        content: An automated script runs every night at 2 AM, copies data to backup storage, sends
           a notification, same steps every time. What is this?
         hint: Is there any AI involved at all?
         options:
@@ -88,7 +84,7 @@ questionGroups:
             incorrectExplanation: There's no decision-making or reasoning. It runs the same
               steps every time.
           - id: c
-            value: Neither - traditional automation
+            value: Neither (Traditional Automation)
             explanation: No AI involved. Just a scheduled script following preset rules. Not
               everything needs AI!
             isCorrect: true
