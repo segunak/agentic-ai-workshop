@@ -190,7 +190,7 @@ files:
       }
 
       (async()=>{
-      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
+      async function probe(){for(let i=0;i<3;i++){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}return}catch(e){if(i<2)await new Promise(r=>setTimeout(r,1000))}}}await probe();
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
       $('mo').classList.remove('h');$('ki').focus()
       })();
@@ -407,7 +407,7 @@ files:
       }
 
       (async()=>{
-      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
+      async function probe(){for(let i=0;i<3;i++){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}return}catch(e){if(i<2)await new Promise(r=>setTimeout(r,1000))}}}await probe();
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
       $('mo').classList.remove('h');$('ki').focus()
       })();
@@ -624,7 +624,7 @@ files:
       }
 
       (async()=>{
-      try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}
+      async function probe(){for(let i=0;i<3;i++){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}return}catch(e){if(i<2)await new Promise(r=>setTimeout(r,1000))}}}await probe();
       const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}
       $('mo').classList.remove('h');$('ki').focus()
       })();
@@ -815,7 +815,7 @@ files:
       renderToggles();
       $('instr').oninput=()=>{document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'))};
       $('tb').onclick=()=>{cfgOpen=!cfgOpen;$('cfg').classList.toggle('collapsed',!cfgOpen);$('tb').textContent=cfgOpen?'Hide Config':'Edit Agent'};
-      (async()=>{try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}}catch{}const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}$('mo').classList.remove('h');$('ki').focus()})();
+      (async()=>{async function probe(){for(let i=0;i<3;i++){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}return}catch(e){if(i<2)await new Promise(r=>setTimeout(r,1000))}}}await probe();const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}$('mo').classList.remove('h');$('ki').focus()})();
       $('kb').onclick=sk;$('ki').onkeydown=e=>{if(e.key==='Enter')sk()};
       function sk(){const v=$('ki').value.trim();if(!v){$('ke').textContent='Please enter a key.';return}key=v;localStorage.setItem('agentic-ai-key',v);$('mo').classList.add('h');go();$('i').focus()}
       function go(){$('i').disabled=false;$('sb').disabled=false;$('i').focus()}
