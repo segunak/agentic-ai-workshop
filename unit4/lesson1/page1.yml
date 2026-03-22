@@ -2,35 +2,34 @@
 id: page1
 title: Multiple Tools, One Agent
 content: >
-  ## Four Tools, One Agent
+  ## More Tools, One Agent
 
 
   Real agents have access to many tools and **choose between them**, or **chain
   several** in sequence.
 
 
-  You now have four tools:
+  You now have several tools:
 
 
-  * 🌤️ **get\_charlotte\_weather** - live weather and forecast for Charlotte,
-  NC
+  * 🌤️ **Weather** - live weather and forecast for any city
 
 
-  * 🚀 **get\_people\_in\_space** - who is currently in space right now
+  * 🚀 **People in Space** - who is currently in space right now
 
 
-  * 🌍 **get\_recent\_earthquakes** - significant earthquakes from the past week
+  * 🌍 **Earthquakes** - significant earthquakes from the past week
 
 
-  * � **get\_charlotte\_cinnamon\_roll\_rankings** - Segun Akinyemi's cinnamon roll
+  * 🥐 **Cinnamon Roll Rankings** - Segun Akinyemi's cinnamon roll
   rankings for Charlotte, NC
 
 
-  👉 Try: *"I'm visiting Charlotte for a data science conference - any tips?"*
+  👉 Try: *"What's the weather in Charlotte, who's in space right now, any recent earthquakes, and where should I get cinnamon rolls?"*
 
 
   Watch the **Thinking** section and **tool cards** in the chat. Will it use one
-  tool? Two? All four? The agent decides, not you.
+  tool? Two? All of them? The agent decides, not you.
 
 
   **On the next page, click the green play button (top right) to load the Agent

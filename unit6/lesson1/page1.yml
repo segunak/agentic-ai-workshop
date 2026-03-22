@@ -6,7 +6,9 @@ content: |
 
   Everything you did in the labs maps to real AI terminology. Here's your cheat sheet.
 
-  **GPT** ([Generative Pre-trained Transformer](https://en.wikipedia.org/wiki/Generative_pre-trained_transformer)) - The architecture behind models like [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT). Generative means it creates text. Pre-trained means it learned from massive amounts of data before you ever used it. Transformer is the type of neural network that makes it work.
+  Before we start: a **neural network** is a program that learns patterns from data, loosely inspired by how the brain works. **Deep learning** is doing that at a massive scale, with many layers of processing running across many computers. Most of the AI you interact with today utilizes deep learning.
+
+  **GPT** ([Generative Pre-trained Transformer](https://en.wikipedia.org/wiki/Generative_pre-trained_transformer)) - The architecture behind models like [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT). Generative means it creates text. Pre-trained means it learned from massive amounts of data before you ever used it. Transformer is the type of neural network underneath. Before Transformers, AI processed words one at a time in order. Transformers can look at all the words in a sentence at once and figure out which ones relate to each other, no matter how far apart they are. That ability to see the whole picture at once is what made modern AI possible. This is both generative AI (creating text) and the foundation that agentic AI builds on.
 
   **LLM** ([Large Language Model](https://en.wikipedia.org/wiki/Large_language_model)) - The broad category for AI models trained on huge amounts of text. GPT is one example. [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)), and [Llama](https://en.wikipedia.org/wiki/Llama_(language_model)) are others.
 
@@ -14,13 +16,13 @@ content: |
 
   **Context and Context Window** - Context is the conversation history and information the AI uses to understand what you mean. The context window is how much it can hold at once, like short-term memory. Larger context windows let AI handle longer conversations and bigger documents.
 
-  **RAG** ([Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) - When the agent fetched live weather data, astronaut crew lists, or earthquake reports and used those results to answer you. That's RAG: look it up, add it to context, answer with it. It lets AI go beyond its training data.
+  **RAG** ([Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) - A pattern where the AI retrieves information from an external source, adds it to the conversation context, and then generates a response using that information. Instead of relying only on training data, the AI goes and gets current data first. You saw this in action when the agent called weather, earthquake, and space tools and then wove those results into its answer. RAG is what makes agentic AI useful for real-time tasks.
 
   **MCP** ([Model Context Protocol](https://en.wikipedia.org/wiki/Model_Context_Protocol)) - A standard way for tools to connect to AI. Think of it like USB-C for AI. One standard connector instead of custom integrations for every tool. Created by [Anthropic](https://en.wikipedia.org/wiki/Anthropic) and now widely adopted.
 
   **RLHF** ([Reinforcement Learning from Human Feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)) - How models get better over time. Humans rate AI outputs, and the model learns from those ratings to be more helpful and less harmful. It's a big part of why [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT) improved so quickly after launch.
 
-  **GANs** ([Generative Adversarial Networks](https://en.wikipedia.org/wiki/Generative_adversarial_network)) - Two AIs competing against each other. One creates fake content, the other tries to detect it. Through this competition, both improve. Invented by [Ian Goodfellow](https://en.wikipedia.org/wiki/Ian_Goodfellow) in 2014.
+  **GANs** ([Generative Adversarial Networks](https://en.wikipedia.org/wiki/Generative_adversarial_network)) - Two AI models working against each other. One generates content (images, text, audio), the other tries to detect whether it is real or fake. Through this competition, both improve. Invented by [Ian Goodfellow](https://en.wikipedia.org/wiki/Ian_Goodfellow) in 2014. GANs are purely generative, not agentic. They create content but do not use tools, make decisions, or take actions. They show up in image generation, deepfakes, and data augmentation.
 questionGroups:
   - id: "1"
     content: Think about what you experienced across all three labs.

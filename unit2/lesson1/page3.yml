@@ -15,18 +15,15 @@ questionGroups:
           information, what happened?
         options:
           - id: a
-            value: It gave me accurate, current information
+            value: It gave me accurate, up-to-date information
             incorrectExplanation: Without tools, the model has no way to access live data or
               events after its training cutoff.
           - id: b
-            value: It couldn't give a real answer, or it hedged and gave general info
-            explanation: Without tools, it can only offer general knowledge from
-              training. No live data, no recent events.
+            value: It hedged, gave outdated info, or said it couldn't answer
+            explanation: Without tools, it can only work with what it learned during
+              training. It might give a vague answer with a disclaimer, or it
+              might say it doesn't know. Either way, it can't get real-time data.
             isCorrect: true
-          - id: c
-            value: It refused to answer
-            incorrectExplanation: It probably tried to help with general climate info, but
-              couldn't give real-time data.
   - id: "2"
     questions:
       - id: "1"

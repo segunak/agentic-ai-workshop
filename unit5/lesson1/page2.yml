@@ -6,13 +6,16 @@ content: |
 
   **Click the green play button (top right) to open Lab 4.**
 
-  This is how agents are built across the software engineering industry. You describe the agent's behavior in plain English and configure its tools. Some call this natural language programming, where English is the programming language and the instructions you write are the code.
+  This is how agents are built across the industry. You describe the agent's behavior in plain English, choose its tools, and go. The hard engineering work is in building the tools themselves: the APIs, databases, and services that power them. Companies like GitHub, OpenAI, Google, Anthropic, and Microsoft handle that infrastructure so that people building on their platforms can focus on the agent's instructions and tool configuration.
 
-  Pick a recipe to start with (or start from scratch), customize the instructions, choose your tools, and test it.
+  Pick a recipe to start with (or start from scratch), customize the instructions, choose your tools, and test it. Recipes are pre-built starting points that set the agent's personality and tools for you. They're just a jumping-off point. You can edit the instructions, swap tools, or ignore the recipes entirely and build something from scratch.
 
-  1. Pick the **Breaking News Anchor** recipe and ask about earthquakes
-  2. Change the personality to something completely different and ask the same question
+  Try a few different setups:
+
+  1. Start with any recipe, send a message, and see how it responds
+  2. Change the instructions to a completely different personality and ask the same question
   3. Toggle tools on and off to see how your agent adapts
+  4. Try building one from scratch with your own instructions and tool choices
 showEditor: true
 editors:
   - course1/agent-workshop.html

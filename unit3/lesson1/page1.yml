@@ -5,13 +5,15 @@ content: >
   ## What Are Tools?
 
 
-  **Tools** are capabilities the AI can reach for, like checking the weather or
-  looking something up online. In technical terms, these are often called
-  **functions**.
+  **Tools** are what the AI *can do*. Remember the OpenAI definition from
+  earlier: an agent has instructions (what it should do), guardrails (what it
+  should not do), and tools (what it *can* do). Without tools, all it can do is
+  respond from training data. With tools, it can check the weather, look up
+  who's in space, query an API, post to a website, and more. The possibilities are endless!
 
-
-  The key word is **choose**. You don't tell it which tool to use. *It decides.*
-  That autonomy is what makes it an **agent**.
+  The key word is **choose**. You don't tell it which tool to use (although you could). *It decides
+  based on the user's message and the tool descriptions.* That autonomy is what
+  makes it an **agent**.
 
 
   On the next page, the AI now has **one tool**: `get_weather`.

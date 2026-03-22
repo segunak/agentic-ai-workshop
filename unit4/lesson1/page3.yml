@@ -2,12 +2,12 @@
 id: page3
 title: Putting It Together
 content: >
-  ## Multi-Tool Orchestration
+  ## Multiple Tools, One Answer
 
 
   The agent chained multiple tool calls to answer a single
   question. It decided the order, picked the tools, and combined the results
-  into one response. That is orchestration.
+  into one response. That's orchestration.
 
 
   
@@ -36,23 +36,24 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: A system answers questions about sales using real-time data AND
-          monitors trends 24/7 to alert managers. What is it?
-        hint: Can something be generative and agentic at the same time?
+        content: You just asked the agent a question and it used tools to get
+          real-time data, then wrote you a summary. Which part was generative
+          and which part was agentic?
         options:
           - id: a
-            value: Generative AI
-            incorrectExplanation: Answering questions is generative, but the autonomous
-              monitoring is agentic.
+            value: Using the tools was generative, writing the summary was agentic
+            incorrectExplanation: It's the other way around. Using tools autonomously
+              is the agentic part. Writing the summary is the generative part.
           - id: b
-            value: Agentic AI
-            incorrectExplanation: It does have agentic behavior, but it also generates
-              answers - it's both.
-          - id: c
-            value: Both
-            explanation: Correct! Answering questions = Generative. Autonomous monitoring =
-              Agentic. It's both.
+            value: Using the tools was agentic, writing the summary was generative
+            explanation: Correct! Deciding which tools to call and calling them is
+              agentic behavior. Writing the final response from those results
+              is generative behavior. Same AI, both behaviors in one answer.
             isCorrect: true
+          - id: c
+            value: The whole thing was agentic
+            incorrectExplanation: The tool usage was agentic, but the written summary
+              at the end is generative. It's both in one response.
           - id: d
             value: Neither
             incorrectExplanation: This uses AI for both generation and autonomous action.
@@ -76,9 +77,3 @@ questionGroups:
           - id: d
             value: Any AI system made by a big tech company
             incorrectExplanation: Anyone can build an agent - it's a pattern, not a brand.
-  - id: "4"
-    questions:
-      - id: "1"
-        type: reflection
-        content: What surprised you most about how the agent used its tools? Was there a
-          moment where it did something you didn't expect?

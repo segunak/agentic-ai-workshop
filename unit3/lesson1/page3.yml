@@ -5,29 +5,32 @@ content: >
   ## What Happened?
 
 
-  The AI called `get_weather` on its own when you asked about weather. You didn't tell it to. It decided the question was relevant to that tool and used it.
+  You saw a tool card appear in the chat when you asked a question about the weather.
+  The AI called the tool, got the information, and responded. Compare that to Lab 1,
+  where it could only respond from training data.
 
 
-  When you asked a question the weather tool couldn't help with, it answered
-  from training data instead. It made a judgment call about which tool was
-  relevant.
+  That is the difference between generative and agentic behavior. Same AI, same
+  question, but now it has a tool and it used it.
 questionGroups:
   - id: "1"
-    content: Think about what you observed in the chat - the Thinking section and
-      tool cards.
+    content: Think about what you observed in the chat.
     questions:
       - id: "1"
         type: choice
-        content: Did YOU tell the agent to use the weather tool?
+        content: Did you have to tell the AI which tool to use, or did it figure that
+          out on its own?
         options:
           - id: a
-            value: Yes, I told it
-            incorrectExplanation: You only asked a question. The agent decided on its own to
-              call the tool.
+            value: I had to tell it
+            incorrectExplanation: Even if you mentioned the weather in your question, you
+              didn't instruct it to call a specific tool. It matched your
+              question to the right tool on its own.
           - id: b
-            value: No, it decided on its own
-            explanation: That's right! The agent autonomously chose to use the tool. That's
-              what makes it agentic.
+            value: It figured it out on its own
+            explanation: Exactly. The AI read your message, determined the weather tool
+              was relevant, and called it. You did not have to specify which
+              tool to use. That autonomy is what makes it an agent.
             isCorrect: true
   - id: "2"
     questions:
@@ -45,21 +48,3 @@ questionGroups:
             explanation: Correct! The agent reasoned about which tool was relevant and only
               used it when appropriate.
             isCorrect: true
-  - id: "3"
-    questions:
-      - id: "1"
-        type: choice
-        content: A system monitors meetings and automatically creates action items
-          without being asked. What kind of AI behavior is this?
-        options:
-          - id: a
-            value: Generative AI
-            incorrectExplanation: Generative AI only responds when prompted. This system
-              acts on its own.
-          - id: b
-            value: Agentic AI
-            explanation: It acts autonomously without prompting. That's Agentic AI.
-            isCorrect: true
-          - id: c
-            value: Neither
-            incorrectExplanation: It's using AI to understand meetings and take actions.
