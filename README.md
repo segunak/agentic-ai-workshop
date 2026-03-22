@@ -22,14 +22,14 @@ Quick conceptual primer. Covers Generative AI vs Agentic AI, the "tools in a loo
 |------|-------|------|
 | 1 | What is Agentic AI? | Content + Quiz |
 
-### Unit 2: Lab 1 - Meet the Chatbot
+### Unit 2: Lab 1 - Chat with the AI
 
-Students interact with the Agent Playground with **no tools enabled**. The AI can only answer from training data. Ask it "What is today's date?" and it hallucinates. This is the baseline.
+Students interact with the Agent Playground and discover its limitations firsthand. The framing avoids spoilers so students experience the gap between what the AI knows from training and what it cannot answer without tools.
 
 | Page | Title | Type |
 |------|-------|------|
-| 1 | Instructions | Content |
-| 2 | Agent Playground | Embedded HTML (no tools) |
+| 1 | Try It Yourself | Content |
+| 2 | Agent Playground | Embedded HTML |
 | 3 | What Did You Notice? | Quiz |
 
 ### Unit 3: Lab 2 - Give It a Tool
@@ -42,25 +42,26 @@ The `get_weather` tool is now enabled. Students ask the same weather question fr
 | 2 | Agent Playground | Embedded HTML (weather tool) |
 | 3 | The Agent in Action | Quiz |
 
-### Unit 4: Lab 3 - Multi-Tool Agent
+### Unit 4: Lab 3 - More Tools, More Power
 
-All four tools are enabled: `get_weather`, `get_people_in_space`, `get_recent_earthquakes`, and `get_charlotte_cinnamon_roll_rankings`. Students ask complex questions and watch the agent chain multiple tools autonomously.
+More tools are enabled: weather, people in space, earthquakes, and cinnamon roll rankings. Students ask complex questions and watch the agent chain multiple tools autonomously. Tools can be toggled on and off.
 
 | Page | Title | Type |
 |------|-------|------|
 | 1 | Multiple Tools, One Agent | Content |
-| 2 | Agent Playground | Embedded HTML (all tools) |
+| 2 | Agent Playground | Embedded HTML (multiple tools, toggleable) |
 | 3 | Putting It Together | Quiz |
 
-### Unit 5: Build Your Own Agent
+### Unit 5: Lab 4 - Build Your Own Agent
 
-The capstone experience. Students configure their own custom AI agent by writing personality instructions and choosing from 10 available tools, including posting to the [live feed](https://live.segunakinyemi.com). Includes 5 recipe cards (From Scratch, News Anchor, Scientist, Comedian, Wizard) as starting points.
+The capstone experience. Students configure their own custom AI agent by writing personality instructions and choosing from available tools. Includes 6 recipe cards (From Scratch, Pastry Critic, News Anchor, Scientist, Comedian, Wizard) as starting points. A dedicated Live Feed page lets students post messages to [live.segunakinyemi.com](https://live.segunakinyemi.com) through their agent, with the Live Feed tool locked on and visually prominent.
 
 | Page | Title | Type |
 |------|-------|------|
 | 1 | What Makes an Agent Yours? | Content |
-| 2 | Lab 4: Build Your Own Agent | Embedded HTML (configurator + chat) |
-| 3 | What Did You Build? | Quiz |
+| 2 | Build Your Own Agent | Embedded HTML (configurator + chat) |
+| 3 | Post to the Live Feed | Embedded HTML (live feed focused) |
+| 4 | What Did You Build? | Quiz |
 
 ### Unit 6: From Acronyms to Applications
 
@@ -76,10 +77,10 @@ Maps what students just experienced to real terminology: RAG, MCP, RLHF, Context
 ```text
 index.yml              # Course root: metadata, embedded HTML files, unit references
 unit1/                 # What is Agentic AI?
-unit2/                 # Lab 1 - Meet the Chatbot
+unit2/                 # Lab 1 - Chat with the AI
 unit3/                 # Lab 2 - Give It a Tool
-unit4/                 # Lab 3 - Multi-Tool Agent
-unit5/                 # Build Your Own Agent
+unit4/                 # Lab 3 - More Tools, More Power
+unit5/                 # Lab 4 - Build Your Own Agent
 unit6/                 # From Acronyms to Applications
 ```
 
