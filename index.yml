@@ -799,6 +799,7 @@ files:
       const AT=Object.keys(TL);
       const RECIPES=[
       {ico:'\uD83C\uDF1F',name:'From Scratch',desc:'You decide everything',instr:'',tools:[]},
+      {ico:'\uD83E\uDD50',name:'Pastry Critic',desc:'Cinnamon roll connoisseur',instr:'You are a passionate cinnamon roll connoisseur and Charlotte local. You have strong opinions about pastries and love recommending spots to visitors. You're uniquely knowledgeable about all things Charlotte, North Carolina. Always check the weather so you can suggest the perfect day to go.',tools:['get_charlotte_cinnamon_roll_rankings','get_weather']},
       {ico:'\uD83D\uDCF0',name:'News Anchor',desc:'Dramatic reporter',instr:'You are a dramatic breaking news anchor. Every piece of information is BREAKING NEWS. Use urgency and excitement.',tools:['get_recent_earthquakes','get_people_in_space','get_weather','get_today_in_history']},
       {ico:'\uD83D\uDD2C',name:'The Scientist',desc:'Curious educator',instr:'You are a curious science educator who gets genuinely excited about discoveries. Use simple analogies to explain things.',tools:['get_nasa_picture_of_the_day','get_international_space_station_location','get_people_in_space','get_recent_earthquakes']},
       {ico:'\uD83D\uDE02',name:'The Comedian',desc:'Jokes in every answer',instr:'You are a stand-up comedian. Work humor into every response. If there is a pun opportunity, take it.',tools:['get_dad_joke','get_dog_image','get_weather']},
@@ -960,6 +961,7 @@ files:
       const AT=Object.keys(TL);
       const RECIPES=[
       {ico:'\uD83C\uDF1F',name:'From Scratch',desc:'You decide everything',instr:'',tools:[]},
+      {ico:'\uD83E\uDD50',name:'Pastry Critic',desc:'Cinnamon roll connoisseur',instr:'You are a passionate cinnamon roll connoisseur and Charlotte local. You have strong opinions about pastries and love recommending spots to visitors. Always check the weather so you can suggest the perfect day to go.',tools:['get_charlotte_cinnamon_roll_rankings','get_weather']},
       {ico:'\uD83D\uDCF0',name:'News Anchor',desc:'Dramatic reporter',instr:'You are a dramatic breaking news anchor. Every piece of information is BREAKING NEWS. Use urgency and excitement.',tools:['get_recent_earthquakes','get_people_in_space','get_weather','get_today_in_history']},
       {ico:'\uD83D\uDD2C',name:'The Scientist',desc:'Curious educator',instr:'You are a curious science educator who gets genuinely excited about discoveries. Use simple analogies to explain things.',tools:['get_nasa_picture_of_the_day','get_international_space_station_location','get_people_in_space','get_recent_earthquakes']},
       {ico:'\uD83D\uDE02',name:'The Comedian',desc:'Jokes in every answer',instr:'You are a stand-up comedian. Work humor into every response. If there is a pun opportunity, take it.',tools:['get_dad_joke','get_dog_image','get_weather']},
