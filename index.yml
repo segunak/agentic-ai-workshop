@@ -834,7 +834,7 @@ files:
       <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
-      <title>Lab 4: Build Your Own Agent</title>
+      <title>Post to the Live Feed</title>
       <style>
       *{margin:0;padding:0;box-sizing:border-box}
       html,body{height:100%;overflow:hidden}
@@ -848,14 +848,7 @@ files:
       #cfg{overflow-y:auto;border-bottom:1px solid #21262d;background:#0d1117;max-height:50vh}
       .cfg-inner{padding:10px 14px 12px}
       .sec-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#7d8590;margin-bottom:6px}
-      .recipes{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
-      .recipe{flex-shrink:0;padding:8px 12px;border-radius:10px;border:1px solid #30363d;background:#161b22;cursor:pointer;transition:all .2s;min-width:120px;max-width:160px}
-      .recipe:hover{border-color:#8957e5}
-      .recipe.sel{border-color:#8957e5;background:rgba(137,87,229,.12)}
-      .recipe .r-ico{font-size:18px;margin-bottom:3px}
-      .recipe .r-name{font-size:11px;font-weight:600;color:#e6edf3;margin-bottom:2px}
-      .recipe .r-desc{font-size:9px;color:#7d8590;line-height:1.3}
-      .instr-wrap{margin-top:8px}
+
       #instr{width:100%;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:8px 10px;border-radius:8px;font-size:12px;font-family:inherit;resize:vertical;min-height:48px;max-height:100px;outline:none;transition:border-color .2s}
       #instr:focus{border-color:#8957e5}
       #instr::placeholder{color:#484f58}
@@ -920,26 +913,22 @@ files:
       <body>
       <div id="app">
       <header>
-      <h1>Lab 4: Build Your Own Agent</h1>
+      <h1>Post to the Live Feed</h1>
       <div class="hdr-btns">
       <button class="hdr-btn" id="nb" type="button">New Chat</button>
       </div>
       </header>
       <div id="cfg">
       <div class="cfg-inner">
-      <div class="sec-label">Start with a Recipe</div>
-      <div class="recipes" id="rr"></div>
-      <div class="instr-wrap">
-      <div class="sec-label" style="margin-top:8px">Agent Instructions</div>
-      <textarea id="instr" placeholder="Describe your agent's personality... (e.g. You are a dramatic news anchor who treats every fact like breaking news)" rows="2"></textarea>
-      </div>
+      <div class="sec-label">Agent Instructions</div>
+      <textarea id="instr" rows="2">You are a friendly workshop participant posting to a live feed. Be enthusiastic and include the person's name when they tell you to post.</textarea>
       <div class="sec-label" style="margin-top:8px">Tools</div>
       <div class="tool-grid" id="tg"></div>
       </div>
       </div>
       <main id="m"><div id="hi" class="hint"></div></main>
       <form id="f">
-      <input id="i" type="text" placeholder="Ask your agent something..." autocomplete="off" disabled/>
+      <input id="i" type="text" placeholder="Tell your agent to post to the live feed..." autocomplete="off" disabled/>
       <button id="sb" type="submit" disabled>Send</button>
       </form>
       </div>
@@ -955,26 +944,18 @@ files:
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       const WORKSHOP='WiDS Charlotte 2026';
-      const HINT='Pick a <strong>recipe</strong> above or start from scratch. Choose your <strong>tools</strong>, write your <strong>instructions</strong>, then send a message!';
+      const HINT='The <strong>Live Feed</strong> tool is enabled. Tell your agent to post a message to the live feed. Try: "Post to the live feed and say hello from [your name] at WiDS Charlotte!"';
       const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dad_joke:'Dad Jokes',get_dog_image:'Dog Image',get_today_in_history:'Today in History',post_to_live_feed:'Live Feed'};
       const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dad_joke:'\uD83D\uDE02',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC',post_to_live_feed:'\uD83D\uDCE1'};
       const AT=Object.keys(TL);
-      const RECIPES=[
-      {ico:'\uD83C\uDF1F',name:'From Scratch',desc:'You decide everything',instr:'',tools:[]},
-      {ico:'\uD83E\uDD50',name:'Pastry Critic',desc:'Cinnamon roll connoisseur',instr:'You are a passionate cinnamon roll connoisseur and Charlotte local. You have strong opinions about pastries and love recommending spots to visitors. Always check the weather so you can suggest the perfect day to go.',tools:['get_charlotte_cinnamon_roll_rankings','get_weather']},
-      {ico:'\uD83D\uDCF0',name:'News Anchor',desc:'Dramatic reporter',instr:'You are a dramatic breaking news anchor. Every piece of information is BREAKING NEWS. Use urgency and excitement.',tools:['get_recent_earthquakes','get_people_in_space','get_weather','get_today_in_history']},
-      {ico:'\uD83D\uDD2C',name:'The Scientist',desc:'Curious educator',instr:'You are a curious science educator who gets genuinely excited about discoveries. Use simple analogies to explain things.',tools:['get_nasa_picture_of_the_day','get_international_space_station_location','get_people_in_space','get_recent_earthquakes']},
-      {ico:'\uD83D\uDE02',name:'The Comedian',desc:'Jokes in every answer',instr:'You are a stand-up comedian. Work humor into every response. If there is a pun opportunity, take it.',tools:['get_dad_joke','get_dog_image','get_weather']},
-      {ico:'\uD83E\uDDD9',name:'The Wizard',desc:'Mystical and magical',instr:'You are a mystical wizard. Describe weather as atmospheric enchantments, earthquakes as the earth trembling, and space as the celestial realm.',tools:['get_weather','get_recent_earthquakes','get_nasa_picture_of_the_day','get_people_in_space']},
-      ];
-      let TOOLS=[];
+      let TOOLS=['post_to_live_feed'];
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('hi').innerHTML=HINT;
-      RECIPES.forEach((r,idx)=>{const card=document.createElement('div');card.className='recipe';card.dataset.idx=idx;card.innerHTML='<div class="r-ico">'+r.ico+'</div><div class="r-name">'+r.name+'</div><div class="r-desc">'+r.desc+'</div>';card.onclick=()=>{document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'));card.classList.add('sel');$('instr').value=r.instr;TOOLS=r.tools.slice();renderToggles()};$('rr').appendChild(card)});
-      function renderToggles(){$('tg').innerHTML='';AT.forEach(n=>{const lbl=document.createElement('label');const isOn=TOOLS.includes(n);lbl.className='tg'+(isOn?' on':' off');const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;const sw=document.createElement('span');sw.className='sw';cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tg on'}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tg off'}document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'))};lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl)})}
+
+      function renderToggles(){$('tg').innerHTML='';AT.forEach(n=>{const lbl=document.createElement('label');const isOn=TOOLS.includes(n);lbl.className='tg'+(isOn?' on':' off');if(n==='post_to_live_feed'){lbl.className='tg on';lbl.style.cursor='default';lbl.style.opacity='1';const sw=document.createElement('span');sw.className='sw';lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl);return}const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;const sw=document.createElement('span');sw.className='sw';cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tg on'}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tg off'}};lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl)})}
       renderToggles();
-      $('instr').oninput=()=>{document.querySelectorAll('.recipe').forEach(c=>c.classList.remove('sel'))};
+
       (async()=>{async function probe(){for(let i=0;i<3;i++){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}return}catch(e){if(i<2)await new Promise(r=>setTimeout(r,1000))}}}await probe();const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}$('mo').classList.remove('h');$('ki').focus()})();
       $('kb').onclick=sk;$('ki').onkeydown=e=>{if(e.key==='Enter')sk()};
       function sk(){const v=$('ki').value.trim();if(!v){$('ke').textContent='Please enter a key.';return}key=v;localStorage.setItem('agentic-ai-key',v);$('mo').classList.add('h');go();$('i').focus()}
