@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://vscodeedu.com/assets/schema/course-v2.schema.json
 id: unit5
-title: "Build Your Own Agent"
+title: Lab 4 - Build Your Own Agent
 duration: 10
 description: Configure a custom AI agent with your own personality, instructions, and tool selection.
 objectives: Understand how agent instructions and tool selection shape behavior. Create a personalized AI agent.
