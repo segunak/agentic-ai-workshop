@@ -4,15 +4,15 @@ title: Post to the Live Feed
 content: |
   ## Post to the Live Feed
 
-  **Click the green play button (top right) to reopen the Agent Playground.**
+  **Click the green play button (top right) to open the Live Feed Playground.**
 
-  There is a live website projected on the screen in this room. Your agent has a tool called **Live Feed** that can post messages directly to it.
+  There is a live website projected on the screen in this room. Your agent has the **Live Feed** tool already enabled. It posts messages directly to that website for everyone to see.
 
-  Here is your goal: enable the **Live Feed** tool, then tell your agent to post a message. Include your name so you can spot it on the screen. Watch the projected website and look for your message to appear.
+  Your goal: tell your agent to post a message with your name and watch it appear on the screen.
 
-  Try something like: "Post to the live feed. Say hello from [your name] at WiDS Charlotte!"
+  Get creative. Turn on other tools and use them to shape your posts. Have the agent check the weather and post about it. Grab a dad joke and share it. Look up who is in space and announce it on the feed. Mix tools together and customize your agent's instructions to change how it writes.
 
-  You can post as many messages as you want. Experiment with different agent personalities and see how each one writes its post differently.
+  You can also ask the agent to add **tags** to your post. Tags can be anything you want. Try "fun", "science", "charlotte", or make up your own.
 showEditor: true
 editors:
   - course1/agent-workshop-livefeed.html

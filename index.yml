@@ -861,6 +861,7 @@ files:
       .tg.on .sw{background:rgba(137,87,229,.5)}
       .tg.on .sw::after{transform:translateX(12px);background:#a371f7}
       .tg.off{color:#484f58;border:1px solid #30363d;background:transparent}
+      .tg.locked{color:#58a6ff;border:2px solid rgba(56,139,253,.6);background:rgba(56,139,253,.15);font-size:13px;padding:6px 14px;border-radius:16px}
       .tg:hover{filter:brightness(1.15)}
       #m{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
       .hint{text-align:center;color:#7d8590;font-size:13px;padding:24px 16px;line-height:1.8}
@@ -944,16 +945,16 @@ files:
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       const WORKSHOP='WiDS Charlotte 2026';
-      const HINT='The <strong>Live Feed</strong> tool is enabled. Tell your agent to post a message to the live feed. Try: "Post to the live feed and say hello from [your name] at WiDS Charlotte!"';
-      const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dad_joke:'Dad Jokes',get_dog_image:'Dog Image',get_today_in_history:'Today in History',post_to_live_feed:'Live Feed'};
-      const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dad_joke:'\uD83D\uDE02',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC',post_to_live_feed:'\uD83D\uDCE1'};
+      const HINT='The <strong>Live Feed</strong> tool posts to a real website projected on the screen in this room.<br><br>Tell your agent to post a message with your name. Try enabling other tools to get creative with your posts. Ask it to check the weather and post about it, or grab a dad joke and share it on the feed.<br><br>You can also ask the agent to add <strong>tags</strong> to your post, like "fun", "science", or anything you want!';
+      const TL={post_to_live_feed:'Live Feed',get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dad_joke:'Dad Jokes',get_dog_image:'Dog Image',get_today_in_history:'Today in History'};
+      const TI={post_to_live_feed:'\uD83D\uDCE1',get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dad_joke:'\uD83D\uDE02',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC'};
       const AT=Object.keys(TL);
       let TOOLS=['post_to_live_feed'];
       let hist=[],key='',busy=false,trusted=false;
       const $=x=>document.getElementById(x);
       $('hi').innerHTML=HINT;
 
-      function renderToggles(){$('tg').innerHTML='';AT.forEach(n=>{const lbl=document.createElement('label');const isOn=TOOLS.includes(n);lbl.className='tg'+(isOn?' on':' off');if(n==='post_to_live_feed'){lbl.className='tg on';lbl.style.cursor='default';lbl.style.opacity='1';const sw=document.createElement('span');sw.className='sw';lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl);return}const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;const sw=document.createElement('span');sw.className='sw';cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tg on'}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tg off'}};lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl)})}
+      function renderToggles(){$('tg').innerHTML='';AT.forEach(n=>{const lbl=document.createElement('label');const isOn=TOOLS.includes(n);lbl.className='tg'+(isOn?' on':' off');if(n==='post_to_live_feed'){lbl.className='tg locked';lbl.style.cursor='default';const sw=document.createElement('span');sw.className='sw';lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl);return}const cb=document.createElement('input');cb.type='checkbox';cb.checked=isOn;const sw=document.createElement('span');sw.className='sw';cb.onchange=()=>{if(cb.checked){if(!TOOLS.includes(n))TOOLS.push(n);lbl.className='tg on'}else{TOOLS=TOOLS.filter(t=>t!==n);lbl.className='tg off'}};lbl.appendChild(cb);lbl.appendChild(sw);lbl.appendChild(document.createTextNode(TI[n]+' '+TL[n]));$('tg').appendChild(lbl)})}
       renderToggles();
 
       (async()=>{async function probe(){for(let i=0;i<3;i++){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});if(r.status===403){$('hi').innerHTML='<strong>Workshop is not active.</strong><br>Please check back later.';return}if(r.status!==401){trusted=true;go();return}return}catch(e){if(i<2)await new Promise(r=>setTimeout(r,1000))}}}await probe();const s=localStorage.getItem('agentic-ai-key');if(s){key=s;go();return}$('mo').classList.remove('h');$('ki').focus()})();
