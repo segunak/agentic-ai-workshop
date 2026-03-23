@@ -2,7 +2,7 @@
 id: page2
 title: Agent Playground
 content: >
-  ## Lab 3: All Tools Enabled
+  ## Lab 3: More Tools Enabled
 
 
   **Click the green play button (top right) to load the Agent Playground.**
@@ -16,20 +16,21 @@ content: >
   roll rankings. You can toggle tools on and off using the checkboxes!
 
 
-  Run these prompts in order:
+  Try this:
 
 
-  1. `I'm visiting Charlotte for a data conference. What should I know?`
+  1. `What's the weather in Charlotte and where should I get cinnamon rolls?`
+  (watch it chain multiple tools in one response!)
 
-  2. `Who is currently in space and have there been any earthquakes this week?`
+  2. `What are Segun Akinyemi's top cinnamon roll spots in Charlotte?` (this
+  failed in Lab 1. Now it has a tool for it.)
 
-  3. `What's the weather, any earthquake news, and where should I get cinnamon
-  rolls?`
+  3. Now **turn off the Cinnamon Rolls tool** using the checkbox and ask the
+  same question again. What changes?
 
 
-  Now try toggling tools on and off using the checkboxes, then ask the same
-  question again. Watch how the agent adapts! Get creative with your own
-  questions.
+  Experiment! Toggle tools on and off, then ask the same question and watch how
+  the agent adapts.
 showEditor: true
 editors:
   - course1/playground-lab3.html

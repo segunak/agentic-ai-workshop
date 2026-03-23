@@ -12,22 +12,23 @@ content: >
   the code view.**
 
 
-  The AI now has one tool: `get_weather`.
+  The AI now has one tool: Weather.
 
 
-  Run these same prompts from Lab 1:
+  Run these same prompts from Lab 1 and compare:
 
 
-  1. `What's the weather in Charlotte right now?` (same question - now watch
-  what happens!)
+  1. `What's the weather in Charlotte right now?` (this one failed in Lab 1.
+  Watch what happens now!)
 
-  2. `Who is in space right now?` (does it use the weather tool for this?)
+  2. `What won Best Picture at the last Oscars?` (can the weather tool help
+  with this?)
 
-  3. `Should I bring an umbrella to Charlotte this week?`
+  3. `What is the powerhouse of the cell?` (does it still handle this one?)
 
 
-  Watch for the **tool cards** that appear in the chat. Notice which questions
-  trigger the tool and which don't. Try your own weather-related questions.
+  Watch for the **tool card** that appears in the chat. Which question triggers
+  the tool? Which ones don't?
 showEditor: true
 editors:
   - course1/playground-lab2.html
