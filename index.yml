@@ -3,11 +3,13 @@ id: course1
 title: "Agentic AI: From Acronyms to Applications"
 duration: 30
 level: intermediate
-description: Interact with a real AI agent, toggle its tools on and off, and
-  discover what makes Agentic AI different from a regular chatbot.
+description: Chat with an AI, watch it call tools in real time, build your own
+  custom agent, and post to a live website. Learn what Agentic AI actually
+  means by experiencing it firsthand.
 objectives: Distinguish Generative AI from Agentic AI. Experience autonomous
-  tool-calling firsthand. Decode acronyms like RAG, MCP, and RLHF.
-prerequisites: No coding experience required. Just a laptop and a Microsoft account.
+  tool-calling firsthand. Build a custom agent with your own instructions and
+  tools. Decode acronyms like RAG, MCP, and RLHF.
+prerequisites: No coding experience required. Just a laptop and a Microsoft or Google account.
 cardImageUrl: https://vscodeedu.com/assets/course-cards/card8.png
 contacts:
   - displayName: Segun Akinyemi
