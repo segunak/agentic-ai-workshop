@@ -160,7 +160,7 @@ files:
       const WORKSHOP='WiDS Charlotte 2026';
       let TOOLS=[];
       const TITLE='Lab 1: Chat with the AI';
-      const HINT='Try these prompts and see how the AI responds:<br><br>1. "What\\'s the weather in Charlotte right now?"<br>2. "What won Best Picture at the last Oscars?"<br>3. "What are Segun Akinyemi\\'s top cinnamon roll spots in Charlotte?"<br>4. "What is the powerhouse of the cell?"<br>5. "What is the anime Steins;Gate about?"<br><br>Which questions can it handle? Which ones give it trouble?';
+      const HINT='Try these prompts and see how the AI responds:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "What won Best Picture at the last Oscars?"<br>3. "What are Segun Akinyemi\'s top cinnamon roll spots in Charlotte?"<br>4. "What is the powerhouse of the cell?"<br>5. "What is the anime Steins;Gate about?"<br><br>Which questions can it handle? Which ones give it trouble?';
       const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const TC={get_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
       const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50'};
