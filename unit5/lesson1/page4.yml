@@ -11,7 +11,7 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: "When you changed our agent's instructions, what happened?"
+        content: "When you changed your agent's instructions, what happened?"
         options:
           - id: a
             value: "The agent's personality and tone changed"
@@ -29,20 +29,23 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: "What are the two things that make each agent unique?"
+        content: When humans rate AI outputs and the model learns from those ratings
+          to get better over time, what is that process called?
         options:
           - id: a
-            value: "Its instructions and its tools"
+            value: RLHF (Reinforcement Learning from Human Feedback)
+            explanation: RLHF is how models improve after launch. Humans rate outputs,
+              and the model adjusts to be more helpful and less harmful. It is
+              a big part of why ChatGPT improved so quickly.
             isCorrect: true
-            explanation: "Instructions define what it should do. Tools define what it can do. Together they create a unique agent."
           - id: b
-            value: "Its name and its color scheme"
-            isCorrect: false
-            incorrectExplanation: "Those are cosmetic. The real differentiators are instructions (personality/behavior) and tools (capabilities)."
+            value: RAG (Retrieval-Augmented Generation)
+            incorrectExplanation: RAG is about retrieving external data to improve
+              responses. The process of learning from human ratings is RLHF.
           - id: c
-            value: "The model it uses and its speed"
-            isCorrect: false
-            incorrectExplanation: "All agents in this workshop use the same model. The difference is in instructions and tools."
+            value: GANs (Generative Adversarial Networks)
+            incorrectExplanation: GANs use two competing models to improve. The process
+              of improving from human feedback is called RLHF.
   - id: "3"
     questions:
       - id: "1"

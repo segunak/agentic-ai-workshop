@@ -28,23 +28,20 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: Why couldn't it accurately answer questions about recent events or
-          real-time information?
+        content: The AI has a limit on how much conversation history and information
+          it can process at once. What is that limit called?
         options:
           - id: a
-            value: It's broken
-            incorrectExplanation: It's working as designed. It just doesn't have access to
-              information after its training cutoff.
-          - id: b
-            value: It only knows what was in its training data
-            explanation: LLMs are trained on data up to a cutoff date. Anything after
-              that, they genuinely don't know without tools.
+            value: Context Window
+            explanation: The context window is how much information the AI can hold at
+              once, like short-term memory. Larger context windows let AI handle
+              longer conversations and bigger documents.
             isCorrect: true
+          - id: b
+            value: Training Data
+            incorrectExplanation: Training data is what the AI learned from before you
+              used it. The limit on what it can process at once has a different name.
           - id: c
-            value: It chose not to tell me
-            incorrectExplanation: It genuinely doesn't know. It's not withholding information.
-  - id: "3"
-    questions:
-      - id: "1"
-        type: reflection
-        content: Is this AI an 'agent' right now? Why or why not?
+            value: Memory Bank
+            incorrectExplanation: That sounds right but is not the technical term.
+              The industry calls it the context window.

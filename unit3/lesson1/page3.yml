@@ -36,15 +36,22 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: When you asked a question the weather tool couldn't help with, did it
-          use the tool anyway?
+        content: The agent retrieved live weather data, added it to the conversation,
+          and then generated a response using that data. This pattern has a name
+          in the industry. What is it?
         options:
           - id: a
-            value: Yes
-            incorrectExplanation: The agent knew the tool wasn't relevant to that question
-              and skipped it.
-          - id: b
-            value: No, it knew that question didn't need the weather tool
-            explanation: Correct! The agent reasoned about which tool was relevant and only
-              used it when appropriate.
+            value: RAG (Retrieval-Augmented Generation)
+            explanation: RAG is the pattern of retrieving external information, adding
+              it to the AI's context, and generating a response with it. You
+              just watched it happen in real time.
             isCorrect: true
+          - id: b
+            value: MCP (Model Context Protocol)
+            incorrectExplanation: MCP is a standard for connecting tools to AI models.
+              The pattern of retrieve, add to context, then generate is called RAG.
+          - id: c
+            value: RLHF (Reinforcement Learning from Human Feedback)
+            incorrectExplanation: RLHF is how models improve from human ratings. The
+              pattern you just saw, retrieving data and using it to respond, is
+              called RAG.

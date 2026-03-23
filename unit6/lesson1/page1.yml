@@ -25,30 +25,47 @@ content: |
   **GANs** ([Generative Adversarial Networks](https://en.wikipedia.org/wiki/Generative_adversarial_network)) - Two AI models working against each other. One generates content (images, text, audio), the other tries to detect whether it is real or fake. Through this competition, both improve. Invented by [Ian Goodfellow](https://en.wikipedia.org/wiki/Ian_Goodfellow) in 2014. GANs are purely generative, not agentic. They create content but do not use tools, make decisions, or take actions. They show up in image generation, deepfakes, and data augmentation.
 questionGroups:
   - id: "1"
-    content: Think about what you experienced across all three labs.
+    content: Two more acronyms to test yourself on.
     questions:
       - id: "1"
-        type: multiple
-        content: Which of these did your agent demonstrate today? (Select all that
-          apply)
+        type: choice
+        content: What does GPT stand for?
         options:
           - id: a
-            value: Autonomous tool selection
-            explanation: The agent chose which tools to call on its own.
+            value: Generative Pre-trained Transformer
+            explanation: Generative (creates text), Pre-trained (learned from massive
+              data before you used it), Transformer (the neural network
+              architecture that can look at all words at once).
             isCorrect: true
           - id: b
-            value: Multi-step reasoning
-            explanation: It chained multiple tool calls to answer complex questions.
-            isCorrect: true
+            value: General Purpose Technology
+            incorrectExplanation: That is not what GPT stands for. It stands for
+              Generative Pre-trained Transformer.
           - id: c
-            value: Retrieving external data to augment responses
-            explanation: It fetched live weather, space crew data, and earthquake reports to
-              augment its answers. That's the RAG pattern in action.
-            isCorrect: true
-          - id: d
-            value: Replacing human workers
-            incorrectExplanation: Agents assist and augment. They don't replace human expertise.
+            value: Guided Prediction Tool
+            incorrectExplanation: That is not what GPT stands for. It stands for
+              Generative Pre-trained Transformer.
   - id: "2"
+    questions:
+      - id: "1"
+        type: choice
+        content: What does LLM stand for?
+        options:
+          - id: a
+            value: Large Language Model
+            explanation: Large (trained on massive datasets), Language (works with
+              text and tokens), Model (predicts the next token mathematically).
+              GPT, Claude, Gemini, and Llama are all LLMs.
+            isCorrect: true
+          - id: b
+            value: Learning Logic Machine
+            incorrectExplanation: That is not what LLM stands for. It stands for
+              Large Language Model.
+          - id: c
+            value: Linguistic Learning Method
+            incorrectExplanation: That is not what LLM stands for. It stands for
+              Large Language Model.
+  - id: "3"
     questions:
       - id: "1"
         type: reflection

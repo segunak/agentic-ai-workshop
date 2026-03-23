@@ -7,32 +7,13 @@ content: >
 
   The agent chained multiple tool calls to answer a single
   question. It decided the order, picked the tools, and combined the results
-  into one response. That's orchestration.
+  into one response. That's the power of agents. They can orchestrate multiple tools and data sources to answer complex questions.
 
 
   
 questionGroups:
   - id: "1"
     content: Think about how the agent handled your questions.
-    questions:
-      - id: "1"
-        type: choice
-        content: When the agent used multiple tools, who decided the order?
-        options:
-          - id: a
-            value: I did
-            incorrectExplanation: You only asked a question. The agent planned and sequenced
-              the tool calls.
-          - id: b
-            value: The agent decided
-            explanation: Correct! The agent autonomously planned which tools to call and in
-              what order.
-            isCorrect: true
-          - id: c
-            value: It was random
-            incorrectExplanation: The agent reasoned about which tools were relevant - it
-              wasn't random.
-  - id: "2"
     questions:
       - id: "1"
         type: choice
@@ -57,23 +38,47 @@ questionGroups:
           - id: d
             value: Neither
             incorrectExplanation: This uses AI for both generation and autonomous action.
+  - id: "2"
+    questions:
+      - id: "1"
+        type: choice
+        content: There is an industry wide standard that gives AI models a universal
+          way to connect to tools. Think of it like USB-C for AI. What is it
+          called?
+        options:
+          - id: a
+            value: MCP (Model Context Protocol)
+            explanation: MCP is a standard created by Anthropic for connecting tools
+              to AI models. Instead of building custom integrations for every
+              tool, MCP provides one standard connector.
+            isCorrect: true
+          - id: b
+            value: RAG (Retrieval-Augmented Generation)
+            incorrectExplanation: RAG is the pattern of retrieving data and using it
+              to generate responses. The universal tool connector standard is MCP.
+          - id: c
+            value: NLP (Natural Language Processing)
+            incorrectExplanation: NLP is the field of AI focused on understanding
+              human language. The tool connection standard is MCP.
   - id: "3"
     questions:
       - id: "1"
         type: choice
-        content: What is the core definition of an AI agent?
+        content: Two AI models compete against each other. One generates content, the
+          other tries to detect whether it is real or fake. Both improve through
+          this competition. What is this technique called?
         options:
           - id: a
-            value: An AI that chats with users
-            incorrectExplanation: That's a chatbot. Agents do more - they use tools autonomously.
-          - id: b
-            value: An LLM that uses tools in a loop to achieve a goal
-            explanation: Tools + loop + goal = agent.
+            value: GANs (Generative Adversarial Networks)
+            explanation: GANs pit two models against each other to improve. They are
+              purely generative, not agentic. They show up in image generation,
+              deepfakes, and data augmentation.
             isCorrect: true
+          - id: b
+            value: RLHF (Reinforcement Learning from Human Feedback)
+            incorrectExplanation: RLHF uses human ratings to improve a model. The
+              two-models-competing technique is called GANs.
           - id: c
-            value: A robot that replaces human workers
-            incorrectExplanation: That's a common misconception. Agents are software
-              patterns, not replacements.
-          - id: d
-            value: Any AI system made by a big tech company
-            incorrectExplanation: Anyone can build an agent - it's a pattern, not a brand.
+            value: RAG (Retrieval-Augmented Generation)
+            incorrectExplanation: RAG retrieves external data to augment responses.
+              The adversarial competition technique is called GANs.

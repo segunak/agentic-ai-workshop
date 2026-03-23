@@ -10,15 +10,7 @@ content: |
 
   **Agentic AI** is what happens when you give that same AI **tools**, like the ability to check the weather, search for earthquake data, or post to a website. Now instead of just answering from memory, it can actually go do things. It decides which tools to use, calls them, reads the results, and keeps going until it has what it needs. That's the "agent" part.
 
-  These aren't different products. They're different behaviors from the same AI. You'll see both in this workshop. Here are some definitions from industry leaders:
-
-  > "An LLM agent runs tools in a loop to achieve a goal."
-  >
-  > [Simon Willison](https://simonwillison.net/2025/Sep/18/agents/)
-
-  > "We've gravitated towards a simple definition for agents: LLMs autonomously using tools in a loop."
-  >
-  > [Anthropic](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+  These aren't different products. They're different behaviors from the same AI. You'll see both in this workshop. Here's a great definition of an agent from OpenAI, the creators of ChatGPT:
 
   > "An AI system that has instructions (what it should do), guardrails (what it should not do), and access to tools (what it can do) to take action on the user's behalf."
   >
@@ -72,19 +64,20 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: An automated script runs every night at 2 AM, copies data to backup storage, sends
-          a notification, same steps every time. What is this?
-        hint: Is there any AI involved at all?
+        content: The field of AI focused on letting computers understand human
+          language, whether written, spoken, or typed. What is it called?
         options:
           - id: a
-            value: Generative AI
-            incorrectExplanation: It's not generating any content. Just following preset rules.
-          - id: b
-            value: Agentic AI
-            incorrectExplanation: There's no decision-making or reasoning. It runs the same
-              steps every time.
-          - id: c
-            value: Neither (Traditional Automation)
-            explanation: No AI involved. Just a scheduled script following preset rules. Not
-              everything needs AI!
+            value: NLP (Natural Language Processing)
+            explanation: NLP is the field that lets computers work with human language.
+              It has been around since the 1950s but got dramatically better in
+              2017 when Google invented the Transformer architecture.
             isCorrect: true
+          - id: b
+            value: MCP (Model Context Protocol)
+            incorrectExplanation: MCP is a standard for connecting tools to AI, not
+              for understanding human language.
+          - id: c
+            value: RAG (Retrieval-Augmented Generation)
+            incorrectExplanation: RAG is a pattern for retrieving external data and
+              using it to generate responses.
