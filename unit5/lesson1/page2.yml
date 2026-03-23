@@ -6,6 +6,8 @@ content: |
 
   **Click the green play button (top right) to open Lab 4.**
 
+  **For a larger chat window, click the X on the `agent-workshop.html` tab to close the code view.**
+
   This is how agents are built across the industry. You describe the agent's behavior in plain English, choose its tools, and go. The hard engineering work is in building the tools themselves: the APIs, databases, and services that power them. Companies like GitHub, OpenAI, Google, Anthropic, and Microsoft handle that infrastructure so that people building on their platforms can focus on the agent's instructions and tool configuration.
 
   Pick a recipe to start with (or start from scratch), customize the instructions, choose your tools, and test it. Recipes are pre-built starting points that set the agent's personality and tools for you. They're just a jumping-off point. You can edit the instructions, swap tools, or ignore the recipes entirely and build something from scratch.

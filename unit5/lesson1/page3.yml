@@ -6,6 +6,8 @@ content: |
 
   **Click the green play button (top right) to open the Live Feed Playground.**
 
+  **For a larger chat window, click the X on the `agent-workshop-livefeed.html` tab to close the code view.**
+
   There is a live website projected on the screen in this room. Your agent has the **Live Feed** tool already enabled. It posts messages directly to that website for everyone to see.
 
   Your goal: tell your agent to post a message with your name and watch it appear on the screen.

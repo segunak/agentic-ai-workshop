@@ -8,6 +8,10 @@ content: >
   **Click the green play button (top right) to load the Agent Playground.**
 
 
+  **For a larger chat window, click the X on the `playground-lab2.html` tab to close
+  the code view.**
+
+
   The AI now has one tool: `get_weather`.
 
 
