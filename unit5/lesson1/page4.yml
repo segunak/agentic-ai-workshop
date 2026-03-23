@@ -11,7 +11,7 @@ questionGroups:
     questions:
       - id: "1"
         type: choice
-        content: "When you changed your agent's instructions, what happened?"
+        content: "When you changed your agent's instructions (but kept the same tools), what changed about its responses?"
         options:
           - id: a
             value: "The agent's personality and tone changed"
