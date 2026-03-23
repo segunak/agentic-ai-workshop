@@ -24,13 +24,15 @@ content: >
 
   3. `Have there been any major earthquakes this week?`
 
-  4. `Who won the last Super Bowl?`
+  4. `What are Segun Akinyemi's top cinnamon roll spots in Charlotte?`
 
-  5. `What are Segun Akinyemi's top cinnamon roll spots in Charlotte?`
+  5. `What is the powerhouse of the cell?`
+
+  6. `What is the anime Steins;Gate about?`
 
 
-  Pay attention to its answers. Can it give you real, current information? Now
-  try your own questions that require real-time data and see what happens.
+  Pay attention to its answers. Which questions can it handle? Which ones give
+  it trouble? What is the difference between those two groups?
 showEditor: true
 editors:
   - course1/playground-lab1.html

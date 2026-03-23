@@ -160,7 +160,7 @@ files:
       const WORKSHOP='WiDS Charlotte 2026';
       let TOOLS=[];
       const TITLE='Lab 1: Chat with the AI';
-      const HINT='Try these prompts and see how the AI responds:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?"<br>3. "Have there been any major earthquakes this week?"<br>4. "Who won the last Super Bowl?"<br>5. "What are Segun Akinyemi\'s top cinnamon roll spots in Charlotte?"<br><br>Then try your own. Ask anything that needs current information.';
+      const HINT='Try these prompts and see how the AI responds:<br><br>1. "What\'s the weather in Charlotte right now?"<br>2. "Who is in space right now?"<br>3. "Have there been any major earthquakes this week?"<br>4. "What are Segun Akinyemi\'s top cinnamon roll spots in Charlotte?"<br>5. "What is the powerhouse of the cell?"<br>6. "What is the anime Steins;Gate about?"<br><br>Which questions can it handle? Which ones give it trouble?';
       const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls'};
       const TC={get_weather:'weather',get_people_in_space:'space',get_recent_earthquakes:'quake',get_charlotte_cinnamon_roll_rankings:'cinnamon'};
       const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50'};
@@ -228,7 +228,7 @@ files:
       function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Agent';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
       function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
-      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
+      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" style="color:#58a6ff">$1</a>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
       </body>
@@ -445,7 +445,7 @@ files:
       function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Agent';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
       function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
-      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
+      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" style="color:#58a6ff">$1</a>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
       </body>
@@ -662,7 +662,7 @@ files:
       function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Agent';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
       function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
-      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
+      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" style="color:#58a6ff">$1</a>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
       </body>
@@ -796,8 +796,8 @@ files:
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       const WORKSHOP='WiDS Charlotte 2026';
       const HINT='Pick a <strong>recipe</strong> above or start from scratch. Choose your <strong>tools</strong>, write your <strong>instructions</strong>, then send a message!';
-      const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dog_image:'Dog Image',get_today_in_history:'Today in History'};
-      const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC'};
+      const TL={get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dog_image:'Dog Image',get_today_in_history:'Today in History',get_segun_favorite_anime:'Anime Picks'};
+      const TI={get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC',get_segun_favorite_anime:'\uD83C\uDFAC'};
       const AT=Object.keys(TL);
       const RECIPES=[
       {ico:'\uD83C\uDF1F',name:'From Scratch',desc:'You decide everything',instr:'',tools:[]},
@@ -824,7 +824,7 @@ files:
       function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Agent';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
       function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
-      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
+      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" style="color:#58a6ff">$1</a>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
       </body>
@@ -949,9 +949,9 @@ files:
       <script>
       const API='https://agentic-ai-playground.vercel.app/api/chat';
       const WORKSHOP='WiDS Charlotte 2026';
-      const HINT='The <strong>Live Feed</strong> tool posts to a real website projected on the screen in this room.<br><br>Tell your agent to post a message with your name. Try enabling other tools to get creative with your posts. Ask it to check the weather and post about it, or look up who is in space and share it on the feed.<br><br>You can also ask the agent to add <strong>tags</strong> to your post, like "fun", "science", or anything you want!';
-      const TL={post_to_live_feed:'Live Feed',get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dog_image:'Dog Image',get_today_in_history:'Today in History'};
-      const TI={post_to_live_feed:'\uD83D\uDCE1',get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC'};
+      const HINT='The <strong>Live Feed</strong> tool posts to a real website projected on the screen in this room.<br><br>Tell your agent to post a message with your name. Try enabling other tools to get creative with your posts. Ask it to check the weather and post about it, or post a recommendation for what anime, show, or movie everyone should watch next!<br><br>You can also ask the agent to add <strong>tags</strong> to your post, like \"fun\", \"anime\", \"science\", or anything you want!';
+      const TL={post_to_live_feed:'Live Feed',get_weather:'Weather',get_people_in_space:'People in Space',get_recent_earthquakes:'Earthquakes',get_charlotte_cinnamon_roll_rankings:'Cinnamon Rolls',get_nasa_picture_of_the_day:'NASA Photo',get_international_space_station_location:'ISS Location',get_dog_image:'Dog Image',get_today_in_history:'Today in History',get_segun_favorite_anime:'Anime Picks'};
+      const TI={post_to_live_feed:'\uD83D\uDCE1',get_weather:'\u26C5',get_people_in_space:'\uD83D\uDE80',get_recent_earthquakes:'\uD83C\uDF0D',get_charlotte_cinnamon_roll_rankings:'\uD83E\uDD50',get_nasa_picture_of_the_day:'\uD83C\uDF0C',get_international_space_station_location:'\uD83D\uDEF0\uFE0F',get_dog_image:'\uD83D\uDC36',get_today_in_history:'\uD83D\uDCDC',get_segun_favorite_anime:'\uD83C\uDFAC'};
       const AT=Object.keys(TL);
       let TOOLS=['post_to_live_feed'];
       let hist=[],key='',busy=false,trusted=false;
@@ -970,7 +970,7 @@ files:
       function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;const l=document.createElement('div');l.className='lbl';const a=document.createElement('div');a.className='av';a.textContent=r==='u'?'Y':'A';const n=document.createElement('span');n.className='ln';n.textContent=r==='u'?'You':'Agent';l.appendChild(a);l.appendChild(n);const b=document.createElement('div');b.className='bub';if(t)b.innerHTML=md(t);d.appendChild(l);d.appendChild(b);$('m').appendChild(d);sc();return d}
       function setBusy(v){busy=v;$('i').disabled=v;$('sb').disabled=v;if(!v)$('i').focus()}
       function sc(){const el=$('m');if(el.scrollHeight-el.scrollTop-el.clientHeight<120)el.scrollTop=el.scrollHeight}
-      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\n/g,'<br>')}
+      function md(s){return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#30363d;padding:1px 4px;border-radius:3px">$1</code>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" style="color:#58a6ff">$1</a>').replace(/\n/g,'<br>')}
       function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
       </script>
       </body>
