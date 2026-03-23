@@ -16,7 +16,7 @@ content: |
   >
   > [OpenAI](https://developers.openai.com/tracks/building-agents/)
 
-  If you've used [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT), [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)), or [GitHub Copilot](https://en.wikipedia.org/wiki/GitHub_Copilot) and seen the AI "thinking" or "searching" before it answers, that's agentic behavior. You're about to see it up close.
+  If you've used [ChatGPT](https://en.wikipedia.org/wiki/ChatGPT), [Claude](https://en.wikipedia.org/wiki/Claude_(language_model)), [Gemini](https://en.wikipedia.org/wiki/Gemini_(language_model)), [Microsoft Copilot](https://en.wikipedia.org/wiki/Microsoft_Copilot), or [GitHub Copilot](https://en.wikipedia.org/wiki/GitHub_Copilot) and seen the AI "thinking" or "searching" before it answers, that's agentic behavior. You're about to see it up close.
 questionGroups:
   - id: "1"
     content: Quick check. Which kind of AI is this?
