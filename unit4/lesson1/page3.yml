@@ -5,9 +5,10 @@ content: >
   ## Multiple Tools, One Answer
 
 
-  The agent chained multiple tool calls to answer a single
-  question. It decided the order, picked the tools, and combined the results
-  into one response. That's the power of agents. They can orchestrate multiple tools and data sources to answer complex questions.
+  The agent had access to multiple tools and used them to answer your questions
+  with real data. If you asked a question that needed more than one tool, it
+  could chain them together in a single response. It decided which tools were
+  relevant, called them, and combined the results. That is the power of agents.
 
 
   
